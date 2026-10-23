@@ -21,7 +21,7 @@ export function prepare(name) {
     plus: [q, 0, q, 0], minus: [q, 0, -q, 0],
     plusI: [q, 0, 0, q]
   };
-  if (!Object.hasOwn(states, name)) throw new RangeError('Unknown preparation');
+  if (!Object.prototype.hasOwnProperty.call(states, name)) throw new RangeError('Unknown preparation');
   const [ar, ai, br, bi] = states[name];
   return { alpha: { re: ar, im: ai }, beta: { re: br, im: bi } };
 }

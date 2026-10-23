@@ -17,6 +17,9 @@
 !tests/measurement-properties.test.js
 !tests/lesson-extended.test.js
 !tests/presentation-session.test.js
+!tests/lens-build.test.js
+!tools/
+!tools/build-lens-core.mjs
 !examples/
 !examples/offline-walkthrough.mjs
 !docs/

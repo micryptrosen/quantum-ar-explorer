@@ -4,6 +4,6 @@
   "private": true,
   "type": "module",
   "description": "Offline quantum lesson engine and presentation contracts for a planned SPECS Lens",
-  "scripts": { "test": "node --test tests/*.test.js", "demo": "node examples/offline-walkthrough.mjs" },
+  "scripts": { "test": "node --test tests/*.test.js", "demo": "node examples/offline-walkthrough.mjs", "build:lens-core": "node tools/build-lens-core.mjs" },
   "engines": { "node": ">=24" }
 }

@@ -3,6 +3,26 @@
 No native adapter, .esproj, scene or package manifest is fabricated here. The pure
 session/presentation/focus contracts are app-owned and remain unverified in Lens Studio.
 
+## Core module export
+
+Snap's [scripting overview](https://developers.snap.com/lens-studio/features/scripting/script-overview)
+documents ES2019 JavaScript. Its [Script Modules guide](https://developers.snap.com/lens-studio/features/scripting/script-modules)
+documents CommonJS with literal relative `require` paths and `module.exports`.
+The core now avoids the newer `Object.hasOwn` helper.
+
+Run `npm run build:lens-core -- --out .local/lens-core` to generate six CommonJS
+modules and a manifest of source/output hashes. The converter only handles this
+repository's explicit named imports and declaration exports; unsupported module
+syntax fails. It does not transpile arbitrary JavaScript or generate native assets.
+Choose an authorized output directory before invoking it. The generated files may
+later be copied into an authentic Lens project's Assets directory after reviewing
+its structure. They must be imported as modules rather than attached as components.
+
+Node tests compare the generated exports, quantum states, seeded experiment flow,
+history, challenge, restart and render recovery against the original ESM modules.
+The isolated test context removes `Object.hasOwn`. These checks establish module
+conversion parity; Lens compilation, actual runtime support and preview remain pending.
+
 ## Verified setup references
 
 Snap requires Lens Studio 5.22+ and a SPECS Base Template saved through File > Save As.
