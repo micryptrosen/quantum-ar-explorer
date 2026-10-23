@@ -6,7 +6,7 @@ import {ElementContent} from 'SpectaclesUIKit.lspkg/Scripts/Components/Content/E
 import {FlexLayout} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexLayout';
 import {FlexItem} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexItem';
 import {FlexDirection, FlexAlign, FlexAlignSelf, FlexJustify} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexTypes';
-const TYPE_SCALE={Title1:{size:105,weight:700},Body:{size:39,weight:500},Caption:{size:38,weight:500}};
+const TYPE_SCALE={Title1:{size:105,weight:700},Heading:{size:54,weight:700},Body:{size:39,weight:500},Caption:{size:38,weight:500}};
 function applyTextRole(t:Text,role:keyof typeof TYPE_SCALE):void{t.size=TYPE_SCALE[role].size;(t as Text & {weight?:number}).weight=TYPE_SCALE[role].weight;}
 @component
 export class QuantumARExplorerBitUI extends BaseScriptComponent {
@@ -20,6 +20,14 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private controlPage=0;
   private paintedStage='';
   private viewEpoch=0;
+  // Moving the station can produce a cross-target callback 324-333 ms later.
+  // Share a short settling interval across manual moves and recenter.
+  private placementAvailableAt=0;
+  private emitPlacement(id:string):void {
+    if(getTime()<this.placementAvailableAt){console.log('QAR PLACEMENT settling ignored '+id);return;}
+    this.placementAvailableAt=getTime()+0.5;
+    this.onPlacement.invoke(id);
+  }
   public onAction=new Event<{id:string,revision:number}>();
   private content:SceneObject;
   private plate:BackPlate;
@@ -27,7 +35,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private texts:{[key:string]:Text}={};
   private slots:{so:SceneObject,ec:ElementContent,action:any,lesson:boolean}[]=[];
   private repaint:DelayedCallbackEvent;
-  onAwake():void{this.sceneObject.createComponent('Component.Canvas');this.plate=this.sceneObject.createComponent(BackPlate.getTypeName()) as BackPlate;this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
+  onAwake():void{this.sceneObject.createComponent('Component.Canvas');this.plate=this.sceneObject.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='dark';this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
   public render(model:any):void {
     // Invalidate immediately, including the delay before the next visual paint.
     this.viewEpoch++;
@@ -42,7 +50,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       const flex=this.flex(this.content,FlexDirection.Column,this.panelWidth,64,0.6);
       flex.paddingLeft=2;flex.paddingRight=2;flex.paddingTop=1;flex.paddingBottom=1;
       flex.onLayoutComplete.add(r=>{this.plate.size=new vec2(r.containerWidth,r.containerHeight);const anchor=this.texts.BitValue;if(anchor)this.onDiagramLayout.invoke(anchor.sceneObject.getTransform().getWorldPosition());});
-      this.label(this.content,flex,'Heading','',2,'Body');
+      this.label(this.content,flex,'Heading','',2,'Heading');
       this.label(this.content,flex,'Explanation','',4,'Body');
       this.label(this.content,flex,'BitValue','',18,'Title1');
       this.label(this.content,flex,'StateStatus','',5,'Body');
@@ -56,12 +64,13 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       const placementRow=this.obj(this.content,'PlacementControls');
       const pi=placementRow.createComponent(FlexItem.getTypeName()) as FlexItem;pi.overrideHeight=6;pi.marginTop=0.6;pi.flexShrink=0;flex.addItems([pi]);
       const pf=this.flex(placementRow,FlexDirection.Row,this.panelWidth-4,6,2.2);
-      this.button(placementRow,pf,'recenter','Recenter',18.9,()=>this.onPlacement.invoke('recenter'),false);
+      this.button(placementRow,pf,'recenter','Recenter',18.9,()=>this.emitPlacement('recenter'),false);
       this.button(placementRow,pf,'reposition','Reposition',18.9,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
       this.label(this.content,flex,'Placement','Manual placement - table stand-in',2,'Caption');
     }
-    this.texts.Heading.text=model.title;
-    this.texts.Explanation.text=this.wrap(model.explanation,66);
+    const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};
+    this.texts.Heading.text=(progress[model.stage]?progress[model.stage]+'  ':'')+model.title;
+    this.texts.Explanation.text=this.wrap(model.stage==='qubit'?'The Bloch sphere is a mathematical state diagram. The gold arrow shows the prepared state. Choose 0, 1 or equal superposition.':model.explanation,66);
     this.texts.BitValue.text=model.stage==='bit'?String(model.visual.bit.value):'';
     const state=model.stage==='bit'?'A classical bit is either 0 or 1.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
     const basis=model.measurement.collapsed?(model.measurement.result===0?'zero':'one'):model.measurement.preparation;
@@ -101,7 +110,11 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     const actionCallback=action;
     let pressed:any=null;let down=false;let availableAt=0;
     const cancel=()=>{down=false;pressed=null;availableAt=getTime()+0.35;};
-    btn.onTriggerDown.add(()=>{if(down||getTime()<availableAt)return;down=true;pressed={epoch:this.viewEpoch,action:slot.action?{...slot.action}:null};});
+    btn.onTriggerDown.add(()=>{
+      if(down||getTime()<availableAt)return;
+      if((id==='recenter'||slot.action?.id.indexOf('place-')===0)&&getTime()<this.placementAvailableAt){console.log('QAR PLACEMENT settling press ignored '+so.name);return;}
+      down=true;pressed={epoch:this.viewEpoch,action:slot.action?{...slot.action}:null};
+    });
     btn.onTriggerUp.add(()=>{
       if(!down)return;down=false;availableAt=getTime()+0.35;
       const press=pressed;pressed=null;
@@ -109,11 +122,12 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       if(!lesson){this.viewEpoch++;actionCallback();return;}
       const action=press.action;if(!action)return;
       if(action.id==='control-page'){this.controlPage=(this.controlPage+1)%action.pageCount;this.paint(this.pending);}
-      else if(action.id.indexOf('place-')===0){this.viewEpoch++;this.onPlacement.invoke(action.id.slice(6));}
+      else if(action.id.indexOf('place-')===0){this.viewEpoch++;this.emitPlacement(action.id.slice(6));}
       else this.onAction.invoke(action);
     });
     // Element.interactable is available only after UIKit initialization (installed Element.ts).
     btn.onInitialized.add(()=>{
+      labelSO.getTransform().setLocalPosition(new vec3(0,0,btn.contentZOffset+0.08));
       btn.interactable.onTriggerCanceled.add(cancel);
       btn.interactable.onTriggerEndOutside.add(cancel);
     });
@@ -121,7 +135,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   }
   private label(parent:SceneObject,flex:FlexLayout,name:string,value:string,height:number,role:keyof typeof TYPE_SCALE):Text {
     const so=this.obj(parent,name);const t=so.createComponent('Component.Text') as Text;
-    t.text=value;t.depthTest=true;t.textFill.color=new vec4(1,1,1,1);applyTextRole(t,role);t.horizontalAlignment=HorizontalAlignment.Center;t.verticalAlignment=VerticalAlignment.Center;
+    t.text=value;t.depthTest=true;t.textFill.color=name==='Heading'||name==='ExperimentCounts'?new vec4(0.30,0.94,0.88,1):name==='BitValue'?new vec4(0.30,0.70,1,1):new vec4(1,1,1,1);applyTextRole(t,role);t.horizontalAlignment=HorizontalAlignment.Center;t.verticalAlignment=VerticalAlignment.Center;
     t.horizontalOverflow=HorizontalOverflow.Overflow;t.verticalOverflow=VerticalOverflow.Overflow;t.layoutRect=Rect.create(-0.5,0.5,-0.5,0.5);
     const item=so.createComponent(FlexItem.getTypeName()) as FlexItem;item.overrideHeight=height;item.flexShrink=0;item.alignSelf=FlexAlignSelf.Stretch;flex.addItems([item]);this.texts[name]=t;return t;
   }

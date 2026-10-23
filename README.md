@@ -43,6 +43,19 @@ preview mouse/pinch interaction. See the [open and test guide](docs/public/OPEN_
 for native scenarios, package provenance and current limits, and the
 [public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
 
+## Demonstration and submission materials
+
+<img src="docs/public/preview-qubit.jpg" width="440" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
+
+Actual desktop preview capture. Physical glasses testing has not occurred.
+
+The [submission package](docs/public/SUBMISSION.md) explains the product, audience,
+spatial design, implementation, disclosures, and remaining owner steps. Use the
+[timed demonstration script](docs/public/DEMO_SCRIPT.md) and
+[recording guide](docs/public/RECORDING_GUIDE.md) with the real preview.
+[Verification](docs/public/VERIFICATION.md) distinguishes completed checks from
+physical-device work and platform uploads.
+
 ## Rights and attribution
 
 Copyright 2026 Veristio Intelligence Technologies, LLC. All rights reserved.

@@ -2,8 +2,12 @@
 
 Target duration: **2 minutes 45 seconds**, leaving room below the competition's
 [three-minute video limit](https://learn-specs.devpost.com/resources). Record the
-actual Lens Studio preview. A recording and upload are separate owner actions;
-this outline does not represent an uploaded entry.
+actual Lens Studio preview. Local recording and platform upload are separate steps;
+the owner handles upload. This outline does not represent an uploaded entry.
+
+Use the complete [timed narration](DEMO_SCRIPT.md) and
+[recording procedure](RECORDING_GUIDE.md). Actual capture status and measured
+duration, when available, are in [verification](VERIFICATION.md).
 
 | Time | Show | Explain |
 |---|---|---|

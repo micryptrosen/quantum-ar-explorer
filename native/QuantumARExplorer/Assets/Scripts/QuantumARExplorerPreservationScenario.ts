@@ -15,9 +15,9 @@ class HeldPressInteractor extends DefaultLeafInteractor {
     const started=awaitEventOnce(target.onTriggerStart);
     this.setTriggerType(InteractorTriggerType.Select);await started;await sleep(100);
   }
-  async release():Promise<void>{
+  async release(settleMs=700):Promise<void>{
     this.setTriggerType(InteractorTriggerType.None);await sleep(150);
-    await this.exitHover();await sleep(700);
+    await this.exitHover();if(settleMs>0)await sleep(settleMs);
   }
   async cancel():Promise<void>{
     this.sikInteractor.enabled=false;await sleep(150);
@@ -50,7 +50,7 @@ export class QuantumARExplorerPreservationScenario extends Scenario {
     expect(qarText('StateStatus')).toBe(measured);expect(qarText('ExperimentCounts')).toBe(count);
     const beforeTen=trials();await qarTap('fresh-plus-ten');expect(trials()).toBe(beforeTen+10);
     await qarTap('clear-experiment');expect(trials()).toBe(0);
-    expect(qarText('Heading')).toBe('Make a Measurement');
+    expect(qarText('Heading')).toBe('3 / 3  Make a Measurement');
     expect(qarText('ExperimentCounts').includes('0: 0    1: 0')).toBe(true);
     await qarTap('control-page'); // first controls
     const held=new HeldPressInteractor('QAR held-press regression');
@@ -60,7 +60,7 @@ export class QuantumARExplorerPreservationScenario extends Scenario {
     expect(trials()).toBe(0);
     // Same scientific revision, different page and newly mapped slot.
     await held.begin(target('measure'));await qarTap('control-page',other);await held.release();
-    expect(trials()).toBe(0);expect(qarText('Heading')).toBe('Make a Measurement');
+    expect(trials()).toBe(0);expect(qarText('Heading')).toBe('3 / 3  Make a Measurement');
     await qarTap('control-page');
     // SIK cancel really fires; it must not count as a measurement.
     let canceled=0;const measure=target('measure');const offCancel=measure.onTriggerCanceled.add(()=>canceled++);
@@ -76,8 +76,25 @@ export class QuantumARExplorerPreservationScenario extends Scenario {
     expect(station.getWorldPosition().distance(p)<0.01).toBe(true);
     await held.begin(target('place-right'));await qarTap('reposition',other);await held.release();
     expect(station.getWorldPosition().distance(p)<0.01).toBe(true);expect(trials()).toBe(0);
+    // Real installed SIK start/end events across moving targets, never app callbacks.
+    const preservedState=qarText('StateStatus'),preservedCounts=qarText('ExperimentCounts');
+    await qarTap('reposition',other);
+    await held.begin(target('place-right'));await held.release(0);
+    const moved=station.getWorldPosition();expect(Math.abs(moved.x-p.x-5)<0.01).toBe(true);
+    let crossStarts=0,crossEnds=0;
+    const left=target('place-left');
+    const offStart=left.onTriggerStart.add(()=>crossStarts++),offEnd=left.onTriggerEnd.add(()=>crossEnds++);
+    await held.begin(left);await held.release(0);offStart();offEnd();
+    expect(crossStarts>0&&crossEnds>0).toBe(true);
+    expect(station.getWorldPosition().distance(moved)<0.01).toBe(true);
+    await sleep(600);await qarTap('place-left',other);
+    expect(station.getWorldPosition().distance(p)<0.01).toBe(true);
+    expect(qarText('StateStatus')).toBe(preservedState);expect(qarText('ExperimentCounts')).toBe(preservedCounts);
+    await qarTap('place-right');await qarTap('recenter');
+    expect(station.getWorldPosition().distance(p)<0.01).toBe(true);
+    await qarTap('reposition');
     await qarTap('measure');expect(trials()).toBe(1);
-    await qarTap('restart');expect(qarText('Heading')).toBe('Meet the Bit');expect(trials()).toBe(0);
-    console.log('QAR PRESERVATION: navigation, fresh-ten, clear, stale science/page/placement, cancel and end-outside verified');
+    await qarTap('restart');expect(qarText('Heading')).toBe('1 / 3  Meet the Bit');expect(trials()).toBe(0);
+    console.log('QAR PRESERVATION: navigation, fresh-ten, clear, stale science/page/placement, cancel, end-outside, rapid cross-target move/release, settled left, recenter and input recovery verified');
   }
 }

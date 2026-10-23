@@ -26,11 +26,11 @@ export class QuantumARExplorerLeafScenario extends Scenario {
     await sleep(1500);await qarTap('restart');
     const before=Number(qarText('BitValue'));await qarTap('toggle-bit');
     expect(Number(qarText('BitValue'))).toBe(1-before);
-    await qarTap('next');expect(qarText('Heading')).toBe('Meet the Qubit');
+    await qarTap('next');expect(qarText('Heading')).toBe('2 / 3  Meet the Qubit');
     await qarTap('prepare-zero');expect(qarText('StateStatus').includes('100% chance of 0')).toBe(true);
     await qarTap('prepare-one');expect(qarText('StateStatus').includes('100% chance of 1')).toBe(true);
     await qarTap('prepare-plus');expect(qarText('StateStatus').includes('50% chance of 0')).toBe(true);
-    await qarTap('next');expect(qarText('Heading')).toBe('Make a Measurement');
+    await qarTap('next');expect(qarText('Heading')).toBe('3 / 3  Make a Measurement');
     await qarTap('prepare-zero');await qarTap('measure');
     expect(qarText('StateStatus').includes('Measurement result: 0.')).toBe(true);
     await qarTap('prepare-one');await qarTap('measure');
@@ -56,7 +56,7 @@ export class QuantumARExplorerLeafScenario extends Scenario {
     expect(qarText('StateStatus').includes('Try again.')).toBe(true);
     await qarTap('answer-half-each');expect(qarText('StateStatus').includes('Correct.')).toBe(true);
     await qarTap('next');expect(qarText('Heading')).toBe('Lesson Complete');
-    await qarTap('restart');expect(qarText('Heading')).toBe('Meet the Bit');
+    await qarTap('restart');expect(qarText('Heading')).toBe('1 / 3  Meet the Bit');
     expect(Number(qarText('ExperimentCounts').match(/Measurements: (\d+)/)[1])).toBe(0);
   }
 }

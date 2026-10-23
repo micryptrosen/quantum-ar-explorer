@@ -27,6 +27,6 @@ export class QuantumARExplorerReachScenario extends Scenario {
     await qarTap('answer-alternating',ik);await qarTap('answer-always-zero',ik);await qarTap('answer-half-each',ik);
     await qarTap('next',ik);expect(qarText('Heading')).toBe('Lesson Complete');
     await qarTap('back',ik);await qarTap('restart',ik);
-    expect(qarText('Heading')).toBe('Meet the Bit');
+    expect(qarText('Heading')).toBe('1 / 3  Meet the Bit');
   }
 }
