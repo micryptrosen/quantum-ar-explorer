@@ -9,8 +9,10 @@ state preparation, measurement and a short probability challenge.
 
 ## Current development status
 
-This repository currently contains a dependency-free scientific simulation and lesson
-controller with offline tests. The native Lens Studio scene and project files are not
+This repository contains a dependency-free scientific simulation, complete offline lesson
+engine, accessible presentation models and a host session/focus boundary. It supports
+back/restart, fresh-trial experiments, bounded history, challenge feedback and recovery.
+The native Lens Studio scene and project files are not
 implemented yet. A working Lens Studio preview, official planning workflow and LEAF
 acceptance have not been verified. This is not a completed competition submission.
 
@@ -20,10 +22,15 @@ Use Node.js 24 or newer. No package installation is required.
 
 ```sh
 node --test tests/*.test.js
+node examples/offline-walkthrough.mjs
 ```
 
 See [open and test instructions](docs/public/OPEN_AND_TEST.md) and
 [scientific behavior and acceptance criteria](docs/public/SCIENCE_AND_ACCEPTANCE.md).
+The [lesson API](docs/public/LESSON_API.md) describes the implemented contracts and
+[Lens integration readiness](docs/public/LENS_INTEGRATION_READINESS.md) records verified
+setup references and remaining native work. The CLI walkthrough is an offline demo,
+not a Lens Studio preview.
 
 ## Planned Lens requirements
 
