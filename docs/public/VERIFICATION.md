@@ -1,86 +1,93 @@
-# Verification of the finishing pass
+# Verification of the presentation pass
 
-QAR-007, October 23, 2026. This report distinguishes native preview results from
-offline checks and physical-device work.
+QAR-008, October 23, 2026. Native preview, offline regression and physical-device
+work are distinguished below. Earlier QAR-007 records remain preserved.
 
-## Visual and educational review
+## Visual and scientific review
 
-The finishing pass added clearer stage headings and three-step progress, teal
-headings and counters, a blue classical bit, and stronger teal/gold diagram strokes.
-The qubit explanation explicitly identifies the Bloch sphere as a mathematical
-state diagram. Completion has a clear title, explanation, Back, and Restart.
+The mathematical Bloch diagram now occupies open space beside a compact state
+card, with a separate interaction dock. Prominent teal stage headings and counts,
+a large blue bit, labeled 0/north and 1/south poles, clearer cyan rings, a restrained
+gold state arrow, and a gold completion heading strengthen the visual hierarchy.
+Public UIKit button variants retain standard targeting feedback.
 
-The 110 cm initial placement, 16 cm sphere, 6 cm control height, minimum 2.2 cm
-gaps, both control pages, and manual placement functions remain. A custom button
-fill rendered poorly and was removed; established neutral UIKit controls remain.
-Default UIKit interaction feedback is retained. No frame-rate benchmark is claimed.
+The initial viewing distance is 110 cm. The sphere's outer diameter remains 16 cm;
+controls are 6 cm high with at least 2.2 cm gaps. The panel is 52 cm wide, with
+space reserved around the diagram. No scientific algorithm, generated core,
+interaction guard, scenario assertion, vendor package or render resource changed.
+The existing 0.5-second placement settling guard remains intact.
 
-Scientific source is unchanged. Preparation, Z-basis probabilities, collapse,
-repeat measurement, independent trials, and challenge explanations were reviewed.
-Fresh trials explicitly reprepare the state. A small sample is not promised to
-split evenly. This is a classical simulation, not a quantum processor.
+Preparation, Z-basis probabilities, collapse, repeated certainty, fresh preparation
+and explanatory challenge feedback remain scientifically accurate. This is a
+classical single-qubit simulation. The sphere is a mathematical state diagram.
+Small samples are not guaranteed to split evenly.
 
 ## Completed checks
 
 | Check | Result |
 |---|---|
 | Offline application suite | 49 passed, 0 failed |
-| Local publication-guard suite | 89 passed, 0 failed |
-| Generated native scientific modules | All seven match source |
-| Additional native-module model checks | 20 phase/probability/collapse cases; 11 stale-callback comparisons passed |
-| Canonical Lens Studio preview | Compiled and running; final refresh had no reported errors |
-| Canonical LEAF suite | 3 passed, 0 failed |
-| Fresh native reconstruction LEAF suite | 3 passed, 0 failed |
-| Native resource preservation | All 53 authored resources match the tested reconstruction byte for byte |
-| Separate read-only Codex source review | No material findings; it did not run tests or validate hardware |
+| Local publication-guard suite | 108 passed, 0 failed |
+| Native scientific modules | All seven match source |
+| Additional native-model checks | 20 model cases and 11 stale-callback comparisons passed |
+| Canonical native preview | Compiled, refreshed and running; no errors in final refresh logs |
+| Canonical LEAF | 3 passed, 0 failed |
+| Fresh native reconstruction LEAF | 3 passed, 0 failed |
+| Exact native resource parity | All 53 resources match the actual tested reconstruction |
+| Read-only source review | No material findings; no runtime or hardware verification claimed |
 
-Native scenarios are `qar006-lesson-flow`, `qar006-ik-bit-selection`, and
-`qar006-native-preservation`. They retain their original IDs. Assertions for
-visible headings were updated for the intentional progress text; scientific and
-state-preservation assertions remain in place. An early old-heading assertion
-failure and a reset-interrupted run were corrected and retained in local evidence.
-The table reports final runs, rather than treating interrupted attempts as passes.
+The scenarios retain their original IDs: `qar006-lesson-flow`,
+`qar006-ik-bit-selection`, and `qar006-native-preservation`. QAR-008 did not change
+their sources or weaken assertions. They cover stages, preparation, measurement,
+fresh trials, counters, control pages, challenge answers, completion, Back,
+Restart, stale/canceled input, placement settling and recovery.
 
-Recording QA exposed an extra cross-target callback after moving the station.
-A shared 0.5-second settling interval now rejects placement input while the
-station settles. A new native regression verifies rejection of the immediate
-cross-target press, acceptance of a later deliberate press, unchanged state and
-counts, Recenter, and input recovery. Two ordinary pinch cycles also passed.
-The final canonical and reconstructed suites both passed after this correction.
+Ordinary coordinate-pinch input then completed the recorded walkthrough. Its
+actual first measurement was 1; repetition stayed 1. Ten fresh trials produced
+12 accumulated measurements, 6 zeros and 6 ones. Placement preserved those counts.
+Incorrect/correct challenge answers, completion and Restart were observed;
+Restart cleared the counts. Those are observed outcomes, not promised results.
 
-The native checks cover all teaching stages, both control pages, preparation,
-measurements, ten fresh trials, Clear Counts, Back, every challenge answer,
-completion, restart, stale releases, cancellation/end-outside, and valid recovery.
-Desktop move/start/end input changed the bit from 0 to 1. Ordinary supported pinch
-and hover succeeded after resetting leftover synthetic LEAF input state.
+Named-target automation reported a button's own child collider as an obstruction.
+It was not forced through or disabled. Coordinate pinch at freshly queried visible
+control centers worked. Mouse probes showed hover but did not activate controls
+in the current landscape setup. Mouse activation remains unverified for this
+presentation pass; the earlier pass's mouse result is not reused as current proof.
 
-Moving the preview camera 18 cm left the station fixed. Deliberate Recenter moved
-the station to the new viewpoint. Manual repositioning preserved state and counts.
-The reconstructed project generated its own private editor settings and cache;
-those are excluded from public source.
+A camera-only translation and orbit left station and sphere world transforms
+unchanged. Deliberate Recenter moved the station relative to the new viewpoint.
+Manual movement preserved the experiment. Furniture-facing room fixtures were
+rejected for recording; the installed Sunlit Outdoor fixture provided clear space.
+Earlier failed attempts remain in local evidence, separate from final passing runs.
 
-## Demonstration and publication
+## Demonstration
 
-The English narration, recording procedure, and owner submission copy are complete.
-A genuine local demonstration is recorded and validated: 165.000 seconds (2:45),
-H.264, 1392 by 2160, 30 frames per second, 4,950 frames. It is silent and captioned;
-no recorded narration or music is claimed. The full file decoded without errors.
+The preferred local video is `Quantum-AR-Explorer-QAR008-demo-final.mp4`:
+165.000 seconds (2:45), H.264, 1920 by 1080, 30 frames per second, 4,950 frames.
+It is silent with large English captions; no recorded narration or music is claimed.
+The entire export decoded without errors. The earlier valid QAR-007 video and
+all new raw takes are retained locally.
 
-The edit trims idle time from real Lens Studio preview recordings. Lesson footage
-uses the unchanged scientific/rendering implementation; manual placement footage
-comes from the corrected final build. The original preview image is uncropped,
-with title and captions in added margins. No Lens footage or outcomes were
-fabricated, and playback speed is unchanged. Original takes are preserved locally.
-The media is held outside public source for owner review. No YouTube upload or
-Devpost submission has occurred.
+The built-in recorder captured genuine 2984 by 1590 Lens Studio preview footage.
+The opening shows actual camera orbit around the fixed station, explicitly labeled
+as an excerpt before the guided Bit → Qubit → Measurement lesson. The edit trims
+idle intervals, with no speed change, fabricated state, still-image pan or composite
+AR scene. The original native frame is uncropped and scaled to fit the landscape
+canvas; title and captions sit in added margins. Sunlit Outdoor is a simulated
+Lens Studio environment. No physical SPECS footage is represented.
+
+The video and screenshot expose only preview content, with no editor chrome,
+credentials or private system details. Public source excludes local media,
+governance, memory, receipts, keys, caches and private settings. No platform video
+upload or Devpost submission has occurred. GitHub Actions remain disabled.
 
 ## Practical limits
 
 No physical SPECS glasses test has occurred. Real hand tracking, comfort, lighting,
-and additive-display contrast remain untested. Translucent controls depend on the
-environment. The world station's controls require looking back if it leaves view.
-There is no automatic table detection or persistent cross-session physical anchor.
+additive-display contrast and on-device performance remain untested. Translucent
+UIKit controls depend on the environment; no frame-rate benchmark is claimed.
+World controls require looking back if the station leaves view. Placement is
+manual, with no automatic surface detection or persistent cross-session anchor.
 
-The authentic Learn planning brief and its public edition remain separate from
-source-code test evidence. See [Open and test](OPEN_AND_TEST.md),
-[the submission package](SUBMISSION.md), and [third-party notices](../../THIRD_PARTY_NOTICES.md).
+See [Open and test](OPEN_AND_TEST.md), [submission copy](SUBMISSION.md),
+[the timed script](DEMO_SCRIPT.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

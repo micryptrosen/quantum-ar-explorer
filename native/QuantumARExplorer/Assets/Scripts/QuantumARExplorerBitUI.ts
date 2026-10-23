@@ -6,14 +6,14 @@ import {ElementContent} from 'SpectaclesUIKit.lspkg/Scripts/Components/Content/E
 import {FlexLayout} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexLayout';
 import {FlexItem} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexItem';
 import {FlexDirection, FlexAlign, FlexAlignSelf, FlexJustify} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexTypes';
-const TYPE_SCALE={Title1:{size:105,weight:700},Heading:{size:54,weight:700},Body:{size:39,weight:500},Caption:{size:38,weight:500}};
+const TYPE_SCALE={Title1:{size:420,weight:700},Heading:{size:93,weight:700},Body:{size:48,weight:500},Caption:{size:38,weight:500}};
 function applyTextRole(t:Text,role:keyof typeof TYPE_SCALE):void{t.size=TYPE_SCALE[role].size;(t as Text & {weight?:number}).weight=TYPE_SCALE[role].weight;}
 @component
 export class QuantumARExplorerBitUI extends BaseScriptComponent {
   @ui.label('Quantum AR Explorer - lesson view')
   @ui.separator
-  @input @hint('Panel width in centimeters') @widget(new SliderWidget(40,48,1))
-  panelWidth:number=44;
+  @input @hint('Station width in centimeters') @widget(new SliderWidget(40,64,1))
+  panelWidth:number=52;
   public onDiagramLayout=new Event<vec3>();
   public onPlacement=new Event<string>();
   private positioning=false;
@@ -35,7 +35,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private texts:{[key:string]:Text}={};
   private slots:{so:SceneObject,ec:ElementContent,action:any,lesson:boolean}[]=[];
   private repaint:DelayedCallbackEvent;
-  onAwake():void{this.sceneObject.createComponent('Component.Canvas');this.plate=this.sceneObject.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='dark';this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
+  onAwake():void{this.sceneObject.createComponent('Component.Canvas');this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
   public render(model:any):void {
     // Invalidate immediately, including the delay before the next visual paint.
     this.viewEpoch++;
@@ -47,35 +47,51 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     if(this.paintedStage!==model.stage){this.controlPage=0;this.paintedStage=model.stage;}
     if(!this.content){
       this.content=this.obj(this.sceneObject,'LessonContent',new vec3(0,0,0.6));
-      const flex=this.flex(this.content,FlexDirection.Column,this.panelWidth,64,0.6);
-      flex.paddingLeft=2;flex.paddingRight=2;flex.paddingTop=1;flex.paddingBottom=1;
-      flex.onLayoutComplete.add(r=>{this.plate.size=new vec2(r.containerWidth,r.containerHeight);const anchor=this.texts.BitValue;if(anchor)this.onDiagramLayout.invoke(anchor.sceneObject.getTransform().getWorldPosition());});
-      this.label(this.content,flex,'Heading','',2,'Heading');
-      this.label(this.content,flex,'Explanation','',4,'Body');
-      this.label(this.content,flex,'BitValue','',18,'Title1');
-      this.label(this.content,flex,'StateStatus','',5,'Body');
+      // Open scientific station: no monolithic backing behind the 3D diagram.
+      const flex=this.flex(this.content,FlexDirection.Column,this.panelWidth,58,0.6);
+      flex.onLayoutComplete.add(()=>{const anchor=this.texts.BitValue;if(anchor)this.onDiagramLayout.invoke(anchor.sceneObject.getTransform().getWorldPosition());});
+      this.label(this.content,flex,'Heading','',4,'Heading');
+      const hero=this.cell(this.content,flex,'ScientificStage',this.panelWidth,26);
+      const hf=this.flex(hero,FlexDirection.Row,this.panelWidth,26,2.2);
+      const diagram=this.cell(hero,hf,'DiagramCell',20,26);
+      const df=this.flex(diagram,FlexDirection.Column,20,26,0);
+      this.label(diagram,df,'NorthPole','',2,'Caption');
+      this.label(diagram,df,'BitValue','',22,'Title1');
+      this.label(diagram,df,'SouthPole','',2,'Caption');
+      df.onLayoutComplete.add(()=>this.onDiagramLayout.invoke(this.texts.BitValue.sceneObject.getTransform().getWorldPosition()));
+      const card=this.cell(hero,hf,'StateCard',this.panelWidth-22.2,22);
+      this.plate=card.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='dark';
+      const inner=this.obj(card,'StateContent',new vec3(0,0,0.6));
+      const sf=this.flex(inner,FlexDirection.Column,this.panelWidth-22.2,22,1);
+      sf.paddingLeft=1;sf.paddingRight=1;sf.paddingTop=1;sf.paddingBottom=1;
+      sf.onLayoutComplete.add(r=>{this.plate.size=new vec2(r.containerWidth,r.containerHeight);});
+      this.label(inner,sf,'Explanation','',7,'Body');
+      this.label(inner,sf,'StateStatus','',11,'Body');
       this.label(this.content,flex,'ExperimentCounts','',2,'Body');
       for(let rowIndex=0;rowIndex<2;rowIndex++){
         const row=this.obj(this.content,'ControlRow');const rowItem=row.createComponent(FlexItem.getTypeName()) as FlexItem;
         rowItem.overrideHeight=8.2;rowItem.flexShrink=0;flex.addItems([rowItem]);
-        const rowFlex=this.flex(row,FlexDirection.Row,this.panelWidth-4,6,2.2);
-        for(let col=0;col<3;col++)this.button(row,rowFlex,'slot-'+(rowIndex*3+col),'',11.86,()=>{});
+        const rowFlex=this.flex(row,FlexDirection.Row,this.panelWidth,6,2.2);
+        for(let col=0;col<3;col++)this.button(row,rowFlex,'slot-'+(rowIndex*3+col),'',(this.panelWidth-4.4)/3,()=>{});
       }
       const placementRow=this.obj(this.content,'PlacementControls');
       const pi=placementRow.createComponent(FlexItem.getTypeName()) as FlexItem;pi.overrideHeight=6;pi.marginTop=0.6;pi.flexShrink=0;flex.addItems([pi]);
-      const pf=this.flex(placementRow,FlexDirection.Row,this.panelWidth-4,6,2.2);
-      this.button(placementRow,pf,'recenter','Recenter',18.9,()=>this.emitPlacement('recenter'),false);
-      this.button(placementRow,pf,'reposition','Reposition',18.9,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
+      const pf=this.flex(placementRow,FlexDirection.Row,this.panelWidth,6,2.2);
+      this.button(placementRow,pf,'recenter','Recenter',(this.panelWidth-2.2)/2,()=>this.emitPlacement('recenter'),false);
+      this.button(placementRow,pf,'reposition','Reposition',(this.panelWidth-2.2)/2,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
       this.label(this.content,flex,'Placement','Manual placement - table stand-in',2,'Caption');
     }
     const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};
     this.texts.Heading.text=(progress[model.stage]?progress[model.stage]+'  ':'')+model.title;
-    this.texts.Explanation.text=this.wrap(model.stage==='qubit'?'The Bloch sphere is a mathematical state diagram. The gold arrow shows the prepared state. Choose 0, 1 or equal superposition.':model.explanation,66);
+    this.texts.Explanation.text=this.wrap(model.stage==='qubit'?'Mathematical Bloch diagram.\nGold arrow = prepared state.':model.stage==='measurement'?'Prepare. Measure. Repeat.\nFresh trials sample again.':model.stage==='complete'?'BIT → QUBIT → MEASUREMENT\nThree stages explored.':model.explanation,32);
+    this.texts.NorthPole.text=model.stage==='bit'?'CLASSICAL BIT':'0  ·  NORTH';
+    this.texts.SouthPole.text=model.stage==='bit'?'TWO DISTINCT VALUES':'1  ·  SOUTH';
     this.texts.BitValue.text=model.stage==='bit'?String(model.visual.bit.value):'';
-    const state=model.stage==='bit'?'A classical bit is either 0 or 1.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
+    const state=model.stage==='bit'?'Change the bit, then choose Next.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
     const basis=model.measurement.collapsed?(model.measurement.result===0?'zero':'one'):model.measurement.preparation;
     const vector=basis==='zero'?'|psi> = |0>':basis==='one'?'|psi> = |1>':'|psi> = (|0> + |1>) / sqrt(2)';
-    this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'; north=0, south=1\n':'')+state,68);
+    this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'\n':'')+state,32);
+    this.texts.Heading.textFill.color=model.stage==='complete'?new vec4(1,0.8,0.2,1):new vec4(0.3,0.94,0.88,1);
     this.texts.ExperimentCounts.text='Measurements: '+model.experiment.trials+'    0: '+model.experiment.counts[0]+'    1: '+model.experiment.counts[1];
     const enabled=model.controls.filter((c:any)=>c.enabled);
     const pageCount=enabled.length>6?Math.ceil(enabled.length/5):1;
@@ -99,10 +115,15 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     f.autoDiscoverItemsOnStart=false;f.width=width;f.height=height;f.direction=direction;
     f.alignItems=direction===FlexDirection.Row?FlexAlign.Center:FlexAlign.Stretch;f.justifyContent=FlexJustify.Center;f.rowGap=gap;f.columnGap=gap;return f;
   }
+  private cell(parent:SceneObject,flex:FlexLayout,name:string,width:number,height:number):SceneObject{
+    const so=this.obj(parent,name);const item=so.createComponent(FlexItem.getTypeName()) as FlexItem;
+    item.overrideWidth=width;item.overrideHeight=height;item.flexShrink=0;flex.addItems([item]);return so;
+  }
   private button(parent:SceneObject,flex:FlexLayout,id:string,label:string,width:number,action:()=>void,lesson=true):void {
     const so=this.obj(parent,'QAR '+id);const item=so.createComponent(FlexItem.getTypeName()) as FlexItem;
     item.overrideHeight=6;item.overrideWidth=width;item.flexShrink=0;
     const btn=so.createComponent(Button.getTypeName()) as Button;btn.size=new vec3(width,6,1);
+    btn.setVariant({theme:'SnapOS2',shape:'Rectangle',style:lesson?'Primary':'Secondary'});
     const labelSO=this.obj(so,'ButtonLabel',new vec3(0,0,0.08));
     const ec=labelSO.createComponent(ElementContent.getTypeName()) as ElementContent;
     ec.text=label;ec.textSize=39;ec.sizeOverride=new vec2(width-0.8,5);ec.contentAlignment='center';

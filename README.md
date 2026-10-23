@@ -39,15 +39,18 @@ not a Lens Studio preview.
 Open `native/QuantumARExplorer/QuantumARExplorer.esproj` with Lens Studio 5.23.2.
 Use the SPECS interactive preview. The laboratory uses explicitly labeled manual
 placement; it does not recognize tables. Select controls with the supported
-preview mouse/pinch interaction. See the [open and test guide](docs/public/OPEN_AND_TEST.md)
+coordinate-pinch preview interaction. Mouse activation was not verified in the
+current landscape setup; see the verification limits. See the [open and test guide](docs/public/OPEN_AND_TEST.md)
 for native scenarios, package provenance and current limits, and the
 [public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
 
 ## Demonstration and submission materials
 
-<img src="docs/public/preview-qubit.jpg" width="440" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
+<img src="docs/public/preview-spatial.png" width="880" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
 
-Actual desktop preview capture. Physical glasses testing has not occurred.
+Genuine desktop preview in Lens Studio's simulated Sunlit Outdoor environment.
+The open diagram, compact state card and separate controls share a world station.
+Physical glasses testing has not occurred.
 
 The [submission package](docs/public/SUBMISSION.md) explains the product, audience,
 spatial design, implementation, disclosures, and remaining owner steps. Use the

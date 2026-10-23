@@ -46,3 +46,9 @@ configuration or authentication material is distributed.
 
 No third-party music, generated media or remotely downloaded scene artwork was
 added for the lesson. The Bloch diagram is project-authored parametric geometry.
+
+The QAR-008 demonstration and spatial screenshot use Lens Studio's built-in
+Sunlit Outdoor interactive preview fixture. It is simulated context supplied by
+Snap, not a physical-location recording or project-authored scene artwork. The
+fixture source is not redistributed in this repository. Its depiction remains
+subject to applicable vendor terms and the owner's final rights review.

@@ -5,7 +5,11 @@ It is a saved SPECS Base Template project targeting Spectacles. Let package impo
 and TypeScript compilation finish, then select the **SPECS 27 Interactive Preview**
 and refresh it. Project resources and package metadata must remain together.
 
-Select the large UIKit buttons with the supported mouse/pinch simulation. No
+Select the large UIKit buttons with supported simulated pinch input. The verified
+automated route uses a visible control's world center. Named-target automation
+reported the button's own child collider as blocking; mouse probes showed hover
+but did not activate controls in the landscape setup. Neither route is reported
+as passing for this build. LEAF simulated IK and coordinate pinch passed. No
 keyboard, phone or handheld controller is required by the lesson's hardware input
 design. Desktop movement controls are only for inspecting the simulated room.
 Manual placement is a stand-in; the project performs no table recognition.

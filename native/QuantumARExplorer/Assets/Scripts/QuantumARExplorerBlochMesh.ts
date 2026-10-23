@@ -14,8 +14,8 @@ export class QuantumARExplorerBlochMesh extends BaseScriptComponent {
     const v:number[]=[]; const indices:number[]=[];
     for(let axis=0;axis<3;axis++)for(let i=0;i<96;i++){
       const a=i*Math.PI*2/96, b=(i+1)*Math.PI*2/96;
-      const point=(t:number)=>{const c=7.96*Math.cos(t),s=7.96*Math.sin(t);return axis===0?new vec3(c,s,0):axis===1?new vec3(c,0,s):new vec3(0,c,s);};
-      this.stroke(v,indices,point(a),point(b),0.04);
+      const point=(t:number)=>{const c=7.91*Math.cos(t),s=7.91*Math.sin(t);return axis===0?new vec3(c,s,0):axis===1?new vec3(c,0,s):new vec3(0,c,s);};
+      this.stroke(v,indices,point(a),point(b),0.09);
     }
     rings.appendVerticesInterleaved(v);rings.appendIndices(indices);
     this.ringVisual.mesh=rings.getMesh();this.ringVisual.mainMaterial=this.material;rings.updateMesh();
@@ -24,9 +24,9 @@ export class QuantumARExplorerBlochMesh extends BaseScriptComponent {
     this.arrow=new MeshBuilder([{name:'position',components:3}]);
     this.arrow.topology=MeshTopology.Triangles;this.arrow.indexType=MeshIndexType.UInt16;
     const av:number[]=[],ai:number[]=[];
-    this.stroke(av,ai,new vec3(0,0,0),new vec3(0,8,0),0.09);
-    this.stroke(av,ai,new vec3(-1,6.4,0),new vec3(0,8,0),0.09);
-    this.stroke(av,ai,new vec3(1,6.4,0),new vec3(0,8,0),0.09);
+    this.stroke(av,ai,new vec3(0,0,0),new vec3(0,8,0),0.135);
+    this.stroke(av,ai,new vec3(-1,6.4,0),new vec3(0,8,0),0.135);
+    this.stroke(av,ai,new vec3(1,6.4,0),new vec3(0,8,0),0.135);
     this.arrow.appendVerticesInterleaved(av);this.arrow.appendIndices(ai);
     this.arrowVisual.mesh=this.arrow.getMesh();
     const mat=this.material.clone();mat.mainPass.baseColor=new vec4(1,0.8,0.2,1);
@@ -40,8 +40,8 @@ export class QuantumARExplorerBlochMesh extends BaseScriptComponent {
     const base=tip.uniformScale(0.8);
     const a=base.add(side),b=base.sub(side);
     const vertices:number[]=[],indices:number[]=[];
-    this.stroke(vertices,indices,new vec3(0,0,0),tip,0.09);
-    this.stroke(vertices,indices,a,tip,0.09);this.stroke(vertices,indices,b,tip,0.09);
+    this.stroke(vertices,indices,new vec3(0,0,0),tip,0.135);
+    this.stroke(vertices,indices,a,tip,0.135);this.stroke(vertices,indices,b,tip,0.135);
     for(let i=0;i<vertices.length/3;i++)this.arrow.setVertexInterleaved(i,vertices.slice(i*3,i*3+3));
     this.arrow.updateMesh();
   }

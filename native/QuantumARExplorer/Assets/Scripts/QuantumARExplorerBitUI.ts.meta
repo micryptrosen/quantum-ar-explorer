@@ -45,4 +45,4 @@
   InputLines:
     - '// @ui {"widget":"label", "label":"Quantum AR Explorer - lesson view"}'
     - '// @ui {"widget":"separator"}'
-    - '// @input float panelWidth = 44 {"hint":"Panel width in centimeters", "widget":"slider", "min":40, "max":48, "step":1}'
+    - '// @input float panelWidth = 52 {"hint":"Station width in centimeters", "widget":"slider", "min":40, "max":64, "step":1}'

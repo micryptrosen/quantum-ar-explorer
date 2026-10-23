@@ -6,24 +6,28 @@ constitute a screen recording.
 
 1. Open the supplied native project in Lens Studio 5.23.2. Let import finish,
    select SPECS 27 Interactive Preview, and run the three supplied LEAF scenarios.
-2. Return the preview to Meet the Bit. Frame the full station so the sphere,
-   labels, bottom controls, and manual-placement label are readable. Use the
-   same framing for the complete take.
+2. Prefer a landscape preview panel. Frame the full station so the sphere,
+   state card, controls and manual-placement label remain readable. Rehearse
+   genuine camera movement around the fixed station, then return to a steady
+   viewpoint for the guided lesson. Keep SPECS device simulation enabled.
 3. Close account menus, private logs, developer terminals, and unrelated panels.
    Select the live preview content as the capture region. Exclude editor chrome,
    account information, trademarks, desktop notifications, and private paths.
    If the available capture tool cannot safely isolate the content, resolve that
    before recording rather than publishing a private desktop view.
-4. Rehearse [the timed script](DEMO_SCRIPT.md) once. Verify every required control
-   is reachable, including additional pages. Keep genuine trial outcomes.
+4. Rehearse [the timed script](DEMO_SCRIPT.md). Verify every required control is
+   reachable, including additional pages. Use an unobstructed simulated source;
+   a blocked pinch is a failed selection. Clear LEAF diagnostic overlays and
+   synthetic test avatars before recording ordinary supported input. Keep real
+   trial outcomes. Identify the opening spatial excerpt explicitly.
 5. Use the built-in Preview panel Screen Recording control. Start recording the
-   actual running preview
-   and supported simulated selections. Narrate the script if microphone capture
+   actual running preview and supported simulated selections. Narrate the script if microphone capture
    is available; otherwise retain the silent source and record narration later.
    Do not add copyrighted music or fabricate native footage.
-6. Stop by 2:45. Save the real local file in the owner-authorized project output
-   location used by the finishing pass. Preserve the original take. Any edited
-   export must retain the actual action/result sequence and be labeled accurately.
+6. Save the real local file in the owner-authorized project output location.
+   Preserve the original take, even when it is longer than the final video.
+   Trim idle intervals for a final cut below three minutes. Keep real action/result
+   pairs intact, label any reordered excerpt and preserve genuine spatial motion.
 7. Inspect the actual media: encoded duration below 180 seconds, valid dimensions,
    continuous moving frames, readable labels, audible narration if claimed, no
    private or prohibited content, and complete playback. Sample the beginning,
@@ -33,8 +37,11 @@ constitute a screen recording.
    creation or agent validation does not perform or authorize that upload.
 
 The finishing pass used that built-in recorder and preserved its original takes.
-The validated local export is `Quantum-AR-Explorer-QAR007-demo-final.mp4`: 2:45,
-silent, with English captions and genuine preview footage. See the
+The validated local export is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`: 2:45,
+1920 by 1080 landscape, silent, with English captions and genuine preview footage.
+The source is the built-in Sunlit Outdoor simulated environment, with actual
+preview camera movement and coordinate-pinch selections. The earlier valid
+QAR-007 export and all original takes remain preserved locally. See the
 [verification report](VERIFICATION.md) for the measured media properties and edit
 disclosure. The owner may use this export or record a new take with the narration.
 YouTube publication and Devpost submission remain owner actions.

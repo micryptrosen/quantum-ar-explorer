@@ -28,6 +28,10 @@ Large labeled controls use supported SIK/UIKit selection. The lesson's input
 design needs no keyboard, phone, or handheld controller on supported SPECS
 hardware; desktop verification uses simulated input.
 
+The diagram occupies open space beside a compact explanation card, with labeled
+0/1 poles, prominent stage progress and a separate interaction dock. This keeps
+the quantum state at the center of attention while its explanation stays readable.
+
 ## Problem and audience
 
 Beginners can confuse a quantum probability with a hidden classical value, or
@@ -91,10 +95,13 @@ all controls when paging and to reject releases from a changed view.
 
 ## Verification and limits
 
-The finishing pass passed 49 offline application tests and 89 local commit-guard tests.
+The finishing pass passed 49 offline application tests and 108 local commit-guard tests.
 Three native LEAF scenarios passed in both the canonical project and a source-only
 reconstruction. The current finishing pass and its exact results are reported in
-[verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md).
+[verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md). The preferred local demo
+is a 2:45 silent landscape cut with concise English captions, genuine preview
+camera motion and a labeled simulated environment. Current coordinate-pinch
+input and LEAF passed; mouse activation in the landscape setup remains unverified.
 
 No physical SPECS glasses test has occurred. Preview testing establishes simulated
 behavior; it does not establish real hand tracking, comfort, lighting robustness,
@@ -140,7 +147,9 @@ added to the lesson.
   public planning brief are available.
 - Enter the approved English description, actual repository URL, technology list,
   and real YouTube URL in Devpost. Perform all account and legal attestations.
-- Submit personally before November 9, 2026, 5:00 PM Eastern / 2:00 PM Arizona,
+- Submit personally by the owner's earlier target: November 9, 2026, 2:00 PM
+  Arizona. The [official deadline](https://learn-specs.devpost.com/rules) is
+  5:00 PM EST that day, which converts to 3:00 PM Arizona. Keep the one-hour buffer
   and retain the platform confirmation.
 
 Current requirement sources, checked October 23, 2026:
