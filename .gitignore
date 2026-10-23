@@ -1,0 +1,17 @@
+# Competition-public source allowlist. Unlisted local files remain private.
+*
+!.gitignore
+!README.md
+!THIRD_PARTY_NOTICES.md
+!package.json
+!src/
+!src/quantum.js
+!src/lesson.js
+!tests/
+!tests/quantum.test.js
+!tests/lesson.test.js
+!tests/measurement-properties.test.js
+!docs/
+!docs/public/
+!docs/public/OPEN_AND_TEST.md
+!docs/public/SCIENCE_AND_ACCEPTANCE.md
