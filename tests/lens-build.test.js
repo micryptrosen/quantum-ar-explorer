@@ -5,6 +5,7 @@ import { buildLensCore, commonJSModule, MODULES } from '../tools/build-lens-core
 import * as quantum from '../src/quantum.js';
 import { createLessonSession } from '../src/session.js';
 import { createSeededRandom } from '../src/random.js';
+import { createLessonControls } from '../src/controls.js';
 
 const plain = value => JSON.parse(JSON.stringify(value));
 async function generatedCore() {
@@ -26,7 +27,7 @@ async function generatedCore() {
   return { files, load };
 }
 
-test('CommonJS export is reproducible and exposes the same six module APIs', async () => {
+test('CommonJS export is reproducible and exposes every core module API', async () => {
   const { files, load } = await generatedCore();
   assert.deepEqual(files, await buildLensCore());
   for (const name of MODULES) {
@@ -35,7 +36,7 @@ test('CommonJS export is reproducible and exposes the same six module APIs', asy
   }
   const manifest = JSON.parse(files['core-manifest.json']);
   assert.equal(manifest.nativeVerification, 'pending');
-  assert.equal(manifest.modules.length, 6);
+  assert.equal(manifest.modules.length, MODULES.length);
 });
 
 test('generated quantum module works without Object.hasOwn and preserves phase/collapse', async () => {
@@ -90,4 +91,25 @@ test('module conversion rejects unsupported syntax and imports instead of guessi
     assert.throws(() => commonJSModule(source, 'session'));
   }
   assert.throws(() => commonJSModule('export const value = 1;', '../unrelated'));
+});
+
+test('generated control session preserves live action mapping and stale-callback rejection', async () => {
+  const { load } = await generatedCore();
+  const a = createLessonControls({ random: createSeededRandom(19) });
+  const b = load('controls.cjs').createLessonControls({ random: load('random.cjs').createSeededRandom(19) });
+  for (const available of [false, true]) {
+    assert.deepEqual(plain(b.setInputAvailable(available)), plain(a.setInputAvailable(available)));
+  }
+  for (const id of ['toggle-bit', 'next', 'prepare-plus', 'next', 'fresh-plus-ten',
+    'measure', 'next', 'answer-alternating', 'next', 'answer-half-each', 'next', 'restart']) {
+    const oldA = a.getPresentation(), oldB = b.getPresentation();
+    assert.deepEqual(plain(b.activate(id, oldB.revision)), plain(a.activate(id, oldA.revision)));
+    assert.deepEqual(plain(b.getPresentation()), plain(a.getPresentation()));
+    if (id === 'measure') {
+      assert.deepEqual(plain(b.activate(id, oldB.revision)), plain(a.activate(id, oldA.revision)));
+      assert.equal(b.getState().trials, 11);
+    }
+  }
+  assert.equal(b.getState().stage, 'bit');
+  assert.equal(b.getState().trials, 0);
 });

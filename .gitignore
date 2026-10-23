@@ -11,6 +11,7 @@
 !src/session.js
 !src/focus.js
 !src/random.js
+!src/controls.js
 !tests/
 !tests/quantum.test.js
 !tests/lesson.test.js
@@ -18,6 +19,7 @@
 !tests/lesson-extended.test.js
 !tests/presentation-session.test.js
 !tests/lens-build.test.js
+!tests/controls.test.js
 !tools/
 !tools/build-lens-core.mjs
 !examples/

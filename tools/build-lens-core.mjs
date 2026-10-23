@@ -6,7 +6,7 @@ import path from 'node:path';
 // This is a deliberately limited module conversion, not a JavaScript transpiler.
 // Snap documents ES2019 + CommonJS for Lens runtime Script Modules. The generated
 // files contain the same core logic; actual Lens compilation/preview remains required.
-export const MODULES = Object.freeze(['quantum', 'lesson', 'presentation', 'session', 'focus', 'random']);
+export const MODULES = Object.freeze(['quantum', 'lesson', 'presentation', 'session', 'focus', 'random', 'controls']);
 const identifier = /^[A-Za-z_$][\w$]*$/;
 const sha256 = text => createHash('sha256').update(text).digest('hex');
 

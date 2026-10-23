@@ -10,7 +10,7 @@ documents ES2019 JavaScript. Its [Script Modules guide](https://developers.snap.
 documents CommonJS with literal relative `require` paths and `module.exports`.
 The core now avoids the newer `Object.hasOwn` helper.
 
-Run `npm run build:lens-core -- --out .local/lens-core` to generate six CommonJS
+Run `npm run build:lens-core -- --out .local/lens-core` to generate seven CommonJS
 modules and a manifest of source/output hashes. The converter only handles this
 repository's explicit named imports and declaration exports; unsupported module
 syntax fails. It does not transpile arbitrary JavaScript or generate native assets.
@@ -22,6 +22,10 @@ Node tests compare the generated exports, quantum states, seeded experiment flow
 history, challenge, restart and render recovery against the original ESM modules.
 The isolated test context removes `Object.hasOwn`. These checks establish module
 conversion parity; Lens compilation, actual runtime support and preview remain pending.
+The control session adds live control-ID mapping, rendered revisions and input-loss
+handling. See the [binding contract](LESSON_API.md#binding-controls-to-a-host) before
+wiring native callbacks. Native controls must capture the displayed revision, report
+input availability, and rebuild bindings after a refresh or state change.
 
 ## Verified setup references
 

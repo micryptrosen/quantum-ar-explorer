@@ -14,6 +14,7 @@ language support, coordinate conversion and rendering still require native valid
 | session.js | Host renderer/sampler injection, transactional dispatch and display recovery |
 | focus.js | Optional host-independent focus/dwell policy; no native tracking source provided |
 | random.js | Repeatable seeded simulation; not cryptographic or physical randomness |
+| controls.js | Live control-ID routing, rendered revisions, input availability and callback invalidation |
 
 ## State and navigation
 
@@ -70,3 +71,32 @@ provisional application setting, not a verified Snap recommendation. Callback fa
 stays latched to prevent accidental repeat actions. No gaze/head-tracking SDK support
 is implied. A native adapter must honor disabled controls, cancel on tracking loss,
 deduplicate announcement keys, and wire a verified supported input source.
+
+## Binding controls to a host
+
+`createLessonControls` owns a lesson session and exposes `activate(id, revision)`,
+`refresh()`, `setInputAvailable(boolean)`, `getState()` and `getPresentation()`.
+The renderer receives the presentation model plus a monotonic `revision` and
+`inputAvailable`. Capture that revision when creating a callback:
+
+```js
+import { createLessonControls } from './src/controls.js';
+const lesson = createLessonControls();
+const frame = lesson.getPresentation();
+lesson.activate('next', frame.revision);
+```
+
+Only IDs in the current enabled controls resolve to actions. The host does not send
+arbitrary action payloads. Each accepted activation consumes its frame revision
+before invoking the sampler or renderer. A queued duplicate using the old revision
+returns `STALE_CONTROL` without changing state or consuming randomness. This prevents
+a retained Next callback from skipping a stage and an old Measure callback from
+sampling twice. Use this controller as the sole owner of that lesson's input flow.
+
+When the host reports input loss, call `setInputAvailable(false)`: all controls and
+focus targets become unavailable, pending callbacks expire, and lesson state remains
+intact. Restoring input produces a fresh revision. Bind new callbacks to the fresh
+display. A render failure after measurement still requires `refresh()`; it does not
+authorize replaying the old measurement. Reentrant input during rendering is denied.
+Native input events and tracking availability still require a verified SDK adapter;
+this module does not provide or claim gaze, hand tracking or SIK integration.
