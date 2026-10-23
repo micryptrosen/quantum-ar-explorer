@@ -4,7 +4,7 @@ An educational augmented-reality project for the general public, including peopl
 with no quantum computing background. Intended for Snap SPECS and the Learn AR with
 SPECS competition.
 
-The planned experience introduces a classical bit, a qubit on a Bloch sphere, then
+The experience introduces a classical bit, a qubit on a Bloch sphere, then
 state preparation, measurement and a short probability challenge.
 
 ## Current development status
@@ -12,9 +12,11 @@ state preparation, measurement and a short probability challenge.
 This repository contains a dependency-free scientific simulation, complete offline lesson
 engine, accessible presentation models and a host session/focus boundary. It supports
 back/restart, fresh-trial experiments, bounded history, challenge feedback and recovery.
-The native Lens Studio scene and project files are not
-implemented yet. A working Lens Studio preview, official planning workflow and LEAF
-acceptance have not been verified. This is not a completed competition submission.
+The native SPECS project is in `native/QuantumARExplorer`. The three stages,
+measurement, counts, challenge, completion and restart have run in Lens Studio
+5.23.2 preview using SIK/UIKit controls. Three native LEAF scenarios passed for
+lesson flow, simulated IK selection and preservation/cancellation. Physical glasses comfort and
+hand tracking have not been tested. This is not a completed competition submission.
 
 ## Run the available tests
 
@@ -28,16 +30,18 @@ node examples/offline-walkthrough.mjs
 See [open and test instructions](docs/public/OPEN_AND_TEST.md) and
 [scientific behavior and acceptance criteria](docs/public/SCIENCE_AND_ACCEPTANCE.md).
 The [lesson API](docs/public/LESSON_API.md) describes the implemented contracts and
-[Lens integration readiness](docs/public/LENS_INTEGRATION_READINESS.md) records verified
-setup references and remaining native work. The CLI walkthrough is an offline demo,
+[native integration guide](docs/public/LENS_INTEGRATION_READINESS.md) describes the
+module boundary and verified tooling. The CLI walkthrough is an offline demo,
 not a Lens Studio preview.
 
-## Planned Lens requirements
+## Open the Lens
 
-Lens Studio 5.22 or newer, an authentic SPECS Base Template project, Snap CLAD,
-Lens Studio MCP, and the Devpost Learn skill pack. Follow the
-[official competition resources](https://learn-specs.devpost.com/resources).
-Actual native project opening/build instructions will be added after integration.
+Open `native/QuantumARExplorer/QuantumARExplorer.esproj` with Lens Studio 5.23.2.
+Use the SPECS interactive preview. The laboratory uses explicitly labeled manual
+placement; it does not recognize tables. Select controls with the supported
+preview mouse/pinch interaction. See the [open and test guide](docs/public/OPEN_AND_TEST.md)
+for native scenarios, package provenance and current limits, and the
+[public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
 
 ## Rights and attribution
 

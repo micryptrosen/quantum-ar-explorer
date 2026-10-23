@@ -15,15 +15,18 @@ Offline tests cover basis certainty, superposition, collapse, phase, sphere coor
 input validation and lesson flow. The seeded 10,000-trial smoke test uses an interval
 of 4,700–5,300 ones. It is a regression check rather than proof of randomness quality.
 
-Preview acceptance remains unexecuted:
+The native preview and three LEAF scenarios verified:
 
 - All three teaching stages work without runtime errors.
 - Preparation labels, probabilities, sphere arrow and outcomes agree.
 - Basis states are certain; repeated measurements preserve the collapsed result.
 - Challenge feedback, completion and reset work without stale state.
-- Supported hands-free input activates once per focus cycle and cancels reliably.
+- Supported UIKit selection and simulated IK input change the bit value.
 - Text remains readable, key information does not rely on color or audio, and
   the complete sequence works twice without duplicate events.
 
-Actual LEAF checks and a working Lens Studio preview are still required. No physical
-glasses comfort or device compatibility is claimed by the offline test suite.
+The native controls capture the displayed revision when a press starts, so stale
+callbacks cannot repeat a measurement or skip stages. Offline tests additionally
+cover lost-input recovery and deterministic injected trials. An offline test is not
+a native tracking or physical-device test. No physical glasses comfort, persistent
+real-world anchor or automatic surface detection is claimed.

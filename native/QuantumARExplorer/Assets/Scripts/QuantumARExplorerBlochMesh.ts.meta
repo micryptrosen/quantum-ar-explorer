@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/25a85623-8363-4156-b835-9110f1b936e1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 9f853461-29c1-45a5-8178-8851333bf694
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 9f853461-29c1-45a5-8178-8851333bf694
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 41a277c9-de8a-4acb-937e-acc2d893081f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/41a277c9-de8a-4acb-937e-acc2d893081f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 178ca8f1-dec4-42d6-8ff3-30149b2fb123
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Asset.Material material {"hint":"Unlit cyan diagram material authored through MCP"}'

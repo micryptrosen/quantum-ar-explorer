@@ -1,31 +1,55 @@
 # Open and test
 
-Current status: an offline JavaScript educational core, not yet a native Lens Studio
-project. No .esproj, working AR preview, CLAD build or LEAF result is included yet.
+Open `native/QuantumARExplorer/QuantumARExplorer.esproj` in Lens Studio **5.23.2**.
+It is a saved SPECS Base Template project targeting Spectacles. Let package import
+and TypeScript compilation finish, then select the **SPECS 27 Interactive Preview**
+and refresh it. Project resources and package metadata must remain together.
 
-Install requirements for the eventual Lens: Lens Studio 5.22 or newer, a SPECS Base
-Template project, Snap CLAD, Lens Studio MCP, and the Devpost Learn skill pack.
-Follow the official setup at https://learn-specs.devpost.com/resources.
-The pack is at https://github.com/challengepost/learn-specs.
-The official planning workflow has not yet been executed for this project.
+Select the large UIKit buttons with the supported mouse/pinch simulation. No
+keyboard, phone or handheld controller is required by the lesson's hardware input
+design. Desktop movement controls are only for inspecting the simulated room.
+Manual placement is a stand-in; the project performs no table recognition.
 
-For the available core, use Node.js 24 or newer. No dependencies are required.
-From the repository directory, run:
+The flow is Meet the Bit, Meet the Qubit, Make a Measurement, then a short challenge
+and completion. Prepare 0 or 1 for a certain outcome, or equal superposition for
+50% theoretical probabilities. Measure again without preparing to observe collapse.
+Prepare a fresh state to start another independent trial. Short runs need not divide
+evenly. Restart clears the lesson and experiment counts.
+
+The supplied native LEAF scenario index registers `qar006-lesson-flow`,
+`qar006-ik-bit-selection` and `qar006-native-preservation`. Open the official LEAF panel in Lens Studio to run them
+in preview. The first checks visible native text and real UIKit events through the
+complete lesson; the second uses a simulated IK interactor to select the bit control.
+The preservation scenario checks Back, fresh-ten batches, Clear Counts, control
+pages, stale releases, SIK cancellation/end-outside and placement without state loss.
+All three passed in canonical preview. Preview success establishes simulated
+behavior, not physical glasses comfort or hand-tracking reliability.
+
+The native project includes SIK, UIKit, Leaf and the dependencies added by official
+preview tooling. Package ownership and terms are listed in
+[third-party notices](../../THIRD_PARTY_NOTICES.md). Lens Studio, the CLAD plugin and
+owner sign-in are separate official tools; their executables and account configuration
+are not distributed here. CLAD/MCP are needed for the automated authoring/test workflow,
+not for the mathematical JavaScript tests.
+
+For the dependency-free core, use Node.js 24 or newer. From the repository root:
 
 ```sh
 node --test tests/*.test.js
 node examples/offline-walkthrough.mjs
 ```
 
-src/quantum.js provides state preparation, Z-basis probabilities, Bloch coordinates
-and simulated measurement/collapse. src/lesson.js provides the lesson reducer and
-a rendering-neutral view model. Tests use injected random values and a reproducible
-seeded sample. Node success does not establish Lens runtime compatibility.
+The seven modules in `src/` own quantum and lesson state, presentation, session,
+focus, controls and random injection. The native CommonJS copies preserve that
+logic, changing only the relative dependency extension from `.cjs` to `.js`.
+The TypeScript components own rendering and supported native interaction.
+The Node suite checks that the published native core copies exactly match the
+generated science modules apart from the required module filename suffixes.
+See [the lesson API](LESSON_API.md) and [science criteria](SCIENCE_AND_ACCEPTANCE.md).
 
-The lesson engine includes back/restart, fresh batches, bounded history, separate
-fresh-preparation counters and challenge feedback. presentation.js, session.js and
-focus.js supply app-owned display/input contracts and failure recovery. See LESSON_API.md.
+The approved planning workflow produced the native design brief. Its public edition
+is `native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`; only administrative
+provenance and private approval-routing notes are omitted. Functional requirements
+and the official build/review guidance are retained.
 
-Future native project instructions must identify the actual .esproj and required
-SDK/plugin versions after integration. Scene, hands-free input and rendering remain
-to be implemented and checked in the actual Lens Studio preview.
+No Lens, competition entry or demonstration video has been uploaded or submitted.

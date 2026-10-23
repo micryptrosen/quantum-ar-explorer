@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/84d22f37-bb87-43ed-b111-b028c05a2172>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e8b35abd-af8c-49ba-9b13-8a1c4609cf07
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e8b35abd-af8c-49ba-9b13-8a1c4609cf07
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 387c4305-0ecd-4d04-ad59-62841ee437b4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/387c4305-0ecd-4d04-ad59-62841ee437b4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 85b77b76-9bda-4a1e-91c3-eab914d1ad43
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bitView: false
+    blochView: false
+    camera: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - bitView: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      blochView: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType_1 bitView {"hint":"Authored UIKit bit view, wired in scene Phase B"}'
+    - '// @input AssignableType_2 blochView {"hint":"Authored parametric Bloch visualization"}'
+    - '// @input SceneObject camera {"hint":"World tracked viewing camera for explicit manual recenter only"}'

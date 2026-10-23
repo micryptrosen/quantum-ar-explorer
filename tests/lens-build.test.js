@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import { readFile } from 'node:fs/promises';
 import { buildLensCore, commonJSModule, MODULES } from '../tools/build-lens-core.mjs';
 import * as quantum from '../src/quantum.js';
 import { createLessonSession } from '../src/session.js';
@@ -8,6 +9,18 @@ import { createSeededRandom } from '../src/random.js';
 import { createLessonControls } from '../src/controls.js';
 
 const plain = value => JSON.parse(JSON.stringify(value));
+test('published native core preserves generated scientific code with only module suffix changes', async () => {
+  const files = await buildLensCore();
+  for (const name of MODULES) {
+    const expected = files[`${name}.cjs`].replace(/require\('\.\/([a-z]+)\.cjs'\)/g,
+      "require('./$1.js')");
+    const actual = await readFile(new URL(
+      `../native/QuantumARExplorer/Assets/Scripts/QuantumCore/${name}.js`, import.meta.url), 'utf8');
+    assert.equal(actual, expected, `${name}: regenerate the native core before publishing`);
+  }
+  // Native compiler, rendering and SIK interaction are separately checked in Lens Studio.
+});
+
 async function generatedCore() {
   const files = await buildLensCore(), cache = new Map();
   // Remove the newer helper that ES2019 does not promise. Never change the host.

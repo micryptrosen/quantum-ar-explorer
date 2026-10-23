@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/2016d578-3ffd-4ccf-a8c5-5df2b19d5ddf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 6d6898cc-55ef-47e1-9a08-44d44f0b6b2d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 6d6898cc-55ef-47e1-9a08-44d44f0b6b2d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 7f6052ac-16ef-4db7-bff7-eac33f827e19
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/7f6052ac-16ef-4db7-bff7-eac33f827e19>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: b9e1349b-c0cf-4612-99e0-92f1abdf2021
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    panelWidth: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - panelWidth: !<float> 44.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"Quantum AR Explorer - lesson view"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input float panelWidth = 44 {"hint":"Panel width in centimeters", "widget":"slider", "min":40, "max":48, "step":1}'
