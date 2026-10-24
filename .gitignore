@@ -127,3 +127,9 @@
 !/tests/visual-transition.test.js
 !/tools/build-gate-lab.mjs
 !/tools/build-visual-transition.mjs
+
+# QAR-010 exact judge-experience additions; all private evidence remains excluded.
+!/tests/gate-guidance.test.js
+!/native/QuantumARExplorer/Assets/Scripts/QAR010JudgeScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR010JudgeScenario.ts.meta
+!/native/QuantumARExplorer/devpost/QAR010_JUDGE_EXPERIENCE.md

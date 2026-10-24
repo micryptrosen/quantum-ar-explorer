@@ -1,84 +1,139 @@
 # Open and test
 
-Open `native/QuantumARExplorer/QuantumARExplorer.esproj` in Lens Studio **5.23.2**.
-It is a saved SPECS Base Template project targeting Spectacles. Let package import
-and TypeScript compilation finish, then select the **SPECS 27 Interactive Preview**
-and refresh it. Project resources and package metadata must remain together.
+## Start with the public source
 
-Select the large UIKit buttons with supported simulated pinch input. The verified
-automated route uses a visible control's world center. Named-target automation
-reported the button's own child collider as blocking; mouse probes showed hover
-but did not activate controls in the landscape setup. Neither route is reported
-as passing for this build. LEAF simulated IK and coordinate pinch passed. No
-keyboard, phone or handheld controller is required by the lesson's hardware input
-design. Desktop movement controls are only for inspecting the simulated room.
-Manual placement is a stand-in; the project performs no table recognition.
+Clone or download this repository. Open
+`native/QuantumARExplorer/QuantumARExplorer.esproj` in **Lens Studio 5.23.2**.
+Keep its Assets, Packages, project file and metadata together. Wait for package
+import and TypeScript compilation to finish. Select **SPECS 27 Interactive Preview**
+with **Sunlit Outdoor**, then refresh the preview. The first screen is
+**1 / 3 Meet the Bit**, with value 0 and zero measurements.
 
-The flow is Meet the Bit, Meet the Qubit, Make a Measurement, then a short challenge
-and completion. Prepare 0 or 1 for a certain outcome, or equal superposition for
-50% theoretical probabilities. Measure again without preparing to observe collapse.
-Prepare a fresh state to start another independent trial. Short runs need not divide
-evenly. Restart clears the lesson and experiment counts.
+The saved project includes SIK, UIKit, Leaf and the official preview-agent
+packages. Lens Studio, the CLAD plugin, Lens Studio MCP and LeafPlugin are separate
+vendor prerequisites for the automated preview workflow. Install/configure them
+through their official distribution and follow their applicable terms; executables,
+sign-in state and private configuration are not included. See
+[third-party notices](../../THIRD_PARTY_NOTICES.md) for package provenance and terms.
+No private project files or previously generated cache are needed.
 
-Select **Inspect Z** to relate the arrow's height to measurement probabilities.
-Move the simulated viewpoint to inspect the real 3D diagram while the station stays
-fixed. **Motion** turns the brief illustrative arrow arc on or off; neither display
-control changes scientific state. The 18 cm sphere begins 110 cm away, beside a
-compact state card. Controls remain 6 cm high with at least 2.2 cm gaps. Recenter
-and Reposition are deliberate manual placement, with a short settling guard.
+## Use the verified preview input
 
-After completion, choose **Optional Gate Lab**. Starting at 0, try H, Z, H, then
-Measure: the outcome is certainly 1. Reset Lab and compare H, H: certainly 0.
-The intermediate positive and negative superpositions have the same Z-measurement
-odds but different relative phase. Complex amplitudes, phase and probabilities are
-shown with stated rounding. Lab counts are separate. Return Lesson restores the
-completed beginner snapshot, and its Restart clears that lesson. The optional
-component can be disabled or detached to run only the beginner experience.
+The reproducible desktop route is **CLAD/Lens Studio MCP coordinate pinch**, or
+the supplied **LEAF simulated IK** scenarios. With the Lens Studio MCP connected:
 
-The supplied native LEAF scenario index registers `qar006-lesson-flow`,
-`qar006-ik-bit-selection`, `qar006-native-preservation`,
-`qar009-visual-spatial-contracts` and `qar009-optional-gate-lab`.
-Open the official LEAF panel in Lens Studio to run them
-in preview. The first checks visible native text and real UIKit events through the
-complete lesson; the second uses a simulated IK interactor to select the bit control.
-The preservation scenario checks Back, fresh-ten batches, Clear Counts, control
-pages, stale releases, SIK cancellation/end-outside and placement without state loss.
-The new visual scenario checks interruption, endpoints and display-only controls;
-the lab scenario checks phase-sensitive operations, cancellation, exact lesson
-preservation across mode boundaries and the feature-disabled path. See
-[verification](VERIFICATION.md) for final run results. Preview success establishes
-simulated behavior, not physical glasses comfort or hand-tracking reliability.
+1. Query the running preview for the visible control, for example `QAR toggle-bit`.
+   Read its current `transform.worldPosition` with `QueryRuntimeSceneTool`.
+2. Call `PreviewInteractTool` with `action: "Pinch"` and that `worldPosition`.
+   Use the active preview name if more than one preview is open.
+3. Let the selection finish and inspect the visible value: 0 becomes 1. After
+   navigation, reveal, preview refresh or placement, discover the next control
+   again. Positions and runtime IDs can change. Allow newly revealed controls and
+   the placement guard to settle before selecting them.
+4. Run interactions serially and verify their visible effect. If an action errors,
+   inspect state before retrying; an action can have landed before a timeout.
 
-The native project includes SIK, UIKit, Leaf and the dependencies added by official
-preview tooling. Package ownership and terms are listed in
-[third-party notices](../../THIRD_PARTY_NOTICES.md). Lens Studio, the CLAD plugin and
-owner sign-in are separate official tools; their executables and account configuration
-are not distributed here. CLAD/MCP are needed for the automated authoring/test workflow,
-not for the mathematical JavaScript tests.
+This route uses the actual SIK/UIKit events and application input guards, without
+calling lesson callbacks directly. Coordinate targeting omits the tool's named
+target preflight, so use the freshly observed visible center and check the result.
+Named-target automation reported a button's own child collider as obstructing its
+target. Do not disable colliders or cancellation/stale-event guards to force it.
 
-For the dependency-free core, use Node.js 24 or newer. From the repository root:
+The installed SIK MouseInteractor documents mouse/touch selection, but ordinary
+Windows short-click probes in this landscape preview did not activate the bit.
+Hover alone is not selection evidence. QAR-010 traced TouchStart/TouchEnd reaching
+the Lens without the expected Interactable/UIKit selection events. That routing
+boundary remains unresolved; use the verified routes above for evaluation.
+Injected touch tests and simulated pinch are distinct from a real Windows click.
+No keyboard, phone or handheld controller is required by the lesson's intended
+SPECS input design. Physical glasses input has not been tested.
+
+## Explore the lesson
+
+1. **Meet the Bit:** change 0 / 1, then choose Next. A classical bit has one
+   definite value.
+2. **Meet the Qubit:** prepare 0, 1 and equal superposition. Compare the state
+   arrow and the displayed Z-measurement probabilities. Choose Next.
+3. **Make a Measurement:** prepare a state, then Measure. Prepare 0 or 1 for a
+   certain result, or equal superposition for 50% theoretical odds of either
+   result. Measure again without preparing: collapse keeps the same result.
+   Fresh trials prepare again for independent measurements. Ten fair trials need
+   not split five/five. Counters accumulate actual outcomes.
+4. Continue to the probability challenge. An incorrect answer gives feedback and
+   permits another attempt. Choose the answer describing 50% for each outcome
+   of a fresh equal superposition, then continue to completion.
+5. Restart clears the beginner lesson and its experiment counts. Back and control
+   pages retain the experiment where applicable.
+
+**Inspect Z** relates the arrow's height to probabilities. **Motion** turns the
+brief illustrative arrow arc off or on; neither display control changes the
+scientific state. The scientific model updates immediately, including when a
+measurement interrupts a visual transition. Probability/result text is authoritative.
+
+The sphere is 18 cm in diameter, initially 110 cm away, in a 52 cm station.
+Controls are 6 cm high with at least 2.2 cm gaps. Move the simulated viewpoint to
+inspect the actual 3D diagram; the station stays fixed. **Reposition**, its small
+step controls, **Done** and **Recenter** provide deliberate manual placement.
+There is no tabletop detection or persistent physical anchor. Look back toward
+the world controls if they leave view.
+
+## Try the optional phase experiment
+
+After completion, choose **Optional Gate Lab**. Its prompts follow your actual
+state and history; its state and counters are separate from the beginner lesson.
+
+1. From 0, try X: it swaps to 1. Reset Lab.
+2. Try H: equal superposition gives 50/50 odds. Apply Z: relative phase and the
+   arrow change while immediate Z-measurement odds stay 50/50.
+3. Apply another H, predict the result, then Measure: H–Z–H from 0 gives 1.
+4. Reset Lab, apply H then H, and Measure: the result is 0. Compare the two paths.
+5. **Return Lesson** restores the exact completed beginner snapshot. Its Restart
+   clears that lesson. The optional component can be disabled/detached to retain
+   the complete beginner experience.
+
+Complex amplitudes, probabilities and phase have stated rounding. Phase is
+undefined when either amplitude is zero. Arbitrary exploration receives general
+guidance rather than assuming a sequence that a bounded history cannot establish.
+
+## Run the native scenarios
+
+Open the official **LEAF panel** with LeafPlugin enabled. Refresh the preview,
+wait for registration, list scenarios, then run these **one at a time**:
+
+| Scenario | What it checks |
+|---|---|
+| `qar006-lesson-flow` | Complete lesson through visible text and real UIKit events |
+| `qar006-ik-bit-selection` | Simulated IK selection changes the bit |
+| `qar006-native-preservation` | Back, batches, clear counts, paging, stale/canceled/end-outside releases and placement |
+| `qar009-visual-spatial-contracts` | Visual interruption, endpoints, motion off and display-only controls |
+| `qar009-optional-gate-lab` | Complex gates, collapse, cancellation, exact return and feature-disabled path |
+| `qar010-judge-experience` | Visible instructions, guided X/H/Z comparison, challenge recovery and measurement during active animation |
+
+Wait for each run's result before starting another: a new run resets the scene.
+Refresh afterward to remove diagnostic avatars/overlays before ordinary exploration
+or recording. If a run fails, retain the scenario-manager error and investigate it.
+Do not treat a tool timeout or UI-side completion message alone as a pass.
+See [verification](VERIFICATION.md) for actual run results and scope.
+
+## Optional offline checks
+
+Use Node.js 24 or newer from the repository root; no package install is required:
 
 ```sh
 node --test tests/*.test.js
 node examples/offline-walkthrough.mjs
 ```
 
-The seven original core modules in `src/` own quantum and lesson state, presentation, session,
-focus, controls and random injection. The native CommonJS copies preserve that
-logic, changing only the relative dependency extension from `.cjs` to `.js`.
-The TypeScript components own rendering and supported native interaction.
-The Node suite checks that the published native core copies exactly match the
-generated science modules apart from the required module filename suffixes.
-The new rendering helper and isolated gate module have separate generators and
-native parity tests. They do not replace the original beginner controller.
-See [the lesson API](LESSON_API.md) and [science criteria](SCIENCE_AND_ACCEPTANCE.md).
+The seven original core modules own quantum and lesson state, presentation,
+session, focus, controls and random injection. Native CommonJS copies preserve
+that logic, changing only relative dependency suffixes from `.cjs` to `.js`.
+Separate rendering and gate helpers have native parity tests. TypeScript owns
+rendering and supported native interaction. See [lesson API](LESSON_API.md) and
+[science criteria](SCIENCE_AND_ACCEPTANCE.md).
 
-The approved planning workflow produced the native design brief. Its public edition
-is `native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`; only administrative
-provenance and private approval-routing notes are omitted. Functional requirements
-and the official build/review guidance are retained.
-The accompanying `devpost/QAR009_EVOLUTION.md` records the implementation
-evolution under the owner's expanded QAR-009 scope; the original approved brief
-remains preserved.
-
-No Lens, competition entry or demonstration video has been uploaded or submitted.
+The authentic planning workflow's public brief is
+`native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`. QAR-009 and QAR-010
+addenda record authorized implementation evolution; the original approved brief
+is preserved. Desktop preview does not establish physical hand tracking,
+additive-display contrast, comfort or device performance. No Lens, competition
+entry or demonstration video has been uploaded or submitted.

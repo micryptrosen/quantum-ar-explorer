@@ -106,18 +106,18 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     this.texts.VisualNotice.text=this.motionNotice||this.feedback;
     const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};
     this.texts.Heading.text=(progress[model.stage]?progress[model.stage]+'  ':'')+model.title;
-    this.texts.Explanation.text=this.wrap(model.stage==='bit'?'Explore quantum states in 3D.\nChange 0 / 1, then choose Next.':model.stage==='qubit'?(this.inspect?'Z axis: 0 north, 1 south.\nHeight gives Z probabilities.':'Mathematical Bloch diagram.\nGold arrow = current state.'):model.stage==='measurement'?'Prepare. Measure. Repeat.\nFresh trials sample again.':model.stage==='complete'?'BIT → QUBIT → MEASUREMENT\nThree stages explored.':model.explanation,32);
+    this.texts.Explanation.text=this.wrap(model.stage==='bit'?'Learn by experimenting.\nChange 0 / 1, then choose Next.':model.stage==='qubit'?(this.inspect?'Z axis: 0 north, 1 south.\nHeight gives Z probabilities.':'Mathematical Bloch diagram.\nGold arrow = current state.'):model.stage==='measurement'?'Measure selects one outcome.\nRepeat keeps it. Fresh trials\nprepare again.':model.stage==='complete'?'Optional Gate Lab: try X, H, Z.\nReturn keeps lesson progress.':model.explanation,32);
     this.texts.NorthPole.text=model.stage==='bit'?'CLASSICAL BIT':'0  ·  NORTH';
     this.texts.SouthPole.text=model.stage==='bit'?'TWO DISTINCT VALUES':'1  ·  SOUTH';
     this.texts.BitValue.text=model.stage==='bit'?String(model.visual.bit.value):'';
-    const state=model.stage==='bit'?'Change the bit, then choose Next.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
+    const state=model.stage==='bit'?'A classical bit has one definite value: 0 or 1.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
     const basis=model.measurement.collapsed?(model.measurement.result===0?'zero':'one'):model.measurement.preparation;
     const vector=basis==='zero'?'|psi> = |0>':basis==='one'?'|psi> = |1>':'|psi> = (|0> + |1>) / sqrt(2)';
     this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'\n':'')+state+(this.inspect&&model.stage!=='bit'?'\nZ height: '+model.visual.sphere.arrow.to.z.toFixed(2):''),32);
     if(model.lab){
       const l=model.lab;
       const complex=(z:any)=>z.re.toFixed(3)+(z.im<0?' - ':' + ')+Math.abs(z.im).toFixed(3)+'i';
-      this.texts.Explanation.text='Try H, Z, H from 0: discover 1.\nH, H instead returns 0.\nZ changes phase, not Z odds.';
+      this.texts.Explanation.text=this.wrap(model.labGuidance.text,32);
       this.texts.StateStatus.text='Amplitudes (rounded 3 dp)\nα = '+complex(l.state.alpha)+'\nβ = '+complex(l.state.beta)+'\nP0 '+(100*l.probabilities.zero).toFixed(1)+'% · P1 '+(100*l.probabilities.one).toFixed(1)+'%\nRelative phase: '+(l.phaseRadians===null?'undefined':l.phaseRadians.toFixed(3)+' rad')+'\n'+(l.result===null?l.lastOperation:'Measurement result: '+l.result)+ (this.inspect?'\nZ height: '+l.bloch.z.toFixed(2):'');
     }
     this.texts.Heading.textFill.color=model.stage==='complete'?new vec4(1,0.8,0.2,1):new vec4(0.3,0.94,0.88,1);

@@ -13,6 +13,11 @@ An English SRT is available locally. No spoken audio exists in either export.
 The cues below can guide an owner-approved recorded narrator; they are not a
 claim of recorded narration. Use natural phrasing and allow pauses for selections.
 
+QAR-010 retains this genuine QAR-009 recording after technical/heuristic review.
+The current source adds clearer beginner instructions and state-derived lab
+prompts; the demonstrated controls, science and phase comparison remain applicable.
+This cut is not represented as a new recording of those text changes.
+
 | Time | Genuine preview footage | Learning purpose |
 |---|---|---|
 | 0:00–0:16 | Labeled optional-lab phase excerpt and genuine simulated-viewpoint movement | Same measurement odds can describe different states; station fixed in world space. |

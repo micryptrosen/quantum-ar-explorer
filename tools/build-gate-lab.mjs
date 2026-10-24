@@ -16,7 +16,7 @@ check(path.join(root, 'src'));
 const source = fs.readFileSync(path.join(root, 'src/gates.js'), 'utf8');
 const imported = "import { validateState, prepare, probabilities, bloch, measure } from './quantum.js';";
 if (!source.includes(imported)) throw new Error('Unexpected optional module imports');
-const output = path.join(root, '.local/qar009-import-stage');
+const output = path.join(root, '.local/qar010-import-stage');
 if (!fs.existsSync(path.dirname(output))) { check(root, true); fs.mkdirSync(path.dirname(output)); }
 check(path.dirname(output), true);
 if (!fs.existsSync(output)) fs.mkdirSync(output);
@@ -24,6 +24,6 @@ check(output, true);
 const result = '// Generated from src/gates.js; optional isolated gate laboratory.\n' +
   source.replace(imported, "const { validateState, prepare, probabilities, bloch, measure } = require('../QuantumCore/quantum.js');")
     .replaceAll('export function ', 'function ') +
-  '\nmodule.exports = { applyGate, relativePhase, createGateLab };\n';
+  '\nmodule.exports = { applyGate, relativePhase, createGateLab, describeGateLab };\n';
 fs.writeFileSync(path.join(output, 'gates.js'), result);
 console.log('Generated staged gates.js; import to QuantumOptional through Lens Studio.');

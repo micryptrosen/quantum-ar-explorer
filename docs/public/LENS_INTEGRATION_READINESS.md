@@ -8,6 +8,10 @@ navigation/experiment preservation with stale/canceled input checks.
 The QAR-009 evolution adds rendering transitions, spatial axis inspection, a
 project-owned UIKit theme, an isolated optional gate lab and two new native
 scenarios. [Verification](VERIFICATION.md) reports the current exact results.
+QAR-010 adds state-derived lab instructions, clearer beginner feedback and a sixth
+scenario for the judge journey, including measurement during an active visual
+transition. The [judge walkthrough](OPEN_AND_TEST.md) documents the tested preview
+input routes and the unresolved ordinary Windows mouse-selection boundary.
 Hardware comfort and hand tracking remain untested.
 
 ## Architecture
@@ -41,6 +45,9 @@ controller. Native display epochs bridge its revision namespace and the beginner
 controller. UIKit theme registration uses project-owned styles and the public
 ThemeService API without editing the vendor package. The original core and
 beginner controller remain intact.
+The pure `describeGateLab` helper derives a short prompt from the actual complex
+state and credible bounded history. It samples nothing and changes no state,
+counts or revisions; ambiguous truncated histories receive general guidance.
 
 The native LEAF scenario index registers visible-text lesson assertions and
 simulated IK selection. Native preview calls additionally inspect real scene bounds,

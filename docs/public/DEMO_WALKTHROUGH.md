@@ -6,6 +6,10 @@ preview, supported coordinate-pinch input and the simulated Sunlit Outdoor
 environment. No platform upload is represented as complete. The owner controls
 YouTube publication and Devpost submission.
 
+Retained during QAR-010 after technical/heuristic review. It records the preserved
+QAR-009 build. Current source adds clearer instructions and guided lab prompts
+while retaining the shown controls, science and phase comparison.
+
 | Time | Genuine preview footage | Learning purpose |
 |---|---|---|
 | 0:00–0:16 | Labeled optional-lab phase excerpt and genuine simulated-viewpoint movement | Same measurement odds can describe different states; station fixed in world space. |

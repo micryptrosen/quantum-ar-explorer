@@ -104,7 +104,7 @@ test('native optional module matches source and phase-sensitive operation result
     source.replace("import { validateState, prepare, probabilities, bloch, measure } from './quantum.js';",
       "const { validateState, prepare, probabilities, bloch, measure } = require('../QuantumCore/quantum.js');")
       .replaceAll('export function ', 'function ') +
-    '\nmodule.exports = { applyGate, relativePhase, createGateLab };\n');
+    '\nmodule.exports = { applyGate, relativePhase, createGateLab, describeGateLab };\n');
   const quantum = { module: { exports: {} } };
   vm.runInNewContext(fs.readFileSync(new URL('../native/QuantumARExplorer/Assets/Scripts/QuantumCore/quantum.js', import.meta.url), 'utf8'), quantum);
   const context = { module: { exports: {} }, require: id => {

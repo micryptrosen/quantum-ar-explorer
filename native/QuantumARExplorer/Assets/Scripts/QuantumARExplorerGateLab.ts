@@ -1,5 +1,5 @@
 /** Removable optional controller. No dependency on the beginner session. */
-const {createGateLab}=require('./QuantumOptional/gates.js');
+const {createGateLab,describeGateLab}=require('./QuantumOptional/gates.js');
 @component
 export class QuantumARExplorerGateLab extends BaseScriptComponent {
   @input @hint('Offer the optional one-qubit lab only after beginner completion')
@@ -10,7 +10,7 @@ export class QuantumARExplorerGateLab extends BaseScriptComponent {
   public act(id:string,revision:number):any{return this.lab.dispatch(id,revision);}
   public view(beginner:any):any {
     const lab=this.snapshot();
-    return {...beginner,stage:'lab',title:'Optional Gate Lab',revision:lab.revision,lab,
+    return {...beginner,stage:'lab',title:'Optional Gate Lab',revision:lab.revision,lab,labGuidance:describeGateLab(lab),
       visual:{...beginner.visual,sphere:{...beginner.visual.sphere,arrow:{to:lab.bloch}}},
       experiment:{trials:lab.trials,counts:lab.counts},
       controls:[['lab-X','X'],['lab-H','H'],['lab-Z','Z'],['lab-measure','Measure'],['lab-reset','Reset Lab'],['return-lesson','Return lesson']].map(([id,label])=>({id,label,enabled:true}))};

@@ -5,7 +5,8 @@ video software solely to follow this guide. A script and screenshots do not
 constitute a screen recording.
 
 1. Open the supplied native project in Lens Studio 5.23.2. Let import finish,
-   select SPECS 27 Interactive Preview, and run the five supplied LEAF scenarios.
+   select SPECS 27 Interactive Preview, and run the six supplied LEAF scenarios
+   serially. Follow [Open and test](OPEN_AND_TEST.md) for the verified input route.
 2. Prefer a landscape preview panel. Frame the full station so the sphere,
    state card, controls and manual-placement label remain readable. Rehearse
    genuine camera movement around the fixed station, then return to a steady

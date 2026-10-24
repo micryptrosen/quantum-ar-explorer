@@ -21,8 +21,9 @@ stays fixed as the simulated viewpoint moves; manual Recenter deliberately moves
 Motion can be turned off without changing the science.
 
 The optional X/H/Z lab has its own state and counters, displays complex amplitudes
-and phase, and returns to the preserved completed lesson. Try H-Z-H from 0, then
-compare H-H. The native components use supported SIK/UIKit controls in Lens Studio
+and phase, and returns to the preserved completed lesson. Short prompts follow
+the actual experiment: try X, then compare H-Z-H from 0 with H-H. The native
+components use supported SIK/UIKit controls in Lens Studio
 5.23.2. See [verification](docs/public/VERIFICATION.md) for exact native and
 reconstruction results. Physical glasses comfort and hand tracking have not been
 tested. This is not a completed competition submission.
@@ -46,11 +47,12 @@ not a Lens Studio preview.
 ## Open the Lens
 
 Open `native/QuantumARExplorer/QuantumARExplorer.esproj` with Lens Studio 5.23.2.
-Use the SPECS interactive preview. The laboratory uses explicitly labeled manual
-placement; it does not recognize tables. Select controls with the supported
-coordinate-pinch preview interaction. Mouse activation was not verified in the
-current landscape setup; see the verification limits. See the [open and test guide](docs/public/OPEN_AND_TEST.md)
-for native scenarios, package provenance and current limits, and the
+Use SPECS 27 Interactive Preview with Sunlit Outdoor. The laboratory uses explicitly
+labeled manual placement; it does not recognize tables. Use the verified CLAD/MCP
+coordinate-pinch route or the six supplied LEAF scenarios. Ordinary Windows mouse
+activation remains unresolved in this setup. The [judge walkthrough](docs/public/OPEN_AND_TEST.md)
+gives the selection and recovery procedure, native scenarios, package provenance
+and current limits. See also the
 [public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
 
 ## Demonstration and submission materials
@@ -58,9 +60,11 @@ for native scenarios, package provenance and current limits, and the
 <img src="docs/public/preview-spatial.png" width="880" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
 
 Genuine QAR-009 desktop preview in Lens Studio's simulated Sunlit Outdoor
-environment. The current local V3 demonstration is 2:45, 1920 × 1080, 30 fps,
+environment. The retained local V3 demonstration is 2:45, 1920 × 1080, 30 fps,
 silent with English captions. It shows the lesson, brief manual placement and
-the optional phase experiment. The QAR-008 fallback remains preserved. Physical
+the optional phase experiment. QAR-010 adds clearer in-Lens instructions and guided
+lab prompts; V3 records the preserved QAR-009 build. The science and controls shown
+remain applicable. The QAR-008 fallback remains preserved. Physical
 glasses testing has not occurred; the owner controls video upload and submission.
 
 The [submission package](docs/public/SUBMISSION.md) explains the product, audience,

@@ -1,4 +1,112 @@
-# Verification of the immersive product and demonstration
+# Verification of the judge and learner experience
+
+QAR-010, October 24, 2026 (UTC). The current source improves the existing lesson
+and optional lab. QAR-009 and QAR-008 releases, evidence and movies remain preserved.
+
+## Current product and checks
+
+The opening names the next action and separately defines a classical bit. The
+measurement instruction distinguishes one outcome, repeating a collapsed state,
+and fresh preparation. Completion introduces the optional lab and preserved Return.
+Short lab prompts follow actual complex state and credible bounded history: X,
+H, unchanged immediate odds after Z, then H-Z-H versus H-H from reset. The H prompt
+uses plain 0 / 1 odds. Arbitrary or truncated histories get conservative guidance.
+No quantum operation, control or scientific-state mutation was added.
+
+| Final check | Result |
+|---|---|
+| Dependency-free application suite | 96 passed, 0 failed, none skipped |
+| Local publication-guard suite | 165 passed, 0 failed |
+| Original scientific/lesson modules and prior gate mathematics | Exact bytes preserved |
+| Original five native scenario sources/assertions | Exact bytes preserved |
+| Final canonical native LEAF | 6 passed, 0 failed |
+| Fresh source-only native reconstruction LEAF | 6 passed, 0 failed |
+| Canonical and actual tested-copy resources after tests | All 71 match their frozen hashes |
+| Vendor packages, approved public brief and QAR-009 addendum | Unchanged |
+
+The added scenario is `qar010-judge-experience`. It checks visible instructions,
+X/H/Z guided experiments, H-Z-H result 1 versus H-H result 0, challenge recovery,
+exact lesson return, reduced motion, idle updates, and measurement while a visual
+transition is active. The previous five scenarios remain meaningful and unchanged.
+Fourteen new pure-guidance tests cover history truncation, actual complex-state
+classification, reset, immutable inputs and absence of state/sampling side effects.
+An early focused run passed five and failed nine; its history-origin handling was
+corrected and floating comparisons made tolerant before all fourteen passed.
+Original mathematical assertions were preserved.
+
+The reconstruction used only the candidate's public Assets, Packages, project
+file, attributes, public brief and addenda, with no copied private configuration,
+Support or Cache. It actually opened, compiled and ran all six scenarios. The
+71-file count adds the new scenario/resource metadata and QAR-010 addendum to
+QAR-009's 68-file scope. Normal official preview/LEAF tooling regenerated bridge
+identities on save; authored scene semantics were checked separately. Both tested
+locations contain the same final scene bytes. Final-commit retrieval from the
+actual public repository is a separate post-publication verification step; the
+source-only results above do not stand in for that network operation.
+
+## Interaction and evaluator route
+
+Coordinate pinch at freshly discovered visible control centers and LEAF simulated
+IK are the verified routes. [Open and test](OPEN_AND_TEST.md) gives the setup,
+selection, lesson/lab journey, serial scenario procedure and recovery instructions.
+Ordinary pinches exercised the beginner flow, challenge retry, H-Z-H/HH comparison,
+Return and Restart. Canonical was restored and fresh pinch/restart checked after
+reconstruction.
+
+Installed SIK 0.18.0 MouseInteractor binds TouchStart/TouchEnd for selection.
+Genuine short Windows click/inside-button drag attempts reached Lens touch events
+but did not produce the expected Interactable/UIKit selection, before the app's
+guard. A further 116 ms click with all native tools idle also left the bit at 0.
+One observed drag delivered start/end in the same Lens tick; frame sampling is a
+possible explanation, not a proven universal cause. A distinct injected 700 ms
+touch reached press but canceled on end-outside. It does not prove Windows mouse
+activation. No supported safe project correction was established. No vendor API,
+collider, cancellation, stale-release or placement guard was changed to force a pass.
+Mouse support is not declared absent; this tested Windows route remains unresolved.
+Named-target automation's own-child-collider obstruction also remains distinguished
+from the verified coordinate route.
+
+## Spatial, accessibility and review scope
+
+Genuine captures in Sunlit Outdoor and Plane show the corrected text fitting the
+existing card. Ordinary interaction, Motion off, Inspect Z, manual placement and
+recovery remain. Changing preview environments resets the lesson. Opening captures
+inspect the initialized first screen; request times near 2/10 seconds are not a
+cold-start or exposure-latency benchmark.
+
+The 18 cm sphere, 110 cm initial distance, 52 cm station, 6 cm targets and 2.2 cm
+gaps are unchanged. Diagram topology remains 3,528 vertices/triangles. Prior static
+inspection found 250 idle scene objects and 31 exposed mesh labels; LEAF overlays
+have a separate object count. Those counts are not a hardware component census.
+The display UpdateEvent disables after animation/feedback settles, as checked in
+both final judge scenarios. No FPS, latency, allocation, battery or device benchmark
+was measured.
+
+An independent technical/heuristic review examined source, tests, thirteen genuine
+native captures and ten actual V3 frames across Design, Technical Implementation,
+Innovation and Presentation. It found no additional material defect beyond two
+scheduled clarity corrections, which were then visibly checked and natively tested.
+This is neither owner approval nor novice research, expert endorsement or physical
+SPECS validation. Wearer comfort, real hand tracking and additive-display contrast
+remain untested. Simulated charcoal backing does not establish opaque physical
+black. Placement is manual, with no surface recognition or cross-session anchor.
+
+## Demonstration decision
+
+Retain the genuine QAR-009 V3 and silent narration-ready cut: both are 165 seconds,
+1920 × 1080, H.264, 30 fps, 4,950 frames and have no audio stream. All 94 preserved
+media files were rehashed. Their earlier full decode and sampled visual inspection
+remain applicable to those exact bytes. The independent review supported retention:
+controls, science and phase experiment remain applicable, and V3's captions already
+explain the concepts refined in the current in-Lens text. No new recording was
+established as a material improvement. The source-build difference is disclosed in
+the public demo materials. No voice, mobile playback test or new footage is claimed.
+
+No Lens, YouTube video or Devpost entry has been uploaded/submitted by this work.
+Owner review, actual video URL, eligibility/rights/judging attestations and personal
+submission remain required. Public source excludes private governance and evidence.
+
+## Preserved QAR-009 verification record
 
 QAR-009, October 23–24, 2026 (UTC). The QAR-008 source build and 2:45 landscape video
 remain preserved. This report distinguishes native preview, mathematical checks

@@ -36,6 +36,9 @@ probabilities. Brief arrow transitions can be turned off. After completing the
 beginner lesson, an optional X/H/Z gate lab offers a further discovery: states with
 the same Z-measurement odds can have different phase and produce different later
 outcomes. Returning preserves the beginner experiment exactly.
+Short prompts follow the learner's actual lab state: try X, observe H's equal
+superposition, apply Z without changing the immediate odds, then compare H-Z-H
+with H-H. The learner predicts, measures and compares using the same controls.
 
 ## Problem and audience
 
@@ -111,12 +114,16 @@ The scientific suite includes complex-state gate identities, phase-sensitive
 sequences, normalization, collapse, animation interruption and recovery. The
 original native scenarios and added visual/lab scenarios exercise the real preview.
 The current product checkpoint and its exact results are reported in
-[verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md). The preferred local QAR-009 V3 demo is 2:45, 1920 × 1080, 30 fps, silent with
+[verification](VERIFICATION.md). The [judge walkthrough](OPEN_AND_TEST.md) explains
+the verified CLAD/MCP coordinate-pinch route and six LEAF scenarios.
+The retained local QAR-009 V3 demo is 2:45, 1920 × 1080, 30 fps, silent with
 English captions. It shows genuine preview camera motion, the beginner lesson,
 eight seconds of manual placement and the optional H-Z-H versus H-H discovery.
 Simulated environment and input are explicitly labeled. The QAR-008 fallback
-remains preserved. Current coordinate-pinch
-input and LEAF passed; mouse activation in the landscape setup remains unverified.
+remains preserved. QAR-010 improves in-Lens instructions and state-derived lab
+prompts while preserving the demonstrated controls and scientific behavior.
+Current coordinate-pinch input and LEAF are the verified preview routes; ordinary
+Windows short-click activation remains unresolved before the application guard.
 
 No physical SPECS glasses test has occurred. Preview testing establishes simulated
 behavior; it does not establish real hand tracking, comfort, lighting robustness,
