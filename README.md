@@ -57,10 +57,11 @@ for native scenarios, package provenance and current limits, and the
 
 <img src="docs/public/preview-spatial.png" width="880" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
 
-Historical QAR-008 desktop preview in Lens Studio's simulated Sunlit Outdoor
-environment. It is retained while the QAR-009 demonstration is prepared. Current
-source adds state transitions, axis inspection, stronger control borders and the
-optional gate lab. Physical glasses testing has not occurred.
+Genuine QAR-009 desktop preview in Lens Studio's simulated Sunlit Outdoor
+environment. The current local V3 demonstration is 2:45, 1920 × 1080, 30 fps,
+silent with English captions. It shows the lesson, brief manual placement and
+the optional phase experiment. The QAR-008 fallback remains preserved. Physical
+glasses testing has not occurred; the owner controls video upload and submission.
 
 The [submission package](docs/public/SUBMISSION.md) explains the product, audience,
 spatial design, implementation, disclosures, and remaining owner steps. Use the

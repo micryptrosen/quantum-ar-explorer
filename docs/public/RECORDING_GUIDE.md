@@ -36,12 +36,22 @@ constitute a screen recording.
    playback while signed out, and places its actual URL in the submission. Local
    creation or agent validation does not perform or authorize that upload.
 
-The QAR-008 finishing pass used that built-in recorder and preserved its original takes.
-Its retained fallback is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`: 2:45,
-1920 by 1080 landscape, silent, with English captions and genuine preview footage.
-The source is the built-in Sunlit Outdoor simulated environment, with actual
-preview camera movement and coordinate-pinch selections. The earlier valid
-QAR-007 export and all original takes remain preserved locally. See the
-[verification report](VERIFICATION.md) for the measured media properties and edit
-disclosure. The owner may use this export or record a new take with the narration.
-YouTube publication and Devpost submission remain owner actions.
+
+The preferred local QAR-009 V3 export is `Quantum-AR-Explorer-QAR009-demo-v3.mp4`:
+2:45, 1920 × 1080, H.264, 30 fps, silent with English captions. A separate silent
+narration-ready cut and English SRT are available locally. The source is the
+built-in Sunlit Outdoor simulated environment, with actual camera movement and
+coordinate-pinch selections. QAR-008, QAR-007 and all original takes are preserved.
+
+This recording pass encountered a genuine unusable zero-byte save and sample-write
+errors. Resizing the preview produced a working 2984 × 1590 recording; a smoke
+capture was probed, decoded and inspected before the full retake. An on-screen
+Save message does not prove a playable file. Check actual bytes, probe, full decode
+and visible content. The failure's exact cause remains unconfirmed.
+
+The final cut preserves ordinary speed and the full native frame. It trims idle
+intervals, labels the reordered opening and devotes only eight seconds to placement.
+See [verification](VERIFICATION.md) and the [actual shot list](DEMO_SCRIPT.md).
+The owner reviews the export and controls YouTube publication and Devpost submission.
+No appropriate recorded narrator was available; no voice service was purchased
+and no synthetic narrator was introduced.

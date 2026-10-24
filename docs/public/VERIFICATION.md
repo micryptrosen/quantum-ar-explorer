@@ -1,6 +1,6 @@
-# Verification of the immersive product checkpoint
+# Verification of the immersive product and demonstration
 
-QAR-009, October 23, 2026. The QAR-008 source build and 2:45 landscape video
+QAR-009, October 23–24, 2026 (UTC). The QAR-008 source build and 2:45 landscape video
 remain preserved. This report distinguishes native preview, mathematical checks
 and work requiring physical glasses.
 
@@ -38,7 +38,7 @@ can be disabled or detached to retain the full beginner experience.
 | Check | Result |
 |---|---|
 | Offline application suite | 82 passed, 0 failed, none skipped |
-| Local publication-guard suite | 127 passed, 0 failed |
+| Local publication-guard suite | 146 passed, 0 failed |
 | Original native scientific modules | All seven match source exactly |
 | Additional native-model checks | 20 model cases and 11 stale-callback comparisons passed |
 | Final canonical native LEAF | 5 passed, 0 failed |
@@ -83,11 +83,36 @@ or hardware-performance guarantee.
 
 ## Demonstration and limits
 
-The current retained fallback is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`:
-165 seconds, 1920 by 1080, H.264, 30 fps, silent with English captions. Its full
-export decoded successfully and remains hash-verified. It depicts the earlier
-QAR-008 product. A new genuine QAR-009 demonstration is being prepared; it is not
-yet represented as recorded or validated by this product checkpoint.
+The preferred local export is `Quantum-AR-Explorer-QAR009-demo-v3.mp4`:
+165 seconds, 1920 × 1080, H.264, 30 fps, 4,950 frames, silent with English captions.
+The same-timing narration-ready export is also silent and omits explanatory body
+captions. Both complete exports decoded without errors. A separate English SRT
+is available locally. No recorded or synthetic voice, music, or platform upload
+is claimed. The QAR-008 165-second fallback remains hash-verified and preserved.
+
+V3 starts with a labeled genuine phase/spatial excerpt, then follows the complete
+beginner lesson. It trims manual placement from 37 seconds to eight and includes
+the optional H-Z-H versus H-H comparison. Its real first outcome was 0, repeat 0;
+ten fresh trials brought cumulative counts to 12 measurements, seven zeros and
+five ones, including the prior two. The lab measured 1 after H-Z-H from 0 and
+0 after H-H from 0. Return preserved beginner counts; Restart cleared them.
+The original takes, diagnostic capture and all earlier exports are retained.
+
+The first new recording saved an unusable zero-byte file, with actual encoder
+sample-write errors. Its exact cause is unconfirmed. Resizing the preview to a
+verified even-dimension 2984 × 1590 capture, followed by a successful smoke capture,
+restored recording. The healthy full take decoded before editing. Edits remove
+idle intervals at ordinary speed and reorder the labeled opening excerpt. The
+full native frame is scaled without cropping into outer caption margins; results
+and native controls are not composited. Parent inspection covered 29 actual export
+frames across the story, transitions, results and captions. Mobile-device playback
+and physical-viewing legibility are unverified; use landscape playback.
+
+The frozen 68-file native build was rehashed after filming against the actual
+source-only reconstruction that passed five LEAF scenarios. Filming did not change
+native source. The 5+5 results above are those actual earlier runs, not new runs
+inferred from capture. The public screenshot is an exact decoded frame from the
+healthy full take, before measurement, with both probabilities at 50%.
 
 Coordinate pinch at fresh visible control centers and LEAF simulated IK are the
 verified native input routes. Named-target automation reported the button's own

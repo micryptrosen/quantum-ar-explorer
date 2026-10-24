@@ -1,39 +1,38 @@
 # Preview demonstration outline
 
-Preserved QAR-008 fallback cut: **2 minutes 45 seconds**, leaving room below the competition's
-[three-minute video limit](https://learn-specs.devpost.com/resources). Record the
-actual Lens Studio preview. Local recording and platform upload are separate steps;
-the owner handles upload. This outline does not represent an uploaded entry.
-It describes the historical fallback; a new demonstration of the QAR-009 features
-is being prepared.
+The preferred genuine QAR-009 V3 cut is **2 minutes 45 seconds**, 1920 × 1080,
+H.264, 30 fps, silent with English captions. It uses the actual Lens Studio
+preview, supported coordinate-pinch input and the simulated Sunlit Outdoor
+environment. No platform upload is represented as complete. The owner controls
+YouTube publication and Devpost submission.
 
-Use the complete [timed narration](DEMO_SCRIPT.md) and
-[recording procedure](RECORDING_GUIDE.md). Actual capture status and measured
-duration, when available, are in [verification](VERIFICATION.md).
-
-| Time | Show | Explain |
+| Time | Genuine preview footage | Learning purpose |
 |---|---|---|
-| 0:00–0:16 | A genuine qubit excerpt and real simulated-viewpoint motion | The laboratory stays in world space as the viewpoint moves. Label the simulated context and excerpt; guided flow follows. |
-| 0:16–0:29 | Meet the Bit; switch 0 / 1 | A classical bit has one definite value. |
-| 0:29–0:54 | Meet the Qubit; prepare 0, 1 and equal superposition | Mathematical Bloch diagram: north is 0, south is 1; equal superposition gives each Z result 50% probability. |
-| 0:54–1:12 | Measure, then repeat without preparing | A definite outcome collapses the state. Repeating that measurement keeps the result. |
-| 1:12–1:19 | Run ten fresh trials; pause on real counters | Each trial prepares again. A small sample need not split evenly. |
-| 1:19–1:56 | Reposition deliberately, Done and Recenter | Manual world placement preserves the experiment; no table recognition. |
-| 1:56–2:23 | Challenge, explanatory feedback and completion | The learner can correct a probability misconception. |
-| 2:23–2:29 | Restart and cleared counters | Another learner can begin the three-stage lesson. |
-| 2:29–2:45 | A strong genuine quantum-state closing view | Prepare, measure and discover. Classical simulation; physical glasses remain untested. |
+| 0:00–0:16 | Labeled optional-lab phase excerpt and genuine simulated-viewpoint movement | Same measurement odds can describe different states; station fixed in world space. |
+| 0:16–0:28 | Meet the Bit; switch 0 / 1 | A classical bit has one definite value. |
+| 0:28–0:52 | Prepare qubit 0, 1 and equal superposition | Mathematical Bloch diagram and Z-basis probabilities. |
+| 0:52–1:04 | Measure, then repeat; actual results 0, 0 | Measurement collapses the state; repeating preserves that result. |
+| 1:04–1:14 | Ten fresh trials; real cumulative counts 12 / 7 / 5 | Fresh trials prepare again; these totals include the earlier two measurements. |
+| 1:14–1:22 | Reposition, Done, Recenter | Manual placement preserves the experiment; no surface recognition. |
+| 1:22–1:42 | Challenge, correction and completion | Feedback addresses a probability misconception. |
+| 1:42–2:26 | Optional Gate Lab: reset to 0, compare H-Z-H with H-H; measure 1 then 0 | A relative-phase difference changes a later outcome. |
+| 2:26–2:34 | Return to preserved lesson, then Restart | Independent lab state; clear recovery for another learner. |
+| 2:34–2:45 | Qubit superposition closing view | Prepare, measure and discover; classical simulation and untested glasses. |
 
-Before recording, refresh the preview, run the native LEAF scenarios, check that the
-whole station and text are visible, and rehearse once without narration. Keep
-private editor panels, account details, logs, keys and machine configuration out
-of the recording. The public planning brief can be shown briefly if time permits.
+The opening is a real excerpt reordered for presentation. The product still begins
+Bit → Qubit → Measurement. Idle intervals are trimmed at ordinary speed; the whole
+native frame is scaled without cropping into a landscape canvas with outer captions.
+No interactions, scientific results, or camera motion are fabricated.
 
-Use supported coordinate-pinch simulation for selections; current mouse
-activation is unverified. Desktop camera movement
-is a demonstration tool; the lesson itself is designed around supported SIK/UIKit
-hand selection without a keyboard or handheld controller.
+The first measurement is not predetermined. This take produced 0, then repeated 0.
+The ten fresh trials produced five of each; cumulative totals became seven zeros
+and five ones across twelve measurements, including the earlier two. A new take
+can differ. H-Z-H from 0 measured 1; H-H from 0 measured 0. Return preserved the
+beginner experiment; Restart cleared it.
 
-Prefer landscape framing and concise captions for desktop viewing. The opening
-excerpt does not change the product's Bit → Qubit → Measurement order. Do not
-substitute a pan across a still image for real viewpoint movement, or claim that
-a simulated environment is a physical table or tested glasses footage.
+The QAR-008 2:45 fallback and all original takes remain preserved. V3 reduces
+placement from 37 seconds to eight, making room for the phase comparison. Its
+advanced section is denser; the learner can finish without entering the optional
+lab. Spoken narration, mobile-device playback and physical glasses are unverified.
+
+See the [caption and narration script](DEMO_SCRIPT.md), [recording procedure](RECORDING_GUIDE.md), and [verification](VERIFICATION.md).

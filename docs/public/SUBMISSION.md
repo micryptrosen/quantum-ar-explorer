@@ -111,10 +111,11 @@ The scientific suite includes complex-state gate identities, phase-sensitive
 sequences, normalization, collapse, animation interruption and recovery. The
 original native scenarios and added visual/lab scenarios exercise the real preview.
 The current product checkpoint and its exact results are reported in
-[verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md). The preferred local demo
-remains the preserved QAR-008 2:45 silent landscape fallback while the new QAR-009
-demonstration is prepared. It contains genuine preview camera motion and a labeled
-simulated environment. Current coordinate-pinch
+[verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md). The preferred local QAR-009 V3 demo is 2:45, 1920 × 1080, 30 fps, silent with
+English captions. It shows genuine preview camera motion, the beginner lesson,
+eight seconds of manual placement and the optional H-Z-H versus H-H discovery.
+Simulated environment and input are explicitly labeled. The QAR-008 fallback
+remains preserved. Current coordinate-pinch
 input and LEAF passed; mouse activation in the landscape setup remains unverified.
 
 No physical SPECS glasses test has occurred. Preview testing establishes simulated
@@ -136,7 +137,7 @@ SpectaclesUIKit; MeshBuilder; LEAF; Node.js; Git; GitHub.
 
 Project-authored code was developed with AI coding assistance for Veristio
 Intelligence Technologies, LLC. Repository commits document project-specific
-implementation on October 23, 2026. Standard vendor template, render resources,
+implementation beginning on October 23, 2026. Standard vendor template, render resources,
 and SDK/test packages predate this project and remain vendor-owned. See
 [third-party notices](../../THIRD_PARTY_NOTICES.md) for exact resources, versions,
 and applicable terms. No other project's application source is identified as
