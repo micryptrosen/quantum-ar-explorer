@@ -52,3 +52,14 @@ Sunlit Outdoor interactive preview fixture. It is simulated context supplied by
 Snap, not a physical-location recording or project-authored scene artwork. The
 fixture source is not redistributed in this repository. Its depiction remains
 subject to applicable vendor terms and the owner's final rights review.
+
+## QAR-009 mathematical references
+
+The optional gate lab implements the standard single-qubit matrices directly in
+dependency-free JavaScript. IBM's primary documentation for
+[X](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.XGate),
+[H](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.HGate)
+and [Z](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.ZGate)
+was consulted to verify the transformations. No Qiskit code or dependency was added.
+The project-owned UIKit theme uses the existing public theme API; vendor package
+bytes remain unchanged. No new third-party scene artwork, voice or music is added.

@@ -1,6 +1,8 @@
 # Demonstration narration and shot list
 
-Preferred cut: **2:45**, with a 15-second margin below three minutes. The shot
+Preserved QAR-008 fallback: **2:45**, with a 15-second margin below three minutes.
+QAR-009 source adds features not depicted here; its new demonstration is in preparation.
+The shot
 boundaries match the silent captioned QAR-008 export. The narration below is
 optional prepared copy; it is not recorded audio or an uploaded video. Use genuine Lens Studio
 preview footage. Read naturally and leave time for the indicated selections.

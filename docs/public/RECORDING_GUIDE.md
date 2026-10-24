@@ -5,7 +5,7 @@ video software solely to follow this guide. A script and screenshots do not
 constitute a screen recording.
 
 1. Open the supplied native project in Lens Studio 5.23.2. Let import finish,
-   select SPECS 27 Interactive Preview, and run the three supplied LEAF scenarios.
+   select SPECS 27 Interactive Preview, and run the five supplied LEAF scenarios.
 2. Prefer a landscape preview panel. Frame the full station so the sphere,
    state card, controls and manual-placement label remain readable. Rehearse
    genuine camera movement around the fixed station, then return to a steady
@@ -36,8 +36,8 @@ constitute a screen recording.
    playback while signed out, and places its actual URL in the submission. Local
    creation or agent validation does not perform or authorize that upload.
 
-The finishing pass used that built-in recorder and preserved its original takes.
-The validated local export is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`: 2:45,
+The QAR-008 finishing pass used that built-in recorder and preserved its original takes.
+Its retained fallback is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`: 2:45,
 1920 by 1080 landscape, silent, with English captions and genuine preview footage.
 The source is the built-in Sunlit Outdoor simulated environment, with actual
 preview camera movement and coordinate-pinch selections. The earlier valid

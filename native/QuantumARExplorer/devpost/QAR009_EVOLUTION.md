@@ -1,0 +1,19 @@
+# QAR-009 implementation addendum
+
+This is an implementation addendum under the owner's QAR-009 expanded development directive. It is not a replacement design brief or a new owner approval. The original approved `design-brief.md` remains unchanged (SHA-256 `84e607fc49c9da7e4411bd517222978a9ad5d3ad357d848903d841e8db2eb842`).
+
+The original Bit → Qubit → Measurement lesson and beginner challenge remain the primary experience. Manual placement starts at 110 cm, with Recenter and 5 cm repositioning controls. The station is 52 cm wide; the mathematical Bloch cage is 18 cm across. The diagram column has 28 cm of vertical layout space so pole labels have more breathing room. Controls retain 6 cm minimum height and 2.2 cm gaps. Local UIKit surfaces leave the world and open 3D diagram visible.
+
+Project-owned charcoal/cyan UIKit styles use the public ThemeService registry and inherited theme resolution, with cyan hover and gold press feedback. Button labels increase from 39 to 43 Lens units. These colors do not create an opaque black backing on an additive display. Outdoor preview readability is evidence from a simulation; physical glasses, additive contrast, comfort, and lighting remain untested. This is an internal beginner walkthrough, not a novice user study.
+
+After completing the beginner lesson, the learner may enter an optional, separate one-qubit Gate Lab. X exchanges basis amplitudes. H, Z, H from 0 demonstrates interference and yields 1; H, H yields 0. After the first H, Z changes relative phase by π while the computational-basis probabilities remain 50/50. Z does not flip these probabilities. The lab displays complex amplitudes rounded to three decimal places, Z probabilities, relative phase in radians (undefined when either amplitude is exactly zero), and the actual measurement result. Gates clear an obsolete result. Measure uses the existing random sampling core and collapses the state; Reset Lab clears the lab's own experiment. Return lesson preserves the completed beginner state, counts, challenge, and action revision.
+
+The optional controller has an authored feature flag and an optional typed reference. Omission or disabling leaves the full beginner path functional. The lab owns its own amplitudes, counts, history, and revision. It has no beginner-session dependency. No two-qubit system is implemented.
+
+The gold vector reuses the real 3D Bloch diagram. Its 350 ms movement is an illustrative display transition after an instantaneous mathematical operation, not a physical evolution model. Authoritative values commit immediately. Display epochs are monotonic across mode changes; mode boundaries snap to the exact state and reject held or canceled stale selections. Motion off snaps to the current state. Inspect Z adds a fixed axis, projection, and authoritative probability-height tick. Motion and Inspect Z never apply gates, consume model revisions, or clear a result.
+
+Ordinary interaction uses supported SIK/UIKit coordinate pinch in the actual native preview. LEAF provides separate simulated-interactor coverage. Mouse activation and physical glasses are unverified. No automatic surface detection or cross-session physical anchor is claimed.
+
+The optional lab adds no scientific mesh geometry or perpetual update loop. The display UpdateEvent is enabled only during a transition or brief feedback and disables when idle; meshes are built once, then transformed. Object, component, resource and geometry observations belong to the matching validation evidence. No unmeasured FPS, allocation, latency, battery, or hardware performance claim is made.
+
+The accepted QAR-008 build and video remain the fallback. This cycle creates native test captures, not a new demonstration recording. Owner review and platform uploads/submissions remain separate.

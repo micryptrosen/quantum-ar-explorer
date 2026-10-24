@@ -1,6 +1,7 @@
 # Competition-public source allowlist. Unlisted local files remain private.
 *
 !/.gitignore
+!/.gitattributes
 !/README.md
 !/THIRD_PARTY_NOTICES.md
 !/package.json
@@ -103,3 +104,26 @@
 !/native/QuantumARExplorer/Packages/SpectaclesUIKit.lspkg.meta
 !/native/QuantumARExplorer/QuantumARExplorer.esproj
 !/native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md
+
+# QAR-009 exact reviewed product additions; all other local artifacts stay private.
+!/native/QuantumARExplorer/Assets/Scripts/QuantumVisual/
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerGateLab.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerGateLab.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerGateScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerGateScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerTheme.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerTheme.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerVisualScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerVisualScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/gates.js
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/gates.js.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumVisual/transition.js
+!/native/QuantumARExplorer/Assets/Scripts/QuantumVisual/transition.js.meta
+!/native/QuantumARExplorer/devpost/QAR009_EVOLUTION.md
+!/src/gates.js
+!/src/visual-transition.js
+!/tests/gates.test.js
+!/tests/visual-transition.test.js
+!/tools/build-gate-lab.mjs
+!/tools/build-visual-transition.mjs

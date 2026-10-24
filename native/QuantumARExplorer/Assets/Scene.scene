@@ -7,8 +7,9 @@
     - !<own> 1bce9f5b-d9a4-42ce-b21b-d158f8f801a5
     - !<own> 55af9364-80d1-4fbc-860e-bf0ff0a0aebb
     - !<own> ddadfe92-9418-427d-b391-1ead7bfeab5b
-    - !<own> 37916fa7-429a-4a0a-b635-cbe58a58a49d
     - !<own> 63470541-c6cf-4ec8-a296-315777afb564
+    - !<own> 31238e78-9a25-462b-9d1e-394da288e45a
+    - !<own> 4e012bca-26af-4aa8-9a8d-2ee01c89db76
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -744,6 +745,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/31238e78-9a25-462b-9d1e-394da288e45a>
+  PrefabRemaps:
+    []
+  Name: LEAF Plugin Bridge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6c16f9a5-efb7-44f5-b61b-432fcaf453eb
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -831,21 +847,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/37916fa7-429a-4a0a-b635-cbe58a58a49d>
-  PrefabRemaps:
-    []
-  Name: LEAF Plugin Bridge
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> cd750a57-557e-4c3f-a311-4360d2f23c8a
 - !<SceneObject/38562bff-09c5-4232-bff1-7ea62a1e7ec5>
   PrefabRemaps:
     []
@@ -1011,6 +1012,21 @@
     []
   Components:
     - !<own> 5f153ad7-2baa-4fd9-a298-0dcfad86da3b
+- !<SceneObject/4e012bca-26af-4aa8-9a8d-2ee01c89db76>
+  PrefabRemaps:
+    []
+  Name: QAR Optional Gate Lab
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9a28b8fb-8209-43bf-80e1-ee52b7173eea
 - !<SceneObject/52ecefe4-5642-445a-ad16-52ce818076bc>
   PrefabRemaps:
     []
@@ -1298,6 +1314,22 @@
     - !<own> ca40734c-262f-48d3-affa-9f99cd2940f7
   Components:
     []
+- !<ScriptComponent/6c16f9a5-efb7-44f5-b61b-432fcaf453eb>
+  PrefabRemaps:
+    []
+  Name: MessagingBridge
+  Enabled: true
+  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/6c1f70d7-86d0-4972-b203-29780f8798e6>
   PrefabRemaps:
     []
@@ -1482,6 +1514,7 @@
       bitView: !<MappingBased.AssignableType_1> 58d0321a-a359-4256-8656-3dd89762ce6b
       blochView: !<MappingBased.AssignableType_2> bb816917-a5b8-48cc-a88f-912b65a2778f
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      optionalLab: !<MappingBased.AssignableType_3> 9a28b8fb-8209-43bf-80e1-ee52b7173eea
   ScriptTypes:
     "":
       {}
@@ -1722,6 +1755,22 @@
     - !<own> a4de4ce7-f468-4966-8a06-e29eea60c023
   Components:
     []
+- !<ScriptComponent/9a28b8fb-8209-43bf-80e1-ee52b7173eea>
+  PrefabRemaps:
+    []
+  Name: QuantumARExplorerGateLab
+  Enabled: true
+  ScriptAsset: !<reference> d7bd4af2-c5ed-4e2b-85a0-bcb3befeb723
+  ScriptInputsDefault:
+    featureEnabled: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      featureEnabled: true
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9c3a7929-faa9-4369-a85c-c75a6ab4eee7>
   PrefabRemaps:
     []
@@ -2216,22 +2265,6 @@
     index-2: !<reference> 2dae2a27-8ce6-466a-8bff-622195c1b3a8
     thumb-3_end_end_end_end: !<reference> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
     wrist_to_pinky: !<reference> 3b4f5057-b516-4d3b-9c8d-14c81af2f505
-- !<ScriptComponent/cd750a57-557e-4c3f-a311-4360d2f23c8a>
-  PrefabRemaps:
-    []
-  Name: MessagingBridge
-  Enabled: true
-  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/ce2213a1-7aa1-4201-a3c7-c2aaa06fd4ff>
   PrefabRemaps:
     []

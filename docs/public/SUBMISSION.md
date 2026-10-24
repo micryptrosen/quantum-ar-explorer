@@ -31,6 +31,11 @@ hardware; desktop verification uses simulated input.
 The diagram occupies open space beside a compact explanation card, with labeled
 0/1 poles, prominent stage progress and a separate interaction dock. This keeps
 the quantum state at the center of attention while its explanation stays readable.
+Inspect Z adds an axis and height projection that connect the 3D arrow to the
+probabilities. Brief arrow transitions can be turned off. After completing the
+beginner lesson, an optional X/H/Z gate lab offers a further discovery: states with
+the same Z-measurement odds can have different phase and produce different later
+outcomes. Returning preserves the beginner experiment exactly.
 
 ## Problem and audience
 
@@ -52,13 +57,16 @@ results. The goal is a brief moment of understanding through direct experimentat
 
 - Three guided teaching stages with Back and Restart.
 - Classical bit switching and qubit preparation in 0, 1, and equal superposition.
-- A 16 cm Bloch diagram with state direction, labels, and probabilities.
+- An 18 cm Bloch diagram with state direction, labels, and probabilities.
+- Interruptible 350 ms illustrative transitions and a motion-off control.
+- A spatial Z-axis/projection tool relating height to measurement probabilities.
 - Z-basis measurement, collapse, repeat measurement, and fresh-trial experiments.
 - Outcome counters, bounded history, a ten-trial action, and Clear Counts.
 - A probability challenge with explanatory feedback and a completion state.
 - Explicit manual world placement, Recenter, and reposition controls.
 - High contrast text, large targets, and information conveyed beyond color.
 - Protection against duplicate, canceled, stale, and remapped selections.
+- An optional isolated X/H/Z lab with complex amplitudes, phase and its own counts.
 
 ## Technical implementation and required tools
 
@@ -71,7 +79,8 @@ project's `devpost` folder.
 Seven dependency-free JavaScript modules own the scientific model, lesson,
 presentation, session, focus, random injection, and controls. Generated CommonJS
 copies run inside the Lens. TypeScript components adapt that model to UIKit/SIK
-and draw the parametric Bloch diagram. Render and input behavior remain separate
+and draw the parametric Bloch diagram. Separate rendering and gate modules add
+display interpolation and exact single-qubit matrices. Render and input behavior remain separate
 from scientific state. Native LEAF scenarios exercise real preview interactions,
 navigation, experiment preservation, and cancellation/recovery.
 
@@ -90,17 +99,22 @@ first quantum learning application.
 
 The design process emphasized deliberate world placement, readable targets,
 concise explanations, and the difference between a probability before measurement
-and a definite state afterward. Native testing also exposed the need to preserve
-all controls when paging and to reject releases from a changed view.
+and a definite state afterward. The axis projection makes a spatial relationship
+inspectable. The optional H-Z-H versus H-H experiment gives phase a visible
+consequence. Native testing also exposed the need to preserve all controls when
+paging, reject releases from a changed view, and isolate independent revision
+counters when returning from the lab.
 
 ## Verification and limits
 
-The finishing pass passed 49 offline application tests and 108 local commit-guard tests.
-Three native LEAF scenarios passed in both the canonical project and a source-only
-reconstruction. The current finishing pass and its exact results are reported in
+The scientific suite includes complex-state gate identities, phase-sensitive
+sequences, normalization, collapse, animation interruption and recovery. The
+original native scenarios and added visual/lab scenarios exercise the real preview.
+The current product checkpoint and its exact results are reported in
 [verification](VERIFICATION.md). Judging setup is in [Open and test](OPEN_AND_TEST.md). The preferred local demo
-is a 2:45 silent landscape cut with concise English captions, genuine preview
-camera motion and a labeled simulated environment. Current coordinate-pinch
+remains the preserved QAR-008 2:45 silent landscape fallback while the new QAR-009
+demonstration is prepared. It contains genuine preview camera motion and a labeled
+simulated environment. Current coordinate-pinch
 input and LEAF passed; mouse activation in the landscape setup remains unverified.
 
 No physical SPECS glasses test has occurred. Preview testing establishes simulated

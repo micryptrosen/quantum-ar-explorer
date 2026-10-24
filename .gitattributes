@@ -1,0 +1,10 @@
+# Native parity uses literal scientific-source bytes; preserve them on every checkout.
+src/quantum.js -text
+src/lesson.js -text
+src/presentation.js -text
+src/session.js -text
+src/focus.js -text
+src/random.js -text
+src/controls.js -text
+src/visual-transition.js -text
+src/gates.js -text

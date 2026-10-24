@@ -5,6 +5,9 @@ Studio MCP operations. Lens Studio 5.23.2 compiled and ran the three-stage lesso
 The first working milestone was a supported preview pinch changing the bit from 0
 to 1. Three native LEAF scenarios passed lesson flow, simulated IK selection and
 navigation/experiment preservation with stale/canceled input checks.
+The QAR-009 evolution adds rendering transitions, spatial axis inspection, a
+project-owned UIKit theme, an isolated optional gate lab and two new native
+scenarios. [Verification](VERIFICATION.md) reports the current exact results.
 Hardware comfort and hand tracking remain untested.
 
 ## Architecture
@@ -24,10 +27,20 @@ Stable objects are reused during redraw to avoid destroying SIK's active target.
 
 `QuantumARExplorerBlochMesh.ts` renders parametric circles and a state vector.
 Mathematical Bloch coordinates `(x,y,z)` map to Lens world `(x,z,-y)`, preserving
-handedness with mathematical north displayed upward. The initial diameter is 16 cm.
+handedness with mathematical north displayed upward. The current diameter is 18 cm,
+refined from the original 16 cm target under the owner's QAR-009 visual scope.
 This is a mathematical state diagram and classical simulation, not a particle path
 or the physical shape of a qubit. Probability labels describe the current state;
 experiment counts describe observed measurements.
+
+`visual-transition.js` and its generated native helper interpolate only the display
+direction. Scientific probabilities commit immediately. The native UpdateEvent
+disables after motion/brief feedback; it rotates an existing arrow mesh.
+`QuantumARExplorerGateLab.ts` owns the optional lab's separate generated `gates.js`
+controller. Native display epochs bridge its revision namespace and the beginner
+controller. UIKit theme registration uses project-owned styles and the public
+ThemeService API without editing the vendor package. The original core and
+beginner controller remain intact.
 
 The native LEAF scenario index registers visible-text lesson assertions and
 simulated IK selection. Native preview calls additionally inspect real scene bounds,
@@ -37,8 +50,11 @@ coverage and do not substitute for those native checks.
 ## Placement and interaction targets
 
 The approved design calls for explicitly labeled manual placement of a stable
-world-space teaching station, an initial distance of 110 cm, a 16 cm Bloch sphere,
-and approximately 6 cm interactive targets. The scene does not recognize tables.
+world-space teaching station, an initial distance of 110 cm and approximately
+6 cm interactive targets. The original 16 cm sphere target and subsequent 18 cm
+implementation refinement are recorded in the preserved brief and
+[QAR-009 addendum](../../native/QuantumARExplorer/devpost/QAR009_EVOLUTION.md).
+The scene does not recognize tables.
 SIK/UIKit selection is used; gaze-only activation is not a dependency. The main
 lesson is designed for supported hand selection without a phone or keyboard.
 

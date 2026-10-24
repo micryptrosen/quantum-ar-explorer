@@ -31,6 +31,7 @@
     bitView: false
     blochView: false
     camera: false
+    optionalLab: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -43,6 +44,7 @@
     - bitView: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
       blochView: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
       camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      optionalLab: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -50,3 +52,4 @@
     - '// @input AssignableType_1 bitView {"hint":"Authored UIKit bit view, wired in scene Phase B"}'
     - '// @input AssignableType_2 blochView {"hint":"Authored parametric Bloch visualization"}'
     - '// @input SceneObject camera {"hint":"World tracked viewing camera for explicit manual recenter only"}'
+    - '// @input AssignableType_3 optionalLab {"hint":"Optional removable Gate Lab controller; omission preserves the complete beginner path"}'

@@ -6,6 +6,7 @@ import {ElementContent} from 'SpectaclesUIKit.lspkg/Scripts/Components/Content/E
 import {FlexLayout} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexLayout';
 import {FlexItem} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexItem';
 import {FlexDirection, FlexAlign, FlexAlignSelf, FlexJustify} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexTypes';
+import {installQARTheme} from './QuantumARExplorerTheme';
 const TYPE_SCALE={Title1:{size:420,weight:700},Heading:{size:93,weight:700},Body:{size:48,weight:500},Caption:{size:38,weight:500}};
 function applyTextRole(t:Text,role:keyof typeof TYPE_SCALE):void{t.size=TYPE_SCALE[role].size;(t as Text & {weight?:number}).weight=TYPE_SCALE[role].weight;}
 @component
@@ -16,6 +17,18 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   panelWidth:number=52;
   public onDiagramLayout=new Event<vec3>();
   public onPlacement=new Event<string>();
+  public onDisplay=new Event<{motion:boolean,inspect:boolean}>();
+  private motion=true;
+  private inspect=false;
+  private motionNotice='';
+  private feedback='';
+  public displayFeedback(notice:string,feedback:string):void {
+    this.motionNotice=notice;this.feedback=feedback;
+    if(this.texts.VisualNotice)this.texts.VisualNotice.text=notice||feedback;
+  }
+  private displayChange():void {
+    this.onDisplay.invoke({motion:this.motion,inspect:this.inspect});this.paint(this.pending);
+  }
   private positioning=false;
   private controlPage=0;
   private paintedStage='';
@@ -35,11 +48,13 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private texts:{[key:string]:Text}={};
   private slots:{so:SceneObject,ec:ElementContent,action:any,lesson:boolean}[]=[];
   private repaint:DelayedCallbackEvent;
-  onAwake():void{this.sceneObject.createComponent('Component.Canvas');this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
+  onAwake():void{installQARTheme();this.sceneObject.createComponent('Component.Canvas');this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
   public render(model:any):void {
     // Invalidate immediately, including the delay before the next visual paint.
     this.viewEpoch++;
-    this.pending=model;this.repaint.reset(0.2);
+    this.pending=model;
+    if(this.content){this.repaint.enabled=false;this.paint(model);}
+    else {this.repaint.enabled=true;this.repaint.reset(0.2);}
   }
   private paint(model:any):void {
     if(!model)return;
@@ -48,26 +63,31 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     if(!this.content){
       this.content=this.obj(this.sceneObject,'LessonContent',new vec3(0,0,0.6));
       // Open scientific station: no monolithic backing behind the 3D diagram.
-      const flex=this.flex(this.content,FlexDirection.Column,this.panelWidth,58,0.6);
+      const flex=this.flex(this.content,FlexDirection.Column,this.panelWidth,68,0.3);
       flex.onLayoutComplete.add(()=>{const anchor=this.texts.BitValue;if(anchor)this.onDiagramLayout.invoke(anchor.sceneObject.getTransform().getWorldPosition());});
       this.label(this.content,flex,'Heading','',4,'Heading');
-      const hero=this.cell(this.content,flex,'ScientificStage',this.panelWidth,26);
-      const hf=this.flex(hero,FlexDirection.Row,this.panelWidth,26,2.2);
-      const diagram=this.cell(hero,hf,'DiagramCell',20,26);
-      const df=this.flex(diagram,FlexDirection.Column,20,26,0);
+      const hero=this.cell(this.content,flex,'ScientificStage',this.panelWidth,28);
+      const hf=this.flex(hero,FlexDirection.Row,this.panelWidth,28,2.2);
+      const diagram=this.cell(hero,hf,'DiagramCell',24,28);
+      const df=this.flex(diagram,FlexDirection.Column,24,28,0);
       this.label(diagram,df,'NorthPole','',2,'Caption');
-      this.label(diagram,df,'BitValue','',22,'Title1');
+      this.label(diagram,df,'BitValue','',24,'Title1');
       this.label(diagram,df,'SouthPole','',2,'Caption');
       df.onLayoutComplete.add(()=>this.onDiagramLayout.invoke(this.texts.BitValue.sceneObject.getTransform().getWorldPosition()));
-      const card=this.cell(hero,hf,'StateCard',this.panelWidth-22.2,22);
+      const card=this.cell(hero,hf,'StateCard',this.panelWidth-26.2,22);
       this.plate=card.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='dark';
       const inner=this.obj(card,'StateContent',new vec3(0,0,0.6));
-      const sf=this.flex(inner,FlexDirection.Column,this.panelWidth-22.2,22,1);
+      const sf=this.flex(inner,FlexDirection.Column,this.panelWidth-26.2,22,1);
       sf.paddingLeft=1;sf.paddingRight=1;sf.paddingTop=1;sf.paddingBottom=1;
       sf.onLayoutComplete.add(r=>{this.plate.size=new vec2(r.containerWidth,r.containerHeight);});
       this.label(inner,sf,'Explanation','',7,'Body');
       this.label(inner,sf,'StateStatus','',11,'Body');
       this.label(this.content,flex,'ExperimentCounts','',2,'Body');
+      this.label(this.content,flex,'VisualNotice','',2,'Caption');
+      const instruments=this.cell(this.content,flex,'DisplayInstruments',this.panelWidth,8.2);
+      const inf=this.flex(instruments,FlexDirection.Row,this.panelWidth,6,2.2);
+      this.button(instruments,inf,'inspect-axis','Inspect Z: off',(this.panelWidth-2.2)/2,()=>{this.inspect=!this.inspect;this.displayChange();},false);
+      this.button(instruments,inf,'motion','Motion: on',(this.panelWidth-2.2)/2,()=>{this.motion=!this.motion;this.displayChange();},false);
       for(let rowIndex=0;rowIndex<2;rowIndex++){
         const row=this.obj(this.content,'ControlRow');const rowItem=row.createComponent(FlexItem.getTypeName()) as FlexItem;
         rowItem.overrideHeight=8.2;rowItem.flexShrink=0;flex.addItems([rowItem]);
@@ -81,18 +101,27 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       this.button(placementRow,pf,'reposition','Reposition',(this.panelWidth-2.2)/2,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
       this.label(this.content,flex,'Placement','Manual placement - table stand-in',2,'Caption');
     }
+    const inspectSlot=this.slots.find(slot=>slot.so.name==='QAR inspect-axis');if(inspectSlot)inspectSlot.ec.text=this.inspect?'Inspect Z: on':'Inspect Z: off';
+    const motionSlot=this.slots.find(slot=>slot.so.name==='QAR motion');if(motionSlot)motionSlot.ec.text=this.motion?'Motion: on':'Motion: off';
+    this.texts.VisualNotice.text=this.motionNotice||this.feedback;
     const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};
     this.texts.Heading.text=(progress[model.stage]?progress[model.stage]+'  ':'')+model.title;
-    this.texts.Explanation.text=this.wrap(model.stage==='qubit'?'Mathematical Bloch diagram.\nGold arrow = prepared state.':model.stage==='measurement'?'Prepare. Measure. Repeat.\nFresh trials sample again.':model.stage==='complete'?'BIT → QUBIT → MEASUREMENT\nThree stages explored.':model.explanation,32);
+    this.texts.Explanation.text=this.wrap(model.stage==='bit'?'Explore quantum states in 3D.\nChange 0 / 1, then choose Next.':model.stage==='qubit'?(this.inspect?'Z axis: 0 north, 1 south.\nHeight gives Z probabilities.':'Mathematical Bloch diagram.\nGold arrow = current state.'):model.stage==='measurement'?'Prepare. Measure. Repeat.\nFresh trials sample again.':model.stage==='complete'?'BIT → QUBIT → MEASUREMENT\nThree stages explored.':model.explanation,32);
     this.texts.NorthPole.text=model.stage==='bit'?'CLASSICAL BIT':'0  ·  NORTH';
     this.texts.SouthPole.text=model.stage==='bit'?'TWO DISTINCT VALUES':'1  ·  SOUTH';
     this.texts.BitValue.text=model.stage==='bit'?String(model.visual.bit.value):'';
     const state=model.stage==='bit'?'Change the bit, then choose Next.':model.stage==='challenge'?(model.challenge.feedback||'Fresh equal superposition: what are the chances?'):model.stage==='complete'?'You did it! Restart to explore again.':model.measurement.probabilityText+'\n'+model.measurement.status;
     const basis=model.measurement.collapsed?(model.measurement.result===0?'zero':'one'):model.measurement.preparation;
     const vector=basis==='zero'?'|psi> = |0>':basis==='one'?'|psi> = |1>':'|psi> = (|0> + |1>) / sqrt(2)';
-    this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'\n':'')+state,32);
+    this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'\n':'')+state+(this.inspect&&model.stage!=='bit'?'\nZ height: '+model.visual.sphere.arrow.to.z.toFixed(2):''),32);
+    if(model.lab){
+      const l=model.lab;
+      const complex=(z:any)=>z.re.toFixed(3)+(z.im<0?' - ':' + ')+Math.abs(z.im).toFixed(3)+'i';
+      this.texts.Explanation.text='Try H, Z, H from 0: discover 1.\nH, H instead returns 0.\nZ changes phase, not Z odds.';
+      this.texts.StateStatus.text='Amplitudes (rounded 3 dp)\nα = '+complex(l.state.alpha)+'\nβ = '+complex(l.state.beta)+'\nP0 '+(100*l.probabilities.zero).toFixed(1)+'% · P1 '+(100*l.probabilities.one).toFixed(1)+'%\nRelative phase: '+(l.phaseRadians===null?'undefined':l.phaseRadians.toFixed(3)+' rad')+'\n'+(l.result===null?l.lastOperation:'Measurement result: '+l.result)+ (this.inspect?'\nZ height: '+l.bloch.z.toFixed(2):'');
+    }
     this.texts.Heading.textFill.color=model.stage==='complete'?new vec4(1,0.8,0.2,1):new vec4(0.3,0.94,0.88,1);
-    this.texts.ExperimentCounts.text='Measurements: '+model.experiment.trials+'    0: '+model.experiment.counts[0]+'    1: '+model.experiment.counts[1];
+    this.texts.ExperimentCounts.text=(model.lab?'Lab measurements: ':'Measurements: ')+model.experiment.trials+'    0: '+model.experiment.counts[0]+'    1: '+model.experiment.counts[1];
     const enabled=model.controls.filter((c:any)=>c.enabled);
     const pageCount=enabled.length>6?Math.ceil(enabled.length/5):1;
     this.controlPage=Math.min(this.controlPage,pageCount-1);
@@ -123,10 +152,11 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     const so=this.obj(parent,'QAR '+id);const item=so.createComponent(FlexItem.getTypeName()) as FlexItem;
     item.overrideHeight=6;item.overrideWidth=width;item.flexShrink=0;
     const btn=so.createComponent(Button.getTypeName()) as Button;btn.size=new vec3(width,6,1);
-    btn.setVariant({theme:'SnapOS2',shape:'Rectangle',style:lesson?'Primary':'Secondary'});
-    const labelSO=this.obj(so,'ButtonLabel',new vec3(0,0,0.08));
+    // Public inherited resolution selects the registered project-owned theme.
+    btn.setVariant({theme:'Inherited'});
+    const labelSO=so; // Companion mode resolves the button theme and contrast.
     const ec=labelSO.createComponent(ElementContent.getTypeName()) as ElementContent;
-    ec.text=label;ec.textSize=39;ec.sizeOverride=new vec2(width-0.8,5);ec.contentAlignment='center';
+    ec.text=label;ec.textSize=43;ec.sizeOverride=new vec2(width-0.8,5);ec.contentAlignment='center';
     const slot={so,ec,action:null as any,lesson};this.slots.push(slot);
     const actionCallback=action;
     let pressed:any=null;let down=false;let availableAt=0;
@@ -148,7 +178,6 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     });
     // Element.interactable is available only after UIKit initialization (installed Element.ts).
     btn.onInitialized.add(()=>{
-      labelSO.getTransform().setLocalPosition(new vec3(0,0,btn.contentZOffset+0.08));
       btn.interactable.onTriggerCanceled.add(cancel);
       btn.interactable.onTriggerEndOutside.add(cancel);
     });

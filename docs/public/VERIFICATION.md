@@ -1,93 +1,110 @@
-# Verification of the presentation pass
+# Verification of the immersive product checkpoint
 
-QAR-008, October 23, 2026. Native preview, offline regression and physical-device
-work are distinguished below. Earlier QAR-007 records remain preserved.
+QAR-009, October 23, 2026. The QAR-008 source build and 2:45 landscape video
+remain preserved. This report distinguishes native preview, mathematical checks
+and work requiring physical glasses.
 
-## Visual and scientific review
+## Product changes
 
-The mathematical Bloch diagram now occupies open space beside a compact state
-card, with a separate interaction dock. Prominent teal stage headings and counts,
-a large blue bit, labeled 0/north and 1/south poles, clearer cyan rings, a restrained
-gold state arrow, and a gold completion heading strengthen the visual hierarchy.
-Public UIKit button variants retain standard targeting feedback.
+The open 3D station retains a compact explanation card and separate controls.
+The Bloch cage grows from 16 to 18 cm; pole labels gain vertical space. The
+station is 52 cm wide, initially 110 cm away. Controls retain 6 cm height and at
+least 2.2 cm gaps. Project-owned charcoal/cyan styles add clear borders, brighter
+hover and gold press feedback through the public UIKit theme API. Label size
+increases from 39 to 43 Lens units. Vendor packages remain byte-identical.
 
-The initial viewing distance is 110 cm. The sphere's outer diameter remains 16 cm;
-controls are 6 cm high with at least 2.2 cm gaps. The panel is 52 cm wide, with
-space reserved around the diagram. No scientific algorithm, generated core,
-interaction guard, scenario assertion, vendor package or render resource changed.
-The existing 0.5-second placement settling guard remains intact.
+Preparation and measurement have brief, interruptible 350 ms arrow transitions.
+The scientific model commits immediately; probability text remains authoritative,
+and an on-screen notice identifies the illustrative arc. The path is not a
+physical evolution simulation. Motion off snaps to the current state. Measurement
+results persist until the appropriate next operation. Fresh-trial feedback
+explicitly distinguishes preparing again from repeating a collapsed measurement.
 
-Preparation, Z-basis probabilities, collapse, repeated certainty, fresh preparation
-and explanatory challenge feedback remain scientifically accurate. This is a
-classical single-qubit simulation. The sphere is a mathematical state diagram.
-Small samples are not guaranteed to split evenly.
+Inspect Z adds a real 3D measurement axis, projection and height tick. The current
+Bloch height relates to P(0)=(1+z)/2 and P(1)=(1-z)/2. Viewpoint motion changes the
+view of the fixed station, while manual Recenter deliberately moves it. Neither
+axis inspection nor the motion preference changes scientific state or samples.
+
+After the three-stage beginner lesson and challenge, the optional Gate Lab offers
+X, H, Z, Measure, Reset Lab and Return Lesson. It owns separate state, counts and
+revisions, and preserves the beginner snapshot on return. Complex amplitudes,
+rounded probabilities and relative phase are shown explicitly. H-Z-H from 0 gives
+1, while H-H gives 0; the intervening Z changes phase without changing Z-basis
+odds. Relative phase is undefined when either amplitude is zero. The component
+can be disabled or detached to retain the full beginner experience.
 
 ## Completed checks
 
 | Check | Result |
 |---|---|
-| Offline application suite | 49 passed, 0 failed |
-| Local publication-guard suite | 108 passed, 0 failed |
-| Native scientific modules | All seven match source |
+| Offline application suite | 82 passed, 0 failed, none skipped |
+| Local publication-guard suite | 127 passed, 0 failed |
+| Original native scientific modules | All seven match source exactly |
 | Additional native-model checks | 20 model cases and 11 stale-callback comparisons passed |
-| Canonical native preview | Compiled, refreshed and running; no errors in final refresh logs |
-| Canonical LEAF | 3 passed, 0 failed |
-| Fresh native reconstruction LEAF | 3 passed, 0 failed |
-| Exact native resource parity | All 53 resources match the actual tested reconstruction |
-| Read-only source review | No material findings; no runtime or hardware verification claimed |
+| Final canonical native LEAF | 5 passed, 0 failed |
+| Fresh source-only reconstruction LEAF | 5 passed, 0 failed |
+| Canonical/reconstruction parity after tests | All 68 files match byte for byte |
+| Independent source review | No material findings in the scoped implementation/control files |
 
-The scenarios retain their original IDs: `qar006-lesson-flow`,
-`qar006-ik-bit-selection`, and `qar006-native-preservation`. QAR-008 did not change
-their sources or weaken assertions. They cover stages, preparation, measurement,
-fresh trials, counters, control pages, challenge answers, completion, Back,
-Restart, stale/canceled input, placement settling and recovery.
+The original scenario IDs and sources remain unchanged: `qar006-lesson-flow`,
+`qar006-ik-bit-selection`, and `qar006-native-preservation`. New scenarios are
+`qar009-visual-spatial-contracts` and `qar009-optional-gate-lab`. They cover
+interruption and endpoints, reduced motion, display-only tools, X/H/Z and collapse,
+cancellation, held input across mode boundaries, exact beginner-state restoration,
+and the feature-disabled beginner path. The new source manifest includes
+`.gitattributes`, the public planning brief and the implementation addendum;
+QAR-008's earlier 53-file runtime/project proof omitted the first two, which were
+already published. Counts therefore use explicitly different inventory scopes.
 
-Ordinary coordinate-pinch input then completed the recorded walkthrough. Its
-actual first measurement was 1; repetition stayed 1. Ten fresh trials produced
-12 accumulated measurements, 6 zeros and 6 ones. Placement preserved those counts.
-Incorrect/correct challenge answers, completion and Restart were observed;
-Restart cleared the counts. Those are observed outcomes, not promised results.
+The mathematical gate checks include independent Bloch identities for 59 complex
+states, global-phase invariance, involutions, H-Z-H versus H-H, tiny nonzero phase,
+12,000-operation normalization, immutable snapshots, stale sampling, reentrancy,
+invalid-sampler rollback and recovery. Separate native parity checks compare the
+generated rendering and gate helpers with source.
 
-Named-target automation reported a button's own child collider as an obstruction.
-It was not forced through or disabled. Coordinate pinch at freshly queried visible
-control centers worked. Mouse probes showed hover but did not activate controls
-in the current landscape setup. Mouse activation remains unverified for this
-presentation pass; the earlier pass's mouse result is not reused as current proof.
+Early native lab runs exposed an unsupported display event name and a Return path
+that advanced the beginner revision. Both were corrected before the final five
+scenario runs. Original assertions were preserved. Failed attempts and diagnostic
+captures are retained locally rather than counted as successful verification.
 
-A camera-only translation and orbit left station and sphere world transforms
-unchanged. Deliberate Recenter moved the station relative to the new viewpoint.
-Manual movement preserved the experiment. Furniture-facing room fixtures were
-rejected for recording; the installed Sunlit Outdoor fixture provided clear space.
-Earlier failed attempts remain in local evidence, separate from final passing runs.
+## Performance observations
 
-## Demonstration
+The authored diagram topology has 3,528 triangles and 3,528 vertices, 36 more than
+QAR-008. The optional lab adds no diagram geometry. Idle ABC and lab-enabled
+comparison previews returned 249 and 250 scene objects, respectively, with the
+same 31 exposed RenderMeshVisual labels. The additional lab controller explains
+the extra object. Inspector labels are not a physical component census.
 
-The preferred local video is `Quantum-AR-Explorer-QAR008-demo-final.mp4`:
-165.000 seconds (2:45), H.264, 1920 by 1080, 30 frames per second, 4,950 frames.
-It is silent with large English captions; no recorded narration or music is claimed.
-The entire export decoded without errors. The earlier valid QAR-007 video and
-all new raw takes are retained locally.
+Meshes are built once and transformed during motion. The display UpdateEvent
+disables after animation or brief feedback; it does not run continuously while
+idle. No frame-time, input-latency, allocation, battery or device benchmark was
+measured. Passing preview interactions and small static budgets are not an FPS
+or hardware-performance guarantee.
 
-The built-in recorder captured genuine 2984 by 1590 Lens Studio preview footage.
-The opening shows actual camera orbit around the fixed station, explicitly labeled
-as an excerpt before the guided Bit → Qubit → Measurement lesson. The edit trims
-idle intervals, with no speed change, fabricated state, still-image pan or composite
-AR scene. The original native frame is uncropped and scaled to fit the landscape
-canvas; title and captions sit in added margins. Sunlit Outdoor is a simulated
-Lens Studio environment. No physical SPECS footage is represented.
+## Demonstration and limits
 
-The video and screenshot expose only preview content, with no editor chrome,
-credentials or private system details. Public source excludes local media,
-governance, memory, receipts, keys, caches and private settings. No platform video
-upload or Devpost submission has occurred. GitHub Actions remain disabled.
+The current retained fallback is `Quantum-AR-Explorer-QAR008-demo-final-v2.mp4`:
+165 seconds, 1920 by 1080, H.264, 30 fps, silent with English captions. Its full
+export decoded successfully and remains hash-verified. It depicts the earlier
+QAR-008 product. A new genuine QAR-009 demonstration is being prepared; it is not
+yet represented as recorded or validated by this product checkpoint.
 
-## Practical limits
+Coordinate pinch at fresh visible control centers and LEAF simulated IK are the
+verified native input routes. Named-target automation reported the button's own
+child collider as obstructing the target; it was not forced through. Mouse probes
+showed hover without activation in the landscape setup. Mouse activation remains
+unverified. Timed native render-target captures show differing arrow poses, but
+those diagnostic images contain LEAF overlays and distorted target aspect; they
+are not the public demonstration or proof that request metadata and pixels share
+an exact instant.
 
-No physical SPECS glasses test has occurred. Real hand tracking, comfort, lighting,
-additive-display contrast and on-device performance remain untested. Translucent
-UIKit controls depend on the environment; no frame-rate benchmark is claimed.
-World controls require looking back if the station leaves view. Placement is
-manual, with no automatic surface detection or persistent cross-session anchor.
+No physical SPECS test or novice user study has occurred. Real hand tracking,
+wearer comfort, additive-display contrast, lighting robustness and device
+performance remain untested. Charcoal simulation surfaces do not establish an
+opaque black backing on an additive display. Look back toward world controls if
+the station leaves view. Placement is manual, with no table recognition or
+cross-session physical anchor. No Lens, YouTube video or Devpost entry has been
+uploaded or submitted. Public source excludes local evidence and private setup.
 
-See [Open and test](OPEN_AND_TEST.md), [submission copy](SUBMISSION.md),
-[the timed script](DEMO_SCRIPT.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).
+See [Open and test](OPEN_AND_TEST.md), [science criteria](SCIENCE_AND_ACCEPTANCE.md),
+[submission copy](SUBMISSION.md) and [third-party notices](../../THIRD_PARTY_NOTICES.md).

@@ -4,19 +4,28 @@ An educational augmented-reality project for the general public, including peopl
 with no quantum computing background. Intended for Snap SPECS and the Learn AR with
 SPECS competition.
 
-The experience introduces a classical bit, a qubit on a Bloch sphere, then
-state preparation, measurement and a short probability challenge.
+Turn an ordinary view into a miniature laboratory for understanding quantum states.
+Explore a classical bit, prepare a qubit, measure it and discover why repeating a
+measurement differs from preparing a fresh experiment. After the three-stage lesson,
+an optional gate lab reveals how phase can change a later outcome.
 
 ## Current development status
 
 This repository contains a dependency-free scientific simulation, complete offline lesson
 engine, accessible presentation models and a host session/focus boundary. It supports
 back/restart, fresh-trial experiments, bounded history, challenge feedback and recovery.
-The native SPECS project is in `native/QuantumARExplorer`. The three stages,
-measurement, counts, challenge, completion and restart have run in Lens Studio
-5.23.2 preview using SIK/UIKit controls. Three native LEAF scenarios passed for
-lesson flow, simulated IK selection and preservation/cancellation. Physical glasses comfort and
-hand tracking have not been tested. This is not a completed competition submission.
+The native SPECS project is in `native/QuantumARExplorer`. Its open 3D station uses
+an 18 cm Bloch sphere, brief interruptible arrow transitions, a measurement-axis
+inspection tool and project-owned charcoal/cyan/gold UIKit styling. The station
+stays fixed as the simulated viewpoint moves; manual Recenter deliberately moves it.
+Motion can be turned off without changing the science.
+
+The optional X/H/Z lab has its own state and counters, displays complex amplitudes
+and phase, and returns to the preserved completed lesson. Try H-Z-H from 0, then
+compare H-H. The native components use supported SIK/UIKit controls in Lens Studio
+5.23.2. See [verification](docs/public/VERIFICATION.md) for exact native and
+reconstruction results. Physical glasses comfort and hand tracking have not been
+tested. This is not a completed competition submission.
 
 ## Run the available tests
 
@@ -48,9 +57,10 @@ for native scenarios, package provenance and current limits, and the
 
 <img src="docs/public/preview-spatial.png" width="880" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
 
-Genuine desktop preview in Lens Studio's simulated Sunlit Outdoor environment.
-The open diagram, compact state card and separate controls share a world station.
-Physical glasses testing has not occurred.
+Historical QAR-008 desktop preview in Lens Studio's simulated Sunlit Outdoor
+environment. It is retained while the QAR-009 demonstration is prepared. Current
+source adds state transitions, axis inspection, stronger control borders and the
+optional gate lab. Physical glasses testing has not occurred.
 
 The [submission package](docs/public/SUBMISSION.md) explains the product, audience,
 spatial design, implementation, disclosures, and remaining owner steps. Use the

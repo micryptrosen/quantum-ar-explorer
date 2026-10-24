@@ -15,6 +15,8 @@ language support, coordinate conversion and rendering still require native valid
 | focus.js | Optional host-independent focus/dwell policy; no native tracking source provided |
 | random.js | Repeatable seeded simulation; not cryptographic or physical randomness |
 | controls.js | Live control-ID routing, rendered revisions, input availability and callback invalidation |
+| visual-transition.js | Rendering-only, interruptible Bloch-arrow interpolation with separate display revisions |
+| gates.js | Isolated optional X/H/Z laboratory, complex amplitudes, phase and Z measurement |
 
 ## State and navigation
 
@@ -56,7 +58,9 @@ The renderer receives a fresh presentation model with text alternatives, enabled
 controls, stable IDs, focus order, progress, logical sphere/arrow descriptions and
 reduced-motion settings. Coordinates are unit Bloch coordinates, not Lens scene units.
 Adapters must map mathematical +Z to the displayed 0 pole and verify handedness.
-Reduced motion defaults on; color, audio and animation are never required to read state.
+The host-independent presentation model defaults to reduced motion. The native
+view starts with Motion on and provides a Motion off control; color, audio and
+animation are never required to read state.
 
 Invalid actions preserve the lesson. A failed batch preserves application state;
 external sampler calls already made are not rewound. A renderer failure after a valid
@@ -100,3 +104,35 @@ display. A render failure after measurement still requires `refresh()`; it does 
 authorize replaying the old measurement. Reentrant input during rendering is denied.
 Native input events and tracking availability still require a verified SDK adapter;
 this module does not provide or claim gaze, hand tracking or SIK integration.
+
+## Visual transitions and optional gates
+
+`createVisualTransition` interpolates unit directions over 0.35 seconds by default.
+Its arc illustrates a change between committed states; it does not simulate a
+physical trajectory or a preparation Hamiltonian. Probabilities and measurement
+results always come from the authoritative model. New targets interrupt from the
+currently displayed pose. Duplicate/stale revisions cannot replay a transition;
+hidden, reset and reduced-motion updates can snap directly to the real endpoint.
+Native display epochs remain monotonic when switching between lesson and lab,
+whose scientific revision counters are independent.
+
+`applyGate(state, gate)` accepts `X`, `H` or `Z`, returning a new normalized complex
+state. `relativePhase(state)` returns arg(beta) minus arg(alpha), in (-pi, pi], or
+`null` if either amplitude is exactly zero. A tiny nonzero amplitude still has a
+defined relative phase. Global phase does not affect probabilities or the Bloch
+direction.
+
+`createGateLab({random})` owns an independent state and exposes `snapshot()` and
+`dispatch(action, renderedRevision)`. Actions are `X`, `H`, `Z`, `measure` and
+`reset`. A stale revision consumes no randomness. Accepted operations expire that
+revision before sampling; an invalid sampler preserves state and counts while
+consuming the revision, and the lab can then reset and recover. Reentrant actions
+are rejected. Snapshots cannot mutate internal state, and history retains at most
+16 operations. Gates clear the previous result while retaining accumulated lab
+counts; Reset Lab clears only that experiment.
+
+The native lab is optional after beginner completion. Enter and Return preserve
+the beginner lesson's state, revision, measurements and challenge. Its component
+can be disabled or detached without changing the beginner controller. Motion and
+axis inspection are display preferences and do not sample or advance either
+scientific model. The lab sends no learner data to a service.

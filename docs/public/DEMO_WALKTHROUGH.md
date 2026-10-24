@@ -1,9 +1,11 @@
 # Preview demonstration outline
 
-Preferred recorded cut: **2 minutes 45 seconds**, leaving room below the competition's
+Preserved QAR-008 fallback cut: **2 minutes 45 seconds**, leaving room below the competition's
 [three-minute video limit](https://learn-specs.devpost.com/resources). Record the
 actual Lens Studio preview. Local recording and platform upload are separate steps;
 the owner handles upload. This outline does not represent an uploaded entry.
+It describes the historical fallback; a new demonstration of the QAR-009 features
+is being prepared.
 
 Use the complete [timed narration](DEMO_SCRIPT.md) and
 [recording procedure](RECORDING_GUIDE.md). Actual capture status and measured

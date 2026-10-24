@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/1bb1b588-3bb5-4154-9cf1-513ed8f6f969>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d7bd4af2-c5ed-4e2b-85a0-bcb3befeb723
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d7bd4af2-c5ed-4e2b-85a0-bcb3befeb723
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 4008b716-7ebe-4179-baf7-b64ed3a7a5b5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/4008b716-7ebe-4179-baf7-b64ed3a7a5b5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 296cd9b5-6305-442a-abce-8d1cb9d00fd0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    featureEnabled: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - featureEnabled: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool featureEnabled = true {"hint":"Offer the optional one-qubit lab only after beginner completion"}'

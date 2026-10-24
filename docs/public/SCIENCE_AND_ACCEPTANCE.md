@@ -15,7 +15,7 @@ Offline tests cover basis certainty, superposition, collapse, phase, sphere coor
 input validation and lesson flow. The seeded 10,000-trial smoke test uses an interval
 of 4,700–5,300 ones. It is a regression check rather than proof of randomness quality.
 
-The native preview and three LEAF scenarios verified:
+The original native preview scenarios verify:
 
 - All three teaching stages work without runtime errors.
 - Preparation labels, probabilities, sphere arrow and outcomes agree.
@@ -30,3 +30,26 @@ callbacks cannot repeat a measurement or skip stages. Offline tests additionally
 cover lost-input recovery and deterministic injected trials. An offline test is not
 a native tracking or physical-device test. No physical glasses comfort, persistent
 real-world anchor or automatic surface detection is claimed.
+
+The optional single-qubit lab adds the exact Pauli-X, Hadamard and Pauli-Z matrices.
+X swaps basis states. H maps 0 to positive equal superposition and 1 to negative
+equal superposition. Z changes relative phase without changing Z-basis odds.
+Starting at 0, H-Z-H gives a certain 1; H-H gives a certain 0. This contrast makes
+phase observable through a subsequent gate, without describing phase as an
+immediate change in Z-measurement probabilities. Relative phase is undefined when
+one amplitude is zero. Displayed amplitudes and percentages are explicitly rounded.
+
+Tests independently check Bloch rotation identities for 59 complex states,
+involutions, global-phase invariance, normalization over 12,000 operations,
+phase-sensitive sequences, collapse, injected sampling, stale input and recovery.
+The native lab imports generated copies of the same mathematical functions.
+There are no two-qubit or entanglement claims.
+
+Brief arrow motion is rendering feedback. The model commits atomically, and
+probability text describes that committed state during the illustrative arc.
+It does not depict a classical object oscillating between 0 and 1. Reduced motion
+shows the final state directly. Inspect Z adds a real 3D axis and projection: for
+the authoritative Bloch height z, P(0)=(1+z)/2 and P(1)=(1-z)/2. Moving the preview
+camera changes the view while leaving the world station and scientific state fixed.
+
+See [current verification](VERIFICATION.md) for actual native results and limits.
