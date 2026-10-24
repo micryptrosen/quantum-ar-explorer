@@ -7,7 +7,7 @@ import {FlexLayout} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex
 import {FlexItem} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexItem';
 import {FlexDirection, FlexAlign, FlexAlignSelf, FlexJustify} from 'SpectaclesUIKit.lspkg/Scripts/Components/Layout2D/Flex/FlexTypes';
 import {installQARTheme} from './QuantumARExplorerTheme';
-const TYPE_SCALE={Title1:{size:420,weight:700},Heading:{size:93,weight:700},Body:{size:48,weight:500},Caption:{size:38,weight:500}};
+const TYPE_SCALE={Title1:{size:420,weight:700},Heading:{size:93,weight:700},Body:{size:64,weight:500},Caption:{size:52,weight:500}};
 function applyTextRole(t:Text,role:keyof typeof TYPE_SCALE):void{t.size=TYPE_SCALE[role].size;(t as Text & {weight?:number}).weight=TYPE_SCALE[role].weight;}
 @component
 export class QuantumARExplorerBitUI extends BaseScriptComponent {
@@ -22,6 +22,9 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private inspect=false;
   private motionNotice='';
   private feedback='';
+  private help=false;
+  public setVisible(on:boolean):void {this.viewEpoch++;if(this.content)this.content.enabled=on;}
+  public setMotionPreference(on:boolean):void {this.motion=on;this.viewEpoch++;}
   public displayFeedback(notice:string,feedback:string):void {
     this.motionNotice=notice;this.feedback=feedback;
     if(this.texts.VisualNotice)this.texts.VisualNotice.text=notice||feedback;
@@ -47,6 +50,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
   private pending:any;
   private texts:{[key:string]:Text}={};
   private slots:{so:SceneObject,ec:ElementContent,action:any,lesson:boolean}[]=[];
+  private measurementNext:SceneObject;
   private repaint:DelayedCallbackEvent;
   onAwake():void{installQARTheme();this.sceneObject.createComponent('Component.Canvas');this.repaint=this.createEvent('DelayedCallbackEvent');this.repaint.bind(()=>this.paint(this.pending));}
   public render(model:any):void {
@@ -86,8 +90,10 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       this.label(this.content,flex,'VisualNotice','',2,'Caption');
       const instruments=this.cell(this.content,flex,'DisplayInstruments',this.panelWidth,8.2);
       const inf=this.flex(instruments,FlexDirection.Row,this.panelWidth,6,2.2);
-      this.button(instruments,inf,'inspect-axis','Inspect Z: off',(this.panelWidth-2.2)/2,()=>{this.inspect=!this.inspect;this.displayChange();},false);
-      this.button(instruments,inf,'motion','Motion: on',(this.panelWidth-2.2)/2,()=>{this.motion=!this.motion;this.displayChange();},false);
+      this.button(instruments,inf,'inspect-axis','Inspect Z: off',(this.panelWidth-4.4)/3,()=>{this.inspect=!this.inspect;this.displayChange();},false);
+      this.button(instruments,inf,'motion','Motion: on',(this.panelWidth-4.4)/3,()=>{this.motion=!this.motion;this.displayChange();},false);
+      this.button(instruments,inf,'display-route','Next',(this.panelWidth-4.4)/3,()=>{});
+      this.measurementNext=this.slots[this.slots.length-1].so;
       for(let rowIndex=0;rowIndex<2;rowIndex++){
         const row=this.obj(this.content,'ControlRow');const rowItem=row.createComponent(FlexItem.getTypeName()) as FlexItem;
         rowItem.overrideHeight=8.2;rowItem.flexShrink=0;flex.addItems([rowItem]);
@@ -97,12 +103,22 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       const placementRow=this.obj(this.content,'PlacementControls');
       const pi=placementRow.createComponent(FlexItem.getTypeName()) as FlexItem;pi.overrideHeight=6;pi.marginTop=0.6;pi.flexShrink=0;flex.addItems([pi]);
       const pf=this.flex(placementRow,FlexDirection.Row,this.panelWidth,6,2.2);
-      this.button(placementRow,pf,'recenter','Recenter',(this.panelWidth-2.2)/2,()=>this.emitPlacement('recenter'),false);
-      this.button(placementRow,pf,'reposition','Reposition',(this.panelWidth-2.2)/2,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
+      this.button(placementRow,pf,'recenter','Recenter',(this.panelWidth-4.4)/3,()=>this.emitPlacement('recenter'),false);
+      this.button(placementRow,pf,'reposition','Reposition',(this.panelWidth-4.4)/3,()=>{this.positioning=!this.positioning;this.paint(this.pending);},false);
+      this.button(placementRow,pf,'help','Help',(this.panelWidth-4.4)/3,()=>{this.help=!this.help;this.paint(this.pending);},false);
       this.label(this.content,flex,'Placement','Manual placement - table stand-in',2,'Caption');
     }
     const inspectSlot=this.slots.find(slot=>slot.so.name==='QAR inspect-axis');if(inspectSlot)inspectSlot.ec.text=this.inspect?'Inspect Z: on':'Inspect Z: off';
     const motionSlot=this.slots.find(slot=>slot.so.name==='QAR motion');if(motionSlot)motionSlot.ec.text=this.motion?'Motion: on':'Motion: off';
+    const nextSlot=this.slots.find(slot=>slot.so===this.measurementNext);
+    if(nextSlot){
+      const next=model.controls.find((c:any)=>c.id==='next');
+      const compare=model.stage==='lab'&&model.offerComparison===true;
+      nextSlot.so.enabled=model.stage==='measurement'||compare;
+      nextSlot.so.name=compare?'QAR enter-comparison':model.stage==='measurement'?'QAR next':'QAR display-route';
+      nextSlot.ec.text=compare?'Compare phase':next?.enabled?'Next':'Next unavailable';
+      nextSlot.action=compare?{id:'enter-comparison',revision:model.revision}:next?.enabled?{id:'next',revision:model.revision}:null;
+    }
     this.texts.VisualNotice.text=this.motionNotice||this.feedback;
     const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};
     this.texts.Heading.text=(progress[model.stage]?progress[model.stage]+'  ':'')+model.title;
@@ -114,15 +130,23 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     const basis=model.measurement.collapsed?(model.measurement.result===0?'zero':'one'):model.measurement.preparation;
     const vector=basis==='zero'?'|psi> = |0>':basis==='one'?'|psi> = |1>':'|psi> = (|0> + |1>) / sqrt(2)';
     this.texts.StateStatus.text=this.wrap((model.stage==='qubit'||model.stage==='measurement'?vector+'\n':'')+state+(this.inspect&&model.stage!=='bit'?'\nZ height: '+model.visual.sphere.arrow.to.z.toFixed(2):''),32);
+    if(model.stage==='bit')this.texts.Explanation.text='Bits to qubits: explore chance.\nLearn by experimenting.\nChange 0 / 1, then choose Next.';
+    if(model.stage==='measurement'){
+      const p=model.measurement.probabilities;
+      this.texts.Explanation.text='Measure selects one outcome.\nRepeat keeps it. Fresh trials\nprepare again.\n'+(model.measurement.collapsed?'Repeat odds: ':'Predict: ')+'0 '+(100*p.zero).toFixed(0)+'% / 1 '+(100*p.one).toFixed(0)+'%';
+      if(model.measurement.collapsed)this.texts.Explanation.text+='\n10 fresh equal-superposition\ntrials: 50% each';
+    }
+    if(model.stage==='complete')this.texts.StateStatus.text='You explored a bit, prepared\nqubits and tested probability.\nPhase can change later odds.\nRestart to explore again.';
     if(model.lab){
       const l=model.lab;
       const complex=(z:any)=>z.re.toFixed(3)+(z.im<0?' - ':' + ')+Math.abs(z.im).toFixed(3)+'i';
       this.texts.Explanation.text=this.wrap(model.labGuidance.text,32);
       this.texts.StateStatus.text='Amplitudes (rounded 3 dp)\nα = '+complex(l.state.alpha)+'\nβ = '+complex(l.state.beta)+'\nP0 '+(100*l.probabilities.zero).toFixed(1)+'% · P1 '+(100*l.probabilities.one).toFixed(1)+'%\nRelative phase: '+(l.phaseRadians===null?'undefined':l.phaseRadians.toFixed(3)+' rad')+'\n'+(l.result===null?l.lastOperation:'Measurement result: '+l.result)+ (this.inspect?'\nZ height: '+l.bloch.z.toFixed(2):'');
     }
+    if(this.help){this.texts.Explanation.text='Pinch a labeled control.\nNext follows the lesson.\nHelp closes with another pinch.';this.texts.StateStatus.text=model.lab?'X swaps 0 / 1. H mixes amplitudes.\nZ changes relative phase.\nMeasure samples current odds.':model.stage==='measurement'?'Predict from the displayed odds.\nMeasure commits one result.\nRepeat measures that same state.\nFresh prepares a new state.':'Change a state, inspect it,\nthen compare your prediction\nwith an actual measurement.';}
     this.texts.Heading.textFill.color=model.stage==='complete'?new vec4(1,0.8,0.2,1):new vec4(0.3,0.94,0.88,1);
-    this.texts.ExperimentCounts.text=(model.lab?'Lab measurements: ':'Measurements: ')+model.experiment.trials+'    0: '+model.experiment.counts[0]+'    1: '+model.experiment.counts[1];
-    const enabled=model.controls.filter((c:any)=>c.enabled);
+    this.texts.ExperimentCounts.text=(model.lab?'Lab Measurements: ':'Measurements: ')+model.experiment.trials+' (observed)    0: '+model.experiment.counts[0]+'    1: '+model.experiment.counts[1];
+    const enabled=model.controls.filter((c:any)=>c.enabled&&!(model.stage==='measurement'&&c.id==='next'));
     const pageCount=enabled.length>6?Math.ceil(enabled.length/5):1;
     this.controlPage=Math.min(this.controlPage,pageCount-1);
     const lessonItems=pageCount===1?enabled:enabled.slice(this.controlPage*5,this.controlPage*5+5).concat([{id:'control-page',label:this.controlPage===pageCount-1?'First controls':'More controls'}]);
@@ -130,7 +154,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     const move=this.slots.find(slot=>slot.so.name==='QAR reposition');if(move)move.ec.text=this.positioning?'Done positioning':'Reposition';
     this.texts.Placement.text=this.positioning?'Manual placement: adjust, then Done':pageCount>1?'Controls '+(this.controlPage+1)+'/'+pageCount+' - manual placement':'Manual placement - no surface detection';
     const shortLabels:any={'prepare-plus':'Equal superposition','measure':'Measure','fresh-plus-ten':'10 fresh trials','clear-experiment':'Clear counts','answer-half-each':'50% each','answer-always-zero':'Always 0','answer-alternating':'Must alternate','restart':'Restart'};
-    this.slots.filter(slot=>slot.lesson).forEach((slot,i)=>{
+    this.slots.filter(slot=>slot.lesson&&slot.so!==this.measurementNext).forEach((slot,i)=>{
       const item=items[i];slot.so.enabled=!!item;
       if(item){slot.so.name='QAR '+item.id;slot.ec.text=shortLabels[item.id]||item.label;slot.action={id:item.id,revision:model.revision,pageCount};}
       else slot.action=null;
@@ -156,7 +180,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     btn.setVariant({theme:'Inherited'});
     const labelSO=so; // Companion mode resolves the button theme and contrast.
     const ec=labelSO.createComponent(ElementContent.getTypeName()) as ElementContent;
-    ec.text=label;ec.textSize=43;ec.sizeOverride=new vec2(width-0.8,5);ec.contentAlignment='center';
+    ec.text=label;ec.textSize=68;ec.sizeOverride=new vec2(width-0.8,5);ec.contentAlignment='center';
     const slot={so,ec,action:null as any,lesson};this.slots.push(slot);
     const actionCallback=action;
     let pressed:any=null;let down=false;let availableAt=0;

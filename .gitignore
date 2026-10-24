@@ -133,3 +133,24 @@
 !/native/QuantumARExplorer/Assets/Scripts/QAR010JudgeScenario.ts
 !/native/QuantumARExplorer/Assets/Scripts/QAR010JudgeScenario.ts.meta
 !/native/QuantumARExplorer/devpost/QAR010_JUDGE_EXPERIENCE.md
+
+# QAR-011 exact reviewed product-excellence additions.
+!/docs/public/NOVICE_TEST_PROTOCOL.md
+!/docs/public/preview-comparison.jpg
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonGuardScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonGuardScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonReachScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonReachScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR011ComparisonScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerComparison.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerComparison.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerComparisonUI.ts
+!/native/QuantumARExplorer/Assets/Scripts/QuantumARExplorerComparisonUI.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/comparison.js
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/comparison.js.meta
+!/native/QuantumARExplorer/devpost/QAR011_PRODUCT_EXCELLENCE.md
+!/src/comparison.js
+!/tests/comparison-native.test.js
+!/tests/comparison.test.js
+!/tools/build-comparison.mjs

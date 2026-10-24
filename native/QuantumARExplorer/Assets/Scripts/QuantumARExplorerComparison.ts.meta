@@ -1,0 +1,55 @@
+- !<AssetImportMetadata/265ccf65-73b4-4f02-8b99-bafc10c29bb4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> dba99c03-a936-45f0-ba05-d27a8cd65f77
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> dba99c03-a936-45f0-ba05-d27a8cd65f77
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 97fbbb2b-1bcc-4bf5-a637-02484e4d87b7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/97fbbb2b-1bcc-4bf5-a637-02484e4d87b7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 5a40f45a-d6e4-483b-9d5d-0775a4ca8f63
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    a: false
+    b: false
+    featureEnabled: false
+    view: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - featureEnabled: true
+      view: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      a: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      b: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input bool featureEnabled = true {"hint":"Optional comparison feature flag"}'
+    - '// @input AssignableType_1 view {"hint":"Passive comparison UIKit view"}'
+    - '// @input AssignableType_2 a {"hint":"Reused primary Bloch instrument"}'
+    - '// @input AssignableType_3 b {"hint":"Second Bloch instrument"}'

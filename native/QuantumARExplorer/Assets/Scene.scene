@@ -8,8 +8,9 @@
     - !<own> 55af9364-80d1-4fbc-860e-bf0ff0a0aebb
     - !<own> ddadfe92-9418-427d-b391-1ead7bfeab5b
     - !<own> 4e012bca-26af-4aa8-9a8d-2ee01c89db76
-    - !<own> 09a78301-d4a7-44e7-a7ec-07308857df9d
     - !<own> f091257d-4cec-4541-a12b-3917a2b2786a
+    - !<own> 69aff8fb-ab4f-4a47-99a3-c1d39a46eafe
+    - !<own> 9d8114d4-a40f-43b9-be68-d9e92482c9ba
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -355,21 +356,6 @@
     - !<own> 6a99bdcf-c194-46c1-ba16-945f1d48a1dd
   Components:
     []
-- !<SceneObject/09a78301-d4a7-44e7-a7ec-07308857df9d>
-  PrefabRemaps:
-    []
-  Name: LEAF Plugin Bridge
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> b4cecdfa-3ab2-4115-b08a-a9b7a1a61c48
 - !<SceneObject/0a0e1d78-8246-4f5b-ab1a-fdc51837956d>
   PrefabRemaps:
     []
@@ -400,6 +386,22 @@
     - !<own> d90b4bdf-2fbf-4edc-afa1-d23c2d5ba257
   Components:
     []
+- !<ScriptComponent/0c7c5725-de27-4ff8-b52c-6dffddb279c0>
+  PrefabRemaps:
+    []
+  Name: QuantumARExplorerComparisonUI
+  Enabled: true
+  ScriptAsset: !<reference> 48da7175-6c7c-4944-8987-3c8ebda5a1d5
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/0cffb60e-73f6-43c5-bb4f-286d39e0f1f6>
   PrefabRemaps:
     []
@@ -545,6 +547,8 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 903aed50-4597-4cf6-aeb7-f573ec1e3d4c
+    - !<own> d97e91be-7ad9-4fe1-a22a-faaa90289be8
+    - !<own> 4b088d16-8fd3-4e6d-a4c2-5530e6afd851
   Components:
     - !<own> 58d0321a-a359-4256-8656-3dd89762ce6b
 - !<RenderMeshVisual/1f969daa-5809-4500-b314-98d91ccba131>
@@ -950,6 +954,21 @@
     - !<own> 8fe2a532-9bf3-4cde-b598-04ce5470718d
   Components:
     []
+- !<SceneObject/4b088d16-8fd3-4e6d-a4c2-5530e6afd851>
+  PrefabRemaps:
+    []
+  Name: QAR Comparison B Diagram
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8c0ac7ed-c9c0-4c7b-83ef-00aa326d52b0
 - !<SceneObject/4c195c04-c397-454e-bd08-3485f37d84fe>
   PrefabRemaps:
     []
@@ -995,6 +1014,22 @@
     []
   Components:
     - !<own> 9a28b8fb-8209-43bf-80e1-ee52b7173eea
+- !<ScriptComponent/50fb76aa-a9ec-427f-9c6f-eeba8d4fc701>
+  PrefabRemaps:
+    []
+  Name: MessagingBridge
+  Enabled: true
+  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/52ecefe4-5642-445a-ad16-52ce818076bc>
   PrefabRemaps:
     []
@@ -1221,6 +1256,21 @@
     - !<own> 80574bd1-697b-4bb5-b9ce-13b340146d82
   Components:
     - !<own> ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef
+- !<SceneObject/69aff8fb-ab4f-4a47-99a3-c1d39a46eafe>
+  PrefabRemaps:
+    []
+  Name: LEAF Plugin Bridge
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 50fb76aa-a9ec-427f-9c6f-eeba8d4fc701
 - !<SceneObject/6a7a67db-5675-49bb-8f31-ba0588e3cffc>
   PrefabRemaps:
     []
@@ -1467,6 +1517,7 @@
       blochView: !<MappingBased.AssignableType_2> bb816917-a5b8-48cc-a88f-912b65a2778f
       camera: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
       optionalLab: !<MappingBased.AssignableType_3> 9a28b8fb-8209-43bf-80e1-ee52b7173eea
+      optionalComparison: !<MappingBased.AssignableType_4> 88d8b18f-af47-4653-bc8c-2cb999a0746b
   ScriptTypes:
     "":
       {}
@@ -1593,6 +1644,25 @@
     - !<own> 1fc7fa3e-6910-4741-b8a7-1b6660a39a9d
   Components:
     - !<own> 28e05826-1521-46fa-a54c-80f2957ec80c
+- !<ScriptComponent/88d8b18f-af47-4653-bc8c-2cb999a0746b>
+  PrefabRemaps:
+    []
+  Name: QuantumARExplorerComparison
+  Enabled: true
+  ScriptAsset: !<reference> dba99c03-a936-45f0-ba05-d27a8cd65f77
+  ScriptInputsDefault:
+    featureEnabled: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      featureEnabled: true
+      view: !<MappingBased.AssignableType_1> 0c7c5725-de27-4ff8-b52c-6dffddb279c0
+      a: !<MappingBased.AssignableType_2> bb816917-a5b8-48cc-a88f-912b65a2778f
+      b: !<MappingBased.AssignableType_3> 8c0ac7ed-c9c0-4c7b-83ef-00aa326d52b0
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/8b877074-7eee-4be1-b669-714f8d5a1da3>
   PrefabRemaps:
     []
@@ -1608,6 +1678,22 @@
     []
   Components:
     - !<own> e96fa241-3fac-465c-ad2e-b71442b16bde
+- !<ScriptComponent/8c0ac7ed-c9c0-4c7b-83ef-00aa326d52b0>
+  PrefabRemaps:
+    []
+  Name: QuantumARExplorerBlochMesh
+  Enabled: true
+  ScriptAsset: !<reference> 9f853461-29c1-45a5-8178-8851333bf694
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 8fb09e4f-f162-466d-8be2-f4f071a000db
+  ScriptTypes:
+    "":
+      {}
 - !<RenderMeshVisual/8c3be019-7b67-4fb9-8158-1262f117b8e1>
   PrefabRemaps:
     []
@@ -1754,6 +1840,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/9d8114d4-a40f-43b9-be68-d9e92482c9ba>
+  PrefabRemaps:
+    []
+  Name: QAR Comparison Controller
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 88d8b18f-af47-4653-bc8c-2cb999a0746b
 - !<SceneObject/9e373d68-993f-4c8f-83a0-6644f1d9fefd>
   PrefabRemaps:
     []
@@ -1984,22 +2085,6 @@
     - !<own> 23018601-1041-4785-a20e-9ad5ab722f95
   Components:
     []
-- !<ScriptComponent/b4cecdfa-3ab2-4115-b08a-a9b7a1a61c48>
-  PrefabRemaps:
-    []
-  Name: MessagingBridge
-  Enabled: true
-  ScriptAsset: !<reference> 9aa407db-2872-4afc-a162-cf7faf2a0f29
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/b54dc8b5-dbcf-4fcc-a310-fb436127cc60>
   PrefabRemaps:
     []
@@ -2374,6 +2459,21 @@
     - !<own> 74d13517-1dbf-42e6-b536-27afc4909c65
   Components:
     []
+- !<SceneObject/d97e91be-7ad9-4fe1-a22a-faaa90289be8>
+  PrefabRemaps:
+    []
+  Name: QAR Comparison View
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0c7c5725-de27-4ff8-b52c-6dffddb279c0
 - !<SceneObject/da214b27-43a7-4db4-90fd-993798e859d9>
   PrefabRemaps:
     []

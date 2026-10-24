@@ -6,6 +6,9 @@ import {QuantumARExplorerReachScenario} from './QuantumARExplorerReachScenario';
 import {QuantumARExplorerPreservationScenario} from './QuantumARExplorerPreservationScenario';
 import {QuantumARExplorerVisualScenario} from './QuantumARExplorerVisualScenario';
 import {QuantumARExplorerGateScenario} from './QuantumARExplorerGateScenario';
+import {QAR011ComparisonScenario} from './QAR011ComparisonScenario';
+import {QAR011ComparisonGuardScenario} from './QAR011ComparisonGuardScenario';
+import {QAR011ComparisonReachScenario} from './QAR011ComparisonReachScenario';
 @component
 export class QuantumARExplorerLeafIndex extends BaseScriptComponent {
   @scenariosIndex
@@ -15,6 +18,9 @@ export class QuantumARExplorerLeafIndex extends BaseScriptComponent {
     {id:'qar006-native-preservation',typename:QuantumARExplorerPreservationScenario.getTypeName()},
     {id:'qar009-visual-spatial-contracts',typename:QuantumARExplorerVisualScenario.getTypeName()},
     {id:'qar009-optional-gate-lab',typename:QuantumARExplorerGateScenario.getTypeName()},
-    {id:'qar010-judge-experience',typename:QAR010JudgeScenario.getTypeName()}
+    {id:'qar010-judge-experience',typename:QAR010JudgeScenario.getTypeName()},
+    {id:'qar011-phase-comparison',typename:QAR011ComparisonScenario.getTypeName()},
+    {id:'qar011-comparison-guards',typename:QAR011ComparisonGuardScenario.getTypeName()},
+    {id:'qar011-comparison-ik',typename:QAR011ComparisonReachScenario.getTypeName()}
   ];
 }

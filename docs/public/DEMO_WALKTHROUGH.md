@@ -1,42 +1,30 @@
-# Preview demonstration outline
+# Demonstration walkthrough
 
-The preferred genuine QAR-009 V3 cut is **2 minutes 45 seconds**, 1920 × 1080,
-H.264, 30 fps, silent with English captions. It uses the actual Lens Studio
-preview, supported coordinate-pinch input and the simulated Sunlit Outdoor
-environment. No platform upload is represented as complete. The owner controls
-YouTube publication and Devpost submission.
+The current QAR-011 candidate is 166 seconds, 1920 × 1080, H.264 at 30 fps,
+silent with English captions. A same-timing silent narration-ready version and
+the [timed script](DEMO_SCRIPT.md) are prepared. Footage comes from the actual
+Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor landscape preview, selected through
+fresh-coordinate CLAD/MCP simulated pinch. It is not physical glasses footage.
 
-Retained during QAR-010 after technical/heuristic review. It records the preserved
-QAR-009 build. Current source adds clearer instructions and guided lab prompts
-while retaining the shown controls, science and phase comparison.
+| Final-edit interval | Genuine recorded behavior |
+|---|---|
+| 0–20 s | Labeled later-discovery excerpt: equal immediate odds, different phase, H changes predictions, then measurement |
+| 20–31 s | Classical bit 0 changes to 1 |
+| 31–59 s | Qubit preparation, visible axis and supported camera-only spatial inspection |
+| 59–85 s | Predict, normal random measurement 1, repeat 1, ten fresh preparations; totals 12 / four zeros / eight ones |
+| 85–95 s | Trimmed manual placement, Done and Recenter; no surface recognition |
+| 95–118 s | Incorrect-answer recovery, correct probability explanation and lesson completion |
+| 118–149 s | Optional comparison from both 0: H on both, Z on A, H on both, actual measured A1/B0 |
+| 149–158 s | Exact return to the completed beginner lesson with its observations |
+| 158–166 s | Clean equal-superposition closing view after Restart cleared counts |
 
-| Time | Genuine preview footage | Learning purpose |
-|---|---|---|
-| 0:00–0:16 | Labeled optional-lab phase excerpt and genuine simulated-viewpoint movement | Same measurement odds can describe different states; station fixed in world space. |
-| 0:16–0:28 | Meet the Bit; switch 0 / 1 | A classical bit has one definite value. |
-| 0:28–0:52 | Prepare qubit 0, 1 and equal superposition | Mathematical Bloch diagram and Z-basis probabilities. |
-| 0:52–1:04 | Measure, then repeat; actual results 0, 0 | Measurement collapses the state; repeating preserves that result. |
-| 1:04–1:14 | Ten fresh trials; real cumulative counts 12 / 7 / 5 | Fresh trials prepare again; these totals include the earlier two measurements. |
-| 1:14–1:22 | Reposition, Done, Recenter | Manual placement preserves the experiment; no surface recognition. |
-| 1:22–1:42 | Challenge, correction and completion | Feedback addresses a probability misconception. |
-| 1:42–2:26 | Optional Gate Lab: reset to 0, compare H-Z-H with H-H; measure 1 then 0 | A relative-phase difference changes a later outcome. |
-| 2:26–2:34 | Return to preserved lesson, then Restart | Independent lab state; clear recovery for another learner. |
-| 2:34–2:45 | Qubit superposition closing view | Prepare, measure and discover; classical simulation and untested glasses. |
+The full native frame remains visible. Cuts omit waiting and navigation at
+ordinary playback speed. There are no fabricated outcomes, substituted scene
+stills, composite native views, test overlays, or recorded/synthetic narration.
+Full decode and sampled frame/caption/privacy review are recorded locally;
+they do not imply every-frame human review or mobile/physical-device playback.
 
-The opening is a real excerpt reordered for presentation. The product still begins
-Bit → Qubit → Measurement. Idle intervals are trimmed at ordinary speed; the whole
-native frame is scaled without cropping into a landscape canvas with outer captions.
-No interactions, scientific results, or camera motion are fabricated.
-
-The first measurement is not predetermined. This take produced 0, then repeated 0.
-The ten fresh trials produced five of each; cumulative totals became seven zeros
-and five ones across twelve measurements, including the earlier two. A new take
-can differ. H-Z-H from 0 measured 1; H-H from 0 measured 0. Return preserved the
-beginner experiment; Restart cleared it.
-
-The QAR-008 2:45 fallback and all original takes remain preserved. V3 reduces
-placement from 37 seconds to eight, making room for the phase comparison. Its
-advanced section is denser; the learner can finish without entering the optional
-lab. Spoken narration, mobile-device playback and physical glasses are unverified.
-
-See the [caption and narration script](DEMO_SCRIPT.md), [recording procedure](RECORDING_GUIDE.md), and [verification](VERIFICATION.md).
+QAR-009 V3 remains a preserved 165-second fallback. QAR-011 adds the working
+two-instrument discovery, clearer prediction/repeat/fresh-trial copy and larger
+native labels. Technical and heuristic comparison is separate from owner
+approval. The owner supplies the approved public YouTube URL and submits Devpost.

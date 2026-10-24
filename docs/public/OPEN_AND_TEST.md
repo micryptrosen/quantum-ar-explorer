@@ -25,11 +25,13 @@ the supplied **LEAF simulated IK** scenarios. With the Lens Studio MCP connected
 1. Query the running preview for the visible control, for example `QAR toggle-bit`.
    Read its current `transform.worldPosition` with `QueryRuntimeSceneTool`.
 2. Call `PreviewInteractTool` with `action: "Pinch"` and that `worldPosition`.
-   Use the active preview name if more than one preview is open.
+   Use the active preview name if more than one preview is open. The verified
+   ordinary journeys use a 650 ms pinch duration where the tool exposes duration.
 3. Let the selection finish and inspect the visible value: 0 becomes 1. After
    navigation, reveal, preview refresh or placement, discover the next control
    again. Positions and runtime IDs can change. Allow newly revealed controls and
-   the placement guard to settle before selecting them.
+   the placement guard to settle before selecting them. After returning between
+   lesson, lab and comparison modes, allow at least 600 ms before a new selection.
 4. Run interactions serially and verify their visible effect. If an action errors,
    inspect state before retrying; an action can have landed before a timeout.
 
@@ -57,9 +59,12 @@ SPECS input design. Physical glasses input has not been tested.
 3. **Make a Measurement:** prepare a state, then Measure. Prepare 0 or 1 for a
    certain result, or equal superposition for 50% theoretical odds of either
    result. Measure again without preparing: collapse keeps the same result.
-   Fresh trials prepare again for independent measurements. Ten fair trials need
-   not split five/five. Counters accumulate actual outcomes.
-4. Continue to the probability challenge. An incorrect answer gives feedback and
+   Ten fresh trials each prepare equal superposition again for independent
+   measurements. Ten fair trials need not split five/five. Counters accumulate
+   actual outcomes.
+4. The visible measurement **Next** leads to the probability challenge. It is
+   available even before measuring, matching the lesson progression rules.
+   An incorrect answer gives feedback and
    permits another attempt. Choose the answer describing 50% for each outcome
    of a fresh equal superposition, then continue to completion.
 5. Restart clears the beginner lesson and its experiment counts. Back and control
@@ -87,7 +92,15 @@ state and history; its state and counters are separate from the beginner lesson.
    arrow change while immediate Z-measurement odds stay 50/50.
 3. Apply another H, predict the result, then Measure: H–Z–H from 0 gives 1.
 4. Reset Lab, apply H then H, and Measure: the result is 0. Compare the two paths.
-5. **Return Lesson** restores the exact completed beginner snapshot. Its Restart
+5. Choose **Compare phase** to open the optional two-instrument chamber. Both
+   experiments start at 0. Apply H to both, then Z to A while B waits: both still
+   show 50/50 Z odds, but their arrows and relative phases differ. Apply H to
+   both again: predictions become A=1 and B=0. Measure to observe those basis
+   results through the ordinary sampler. Reset restarts both experiments.
+6. **Return Lab** restores the exact lab snapshot. Allow the mode boundary to
+   settle before a new selection; inspect the actual visible page and discover
+   its controls again. The chamber's 15 cm diagrams share the 52 cm station.
+7. **Return Lesson** restores the exact completed beginner snapshot. Its Restart
    clears that lesson. The optional component can be disabled/detached to retain
    the complete beginner experience.
 
@@ -108,6 +121,9 @@ wait for registration, list scenarios, then run these **one at a time**:
 | `qar009-visual-spatial-contracts` | Visual interruption, endpoints, motion off and display-only controls |
 | `qar009-optional-gate-lab` | Complex gates, collapse, cancellation, exact return and feature-disabled path |
 | `qar010-judge-experience` | Visible instructions, guided X/H/Z comparison, challenge recovery and measurement during active animation |
+| `qar011-phase-comparison` | Actual intermediate gates/phase/odds, final A1/B0, reset and exact lab/lesson preservation |
+| `qar011-comparison-guards` | Cancellation, stale events, mode settling, error recovery, feature-disabled fallback and visible measurement navigation |
+| `qar011-comparison-ik` | Simulated IK reach, comparison selection and return |
 
 Wait for each run's result before starting another: a new run resets the scene.
 Refresh afterward to remove diagnostic avatars/overlays before ordinary exploration
@@ -132,7 +148,7 @@ rendering and supported native interaction. See [lesson API](LESSON_API.md) and
 [science criteria](SCIENCE_AND_ACCEPTANCE.md).
 
 The authentic planning workflow's public brief is
-`native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`. QAR-009 and QAR-010
+`native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`. QAR-009, QAR-010 and QAR-011
 addenda record authorized implementation evolution; the original approved brief
 is preserved. Desktop preview does not establish physical hand tracking,
 additive-display contrast, comfort or device performance. No Lens, competition

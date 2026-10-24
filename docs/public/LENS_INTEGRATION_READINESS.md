@@ -1,3 +1,17 @@
+# QAR-011 current integration
+
+The native Lens Studio 5.23.2 project now includes the independent two-instrument
+comparison controller/UI and generated comparison helper. Scientific modules
+remain separate from native rendering and supported SIK/UIKit input. The optional
+comparison owns no beginner or lab state. Original guards and six scenario sources
+are preserved; three additive scenarios cover comparison science, isolation and
+IK. See current [verification](VERIFICATION.md) and [judge guide](OPEN_AND_TEST.md).
+No Lens compatibility is inferred from offline JavaScript alone.
+
+The historical readiness/evidence record follows for provenance.
+
+---
+
 # Native Lens integration — checked 2026-10-23
 
 The native SPECS Base Template has been extended through actual CLAD and Lens

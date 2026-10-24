@@ -31,6 +31,7 @@
     bitView: false
     blochView: false
     camera: false
+    optionalComparison: false
     optionalLab: false
   ScriptTypesHidden:
     {}
@@ -45,6 +46,7 @@
       blochView: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
       camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       optionalLab: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      optionalComparison: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -53,3 +55,4 @@
     - '// @input AssignableType_2 blochView {"hint":"Authored parametric Bloch visualization"}'
     - '// @input SceneObject camera {"hint":"World tracked viewing camera for explicit manual recenter only"}'
     - '// @input AssignableType_3 optionalLab {"hint":"Optional removable Gate Lab controller; omission preserves the complete beginner path"}'
+    - '// @input AssignableType_4 optionalComparison {"hint":"Optional isolated phase comparison; disabled or absent preserves Gate Lab"}'

@@ -24,13 +24,15 @@ export class QuantumARExplorerBlochMesh extends BaseScriptComponent {
     this.arrow=new MeshBuilder([{name:'position',components:3}]);
     this.arrow.topology=MeshTopology.Triangles;this.arrow.indexType=MeshIndexType.UInt16;
     const av:number[]=[],ai:number[]=[];
-    this.stroke(av,ai,new vec3(0,0,0),new vec3(0,9,0),0.135);
-    this.stroke(av,ai,new vec3(-1,7.2,0),new vec3(0,9,0),0.135);
-    this.stroke(av,ai,new vec3(1,7.2,0),new vec3(0,9,0),0.135);
+    this.stroke(av,ai,new vec3(0,0,0),new vec3(0,9,0),0.19);
+    this.stroke(av,ai,new vec3(-1.2,7.0,0),new vec3(0,9,0),0.19);
+    this.stroke(av,ai,new vec3(1.2,7.0,0),new vec3(0,9,0),0.19);
     this.arrow.appendVerticesInterleaved(av);this.arrow.appendIndices(ai);
     this.arrowVisual.mesh=this.arrow.getMesh();
     const mat=this.material.clone();mat.mainPass.baseColor=new vec4(1,0.8,0.2,1);
     this.arrowVisual.mainMaterial=mat;this.arrow.updateMesh();
+    // A passive instrument stays hidden until an owning controller presents it.
+    this.show(false,{x:0,y:0,z:1});
   }
   private axis:RenderMeshVisual;
   private projection:RenderMeshVisual;
@@ -40,6 +42,7 @@ export class QuantumARExplorerBlochMesh extends BaseScriptComponent {
   private inspected=false;
   private shown=false;
   private current={x:0,y:0,z:1};
+  public getInspect():boolean{return this.inspected;}
   public setInspect(on:boolean):void {this.inspected=on;this.show(this.shown,this.current);}
   public getDisplayPoint():{x:number,y:number,z:number}{return {...this.current};}
   public show(visible:boolean,point:{x:number,y:number,z:number}):void {

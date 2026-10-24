@@ -1,81 +1,69 @@
 # Quantum AR Explorer
 
-An educational augmented-reality project for the general public, including people
-with no quantum computing background. Intended for Snap SPECS and the Learn AR with
-SPECS competition.
+Discover quantum computing by experimenting with a miniature spatial laboratory.
+Change a classical bit, prepare a qubit and measure it. Then compare two quantum
+experiments: the same immediate odds can conceal a phase difference that changes
+what happens next.
 
-Turn an ordinary view into a miniature laboratory for understanding quantum states.
-Explore a classical bit, prepare a qubit, measure it and discover why repeating a
-measurement differs from preparing a fresh experiment. After the three-stage lesson,
-an optional gate lab reveals how phase can change a later outcome.
+The native SPECS project is in `native/QuantumARExplorer`. Its three-stage beginner
+lesson leads to a probability challenge and an optional independent X/H/Z lab.
+The new Comparison Chamber places two 15 cm state diagrams side by side, showing
+H-Z-H from 0 alongside H-H from 0. Intermediate phase, probabilities and final
+predictions come from the same verified mathematics used by the original lab.
 
-## Current development status
+The world station uses larger labels, contextual Help, visible measurement Next,
+an inspection axis and interruptible illustrative motion. Motion can be turned
+off. Placement and Recenter are deliberate manual actions; there is no table
+recognition or persistent physical anchor.
 
-This repository contains a dependency-free scientific simulation, complete offline lesson
-engine, accessible presentation models and a host session/focus boundary. It supports
-back/restart, fresh-trial experiments, bounded history, challenge feedback and recovery.
-The native SPECS project is in `native/QuantumARExplorer`. Its open 3D station uses
-an 18 cm Bloch sphere, brief interruptible arrow transitions, a measurement-axis
-inspection tool and project-owned charcoal/cyan/gold UIKit styling. The station
-stays fixed as the simulated viewpoint moves; manual Recenter deliberately moves it.
-Motion can be turned off without changing the science.
+## Open and explore
 
-The optional X/H/Z lab has its own state and counters, displays complex amplitudes
-and phase, and returns to the preserved completed lesson. Short prompts follow
-the actual experiment: try X, then compare H-Z-H from 0 with H-H. The native
-components use supported SIK/UIKit controls in Lens Studio
-5.23.2. See [verification](docs/public/VERIFICATION.md) for exact native and
-reconstruction results. Physical glasses comfort and hand tracking have not been
-tested. This is not a completed competition submission.
+Open `native/QuantumARExplorer/QuantumARExplorer.esproj` in **Lens Studio 5.23.2**.
+Select SPECS 27 Interactive Preview and Sunlit Outdoor. Use the verified
+CLAD/Lens Studio MCP coordinate-pinch route or the nine supplied LEAF scenarios.
+Ordinary Windows mouse activation remains unresolved in this setup. The
+[judge walkthrough](docs/public/OPEN_AND_TEST.md) gives fresh-target discovery,
+selection, recovery and exact scenario instructions, including vendor prerequisites.
 
-## Run the available tests
+<img src="docs/public/preview-comparison.jpg" width="880" alt="Genuine simulated SPECS preview: two Bloch diagrams have opposite state arrows and different relative phases while both display 50/50 Z-measurement odds" />
 
-Use Node.js 24 or newer. No package installation is required.
+This is genuine Lens Studio simulated-preview evidence. Physical glasses, hand
+tracking, additive-display contrast and wearer comfort remain untested. See
+[verification](docs/public/VERIFICATION.md) for exact checks and limitations and
+the [approved public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
+
+## Run the offline tests
+
+Node.js 24 or newer; no package installation is required:
 
 ```sh
 node --test tests/*.test.js
 node examples/offline-walkthrough.mjs
 ```
 
-See [open and test instructions](docs/public/OPEN_AND_TEST.md) and
-[scientific behavior and acceptance criteria](docs/public/SCIENCE_AND_ACCEPTANCE.md).
-The [lesson API](docs/public/LESSON_API.md) describes the implemented contracts and
-[native integration guide](docs/public/LENS_INTEGRATION_READINESS.md) describes the
-module boundary and verified tooling. The CLI walkthrough is an offline demo,
-not a Lens Studio preview.
+The dependency-free core separates scientific state, lesson progression,
+presentation and input/session boundaries from native rendering. Comparison
+state, counts and history are isolated from the original lesson and lab. See
+[science criteria](docs/public/SCIENCE_AND_ACCEPTANCE.md),
+[lesson API](docs/public/LESSON_API.md) and
+[native integration](docs/public/LENS_INTEGRATION_READINESS.md).
 
-## Open the Lens
+## Demonstration and submission
 
-Open `native/QuantumARExplorer/QuantumARExplorer.esproj` with Lens Studio 5.23.2.
-Use SPECS 27 Interactive Preview with Sunlit Outdoor. The laboratory uses explicitly
-labeled manual placement; it does not recognize tables. Use the verified CLAD/MCP
-coordinate-pinch route or the six supplied LEAF scenarios. Ordinary Windows mouse
-activation remains unresolved in this setup. The [judge walkthrough](docs/public/OPEN_AND_TEST.md)
-gives the selection and recovery procedure, native scenarios, package provenance
-and current limits. See also the
-[public planning brief](native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md).
+The current genuine preview demonstration is under three minutes, landscape,
+silent with English captions. A same-timing silent narration-ready version and
+timed script are available to the owner. The QAR-009 V3 and QAR-008 fallbacks are
+preserved. No voice, physical-device footage or platform upload is implied.
+Use the [submission copy](docs/public/SUBMISSION.md),
+[timed script](docs/public/DEMO_SCRIPT.md) and
+[recording guide](docs/public/RECORDING_GUIDE.md).
 
-## Demonstration and submission materials
-
-<img src="docs/public/preview-spatial.png" width="880" alt="Genuine Lens Studio SPECS preview showing the mathematical Bloch sphere and manual placement controls" />
-
-Genuine QAR-009 desktop preview in Lens Studio's simulated Sunlit Outdoor
-environment. The retained local V3 demonstration is 2:45, 1920 × 1080, 30 fps,
-silent with English captions. It shows the lesson, brief manual placement and
-the optional phase experiment. QAR-010 adds clearer in-Lens instructions and guided
-lab prompts; V3 records the preserved QAR-009 build. The science and controls shown
-remain applicable. The QAR-008 fallback remains preserved. Physical
-glasses testing has not occurred; the owner controls video upload and submission.
-
-The [submission package](docs/public/SUBMISSION.md) explains the product, audience,
-spatial design, implementation, disclosures, and remaining owner steps. Use the
-[timed demonstration script](docs/public/DEMO_SCRIPT.md) and
-[recording guide](docs/public/RECORDING_GUIDE.md) with the real preview.
-[Verification](docs/public/VERIFICATION.md) distinguishes completed checks from
-physical-device work and platform uploads.
+The owner reviews final materials, supplies the uploaded video URL, makes
+eligibility/rights/legal attestations and personally submits the competition entry.
+This repository is competition-facing source, not a completed submission.
 
 ## Rights and attribution
 
 Copyright 2026 Veristio Intelligence Technologies, LLC. All rights reserved.
 No permissive open-source license has been authorized. See
-[third-party notices](THIRD_PARTY_NOTICES.md) for provenance and redistribution status.
+[third-party notices](THIRD_PARTY_NOTICES.md).

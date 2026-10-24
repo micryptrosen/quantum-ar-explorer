@@ -8,3 +8,4 @@ src/random.js -text
 src/controls.js -text
 src/visual-transition.js -text
 src/gates.js -text
+src/comparison.js -text

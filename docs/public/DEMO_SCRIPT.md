@@ -1,79 +1,50 @@
-# Demonstration V3: captions and optional narration
+# Quantum AR Explorer — timed demonstration script
 
-The preferred genuine QAR-009 V3 cut is **2 minutes 45 seconds**, 1920 × 1080,
-H.264, 30 fps, silent with English captions. It uses the actual Lens Studio
-preview, supported coordinate-pinch input and the simulated Sunlit Outdoor
-environment. No platform upload is represented as complete. The owner controls
-YouTube publication and Devpost submission.
+The current genuine QAR-011 edit is **2:46 (166 seconds)**. This is a proposed
+English narration script matching the captioned cut and the same-timing silent
+narration-ready cut. No voice has been recorded or generated. The narration-ready
+cut retains the product title and simulated-preview/input disclosure.
 
-Preferred file: `Quantum-AR-Explorer-QAR009-demo-v3.mp4`. The separate silent
-`Quantum-AR-Explorer-QAR009-narration-ready.mp4` has exactly the same shots and
-timing, with title/context disclosure but without explanatory body captions.
-An English SRT is available locally. No spoken audio exists in either export.
-The cues below can guide an owner-approved recorded narrator; they are not a
-claim of recorded narration. Use natural phrasing and allow pauses for selections.
+The opening is an explicitly labeled excerpt from the later comparison. It
+distinguishes computed predictions from measured results. The main lesson then
+starts from a classical bit. All native footage is uncropped, at ordinary speed;
+only trims and the labeled opening reorder were used. Captions occupy added
+margins. The 350 ms arrow transitions are illustrative rendering, not a particle
+trajectory or a simulation of a physical measurement process.
 
-QAR-010 retains this genuine QAR-009 recording after technical/heuristic review.
-The current source adds clearer beginner instructions and state-derived lab
-prompts; the demonstrated controls, science and phase comparison remain applicable.
-This cut is not represented as a new recording of those text changes.
-
-| Time | Genuine preview footage | Learning purpose |
-|---|---|---|
-| 0:00–0:16 | Labeled optional-lab phase excerpt and genuine simulated-viewpoint movement | Same measurement odds can describe different states; station fixed in world space. |
-| 0:16–0:28 | Meet the Bit; switch 0 / 1 | A classical bit has one definite value. |
-| 0:28–0:52 | Prepare qubit 0, 1 and equal superposition | Mathematical Bloch diagram and Z-basis probabilities. |
-| 0:52–1:04 | Measure, then repeat; actual results 0, 0 | Measurement collapses the state; repeating preserves that result. |
-| 1:04–1:14 | Ten fresh trials; real cumulative counts 12 / 7 / 5 | Fresh trials prepare again; these totals include the earlier two measurements. |
-| 1:14–1:22 | Reposition, Done, Recenter | Manual placement preserves the experiment; no surface recognition. |
-| 1:22–1:42 | Challenge, correction and completion | Feedback addresses a probability misconception. |
-| 1:42–2:26 | Optional Gate Lab: reset to 0, compare H-Z-H with H-H; measure 1 then 0 | A relative-phase difference changes a later outcome. |
-| 2:26–2:34 | Return to preserved lesson, then Restart | Independent lab state; clear recovery for another learner. |
-| 2:34–2:45 | Qubit superposition closing view | Prepare, measure and discover; classical simulation and untested glasses. |
-
-| Time | English caption / optional narration cue |
+| Time in final edit | Caption / proposed narration |
 |---|---|
-| 0:00.0–0:05.0 | Same odds. Different states. (Optional lab excerpt) |
-| 0:05.0–0:10.0 | Quantum computing can feel abstract. |
-| 0:10.0–0:16.0 | Make it an experiment in your surroundings. |
-| 0:16.0–0:22.0 | A classical bit has one definite value: 0 or 1. |
-| 0:22.0–0:28.0 | Change the bit, then explore a qubit. |
-| 0:28.0–0:34.0 | A mathematical state diagram: 0 north, 1 south. |
-| 0:34.0–0:43.0 | Prepare 0 or 1 for a certain Z-measurement outcome. |
-| 0:43.0–0:49.0 | Equal superposition predicts 50% for each Z result. |
-| 0:49.0–0:52.0 | Now measure the prepared state. |
-| 0:52.0–0:58.0 | Measurement returns a definite result and collapses the state. |
-| 0:58.0–1:04.0 | Repeat without preparing: the outcome stays 0. |
-| 1:04.0–1:09.0 | Fresh trials prepare again for each measurement. |
-| 1:09.0–1:14.0 | Totals: 7 zeros and 5 ones, including the earlier two measurements. |
-| 1:14.0–1:22.0 | Manual placement preserves the experiment. No surface detection. |
-| 1:22.0–1:29.0 | Try a prediction; mistakes get an explanation and a retry. |
-| 1:29.0–1:35.0 | Fresh equal superpositions have 50% for each outcome. |
-| 1:35.0–1:42.0 | Three stages explored. An optional discovery follows. |
-| 1:42.0–1:50.0 | Optional Gate Lab: reset to 0, then explore. |
-| 1:50.0–1:55.0 | H creates equal superposition: 50% for either Z result. |
-| 1:55.0–2:01.0 | Z changes relative phase. Z-measurement odds stay 50/50. |
-| 2:01.0–2:06.0 | Apply another H to make outcome 1 certain. |
-| 2:06.0–2:10.5 | Measure the prepared state: 1. |
-| 2:10.5–2:18.0 | Reset. Compare H followed by H, without Z. |
-| 2:18.0–2:26.0 | H, H: expect 0, then measure to test it. |
-| 2:26.0–2:30.0 | Return to the preserved beginner experiment. |
-| 2:30.0–2:34.0 | Restart clears the lesson and counters. |
-| 2:34.0–2:39.0 | A difficult idea becomes an experiment you can explore. |
-| 2:39.0–2:45.0 | Prepare. Measure. Discover. Classical simulation; glasses untested. |
+| 0–7 s | Later discovery excerpt: same odds, different phase. What happens next? |
+| 7–14 s | Apply H to both. Compare the computed predictions. |
+| 14–16 s | Measure the two basis states. |
+| 16–20 s | Predictions: A=1, B=0. Measure to test them. |
+| 20–25 s | Begin with a classical bit: one definite value, 0 or 1. |
+| 25–31 s | Select Change bit to 1. Learning begins with a real action. |
+| 31–42 s | Prepare 0 or 1. The arrow shows the chosen state. |
+| 42–50 s | Choose Equal superposition: measurement can return either value. |
+| 50–59 s | At the equator, 0 and 1 each have a 50% chance. |
+| 59–68 s | Predict first: 50% for each outcome. Then choose Measure. |
+| 68–73 s | This take returned 1. The displayed state has collapsed. |
+| 73–79 s | Repeat measures the collapsed state, so the result stays 1. |
+| 79–82 s | Ten fresh trials prepare equal superposition each time. |
+| 82–85 s | Observed totals: 12 measurements, four 0s and eight 1s. |
+| 85–95 s | Manual placement: move the station, finish, and Recenter. |
+| 95–104 s | The challenge distinguishes fresh preparation from repetition. |
+| 104–112 s | Fresh equal superposition: 0 or 1, with 50% chance each. |
+| 112–118 s | Three stages complete. The optional lab invites a deeper discovery. |
+| 118–128 s | Compare experiments from the same 0 state. Apply H to both. |
+| 128–135 s | Apply Z to A while B waits: equal odds, opposite arrows. |
+| 135–141 s | Apply H again. Phase changes the next predictions. |
+| 141–149 s | A predicts 1; B predicts 0. Normal measurement confirms both. |
+| 149–158 s | Return restores the completed lesson and its 12 observations. |
+| 158–166 s | Explore quantum computing through experiments, one discovery at a time. |
 
-The opening is a real excerpt reordered for presentation. The product still begins
-Bit → Qubit → Measurement. Idle intervals are trimmed at ordinary speed; the whole
-native frame is scaled without cropping into a landscape canvas with outer captions.
-No interactions, scientific results, or camera motion are fabricated.
+The beginner measurement in this recorded take was 1, followed by repeat 1.
+After ten fresh preparations, the displayed cumulative totals were 12, with
+four zeros and eight ones. These are actual observations, not required sample
+proportions. The comparison starts each experiment at 0: H-Z-H predicts 1 and
+H-H predicts 0, followed by ordinary measurement of those basis states.
 
-The first measurement is not predetermined. This take produced 0, then repeated 0.
-The ten fresh trials produced five of each; cumulative totals became seven zeros
-and five ones across twelve measurements, including the earlier two. A new take
-can differ. H-Z-H from 0 measured 1; H-H from 0 measured 0. Return preserved the
-beginner experiment; Restart cleared it.
-
-The QAR-008 2:45 fallback and all original takes remain preserved. V3 reduces
-placement from 37 seconds to eight, making room for the phase comparison. Its
-advanced section is denser; the learner can finish without entering the optional
-lab. Spoken narration, mobile-device playback and physical glasses are unverified.
+The owner reviews the actual video and any later narration before upload. No
+public video URL or platform submission is claimed. Earlier QAR-009 V3 and
+QAR-008 videos remain fallback candidates.

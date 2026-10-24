@@ -40,6 +40,14 @@ Short prompts follow the learner's actual lab state: try X, observe H's equal
 superposition, apply Z without changing the immediate odds, then compare H-Z-H
 with H-H. The learner predicts, measures and compares using the same controls.
 
+The optional Comparison Chamber places two compact 15 cm instruments side by
+side. Both start at 0. After H on both and Z on A, the learner sees identical
+immediate 50/50 Z odds but opposite arrows and relative phase. A final H reveals
+different computed predictions: A=1 and B=0. Measurement uses the ordinary sampler
+on those basis states. Reset and Return preserve the independent lab and beginner
+snapshots. Larger labels, contextual Help and a visible measurement Next improve
+the first-time journey without adding another required beginner stage.
+
 ## Problem and audience
 
 Beginners can confuse a quantum probability with a hidden classical value, or
@@ -70,6 +78,7 @@ results. The goal is a brief moment of understanding through direct experimentat
 - High contrast text, large targets, and information conveyed beyond color.
 - Protection against duplicate, canceled, stale, and remapped selections.
 - An optional isolated X/H/Z lab with complex amplitudes, phase and its own counts.
+- An independent two-instrument phase comparison, guided gates, reset and exact return.
 
 ## Technical implementation and required tools
 
@@ -115,13 +124,13 @@ sequences, normalization, collapse, animation interruption and recovery. The
 original native scenarios and added visual/lab scenarios exercise the real preview.
 The current product checkpoint and its exact results are reported in
 [verification](VERIFICATION.md). The [judge walkthrough](OPEN_AND_TEST.md) explains
-the verified CLAD/MCP coordinate-pinch route and six LEAF scenarios.
-The retained local QAR-009 V3 demo is 2:45, 1920 × 1080, 30 fps, silent with
-English captions. It shows genuine preview camera motion, the beginner lesson,
-eight seconds of manual placement and the optional H-Z-H versus H-H discovery.
-Simulated environment and input are explicitly labeled. The QAR-008 fallback
-remains preserved. QAR-010 improves in-Lens instructions and state-derived lab
-prompts while preserving the demonstrated controls and scientific behavior.
+the verified CLAD/MCP coordinate-pinch route and nine LEAF scenarios.
+The preferred genuine QAR-011 preview candidate is 166.000
+seconds, 1920 x 1080, 30 fps, silent with English captions. A same-timing silent
+narration-ready cut and timed script are prepared. It shows the improved beginner
+journey, actual random measurement/repeat/fresh trials, manual placement and the
+two-instrument phase discovery. Simulated environment and input are labeled.
+The QAR-009 V3 and QAR-008 fallbacks remain preserved. No voice or upload is claimed.
 Current coordinate-pinch input and LEAF are the verified preview routes; ordinary
 Windows short-click activation remains unresolved before the application guard.
 
@@ -174,7 +183,7 @@ added to the lesson.
   5:00 PM EST that day, which converts to 3:00 PM Arizona. Keep the one-hour buffer
   and retain the platform confirmation.
 
-Current requirement sources, checked October 23, 2026:
+Current requirement sources, checked October 24, 2026:
 [official rules](https://learn-specs.devpost.com/rules) and
 [resources](https://learn-specs.devpost.com/resources). The rules require a new
 SPECS Lens using the stated workflow, a public source repository, English materials,
