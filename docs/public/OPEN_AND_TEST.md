@@ -50,6 +50,33 @@ Injected touch tests and simulated pinch are distinct from a real Windows click.
 No keyboard, phone or handheld controller is required by the lesson's intended
 SPECS input design. Physical glasses input has not been tested.
 
+## Try the short optional discovery
+
+The three-stage lesson remains the primary path. From **Meet the Bit**, you can
+instead choose **Discover phase (optional)**:
+
+1. `QAR enter-discovery` deliberately prepares the two experiments with identical
+   50/50 odds, opposite arrows and no measurements. Read the question: will the
+   same operation give the same result?
+2. Choose **Try same operation** (`QAR compare-step`). The computed probabilities
+   change to A predicting 1 and B predicting 0. Both still say **Predicted, not
+   measured**. The intermediate 50/50 states did not already have these certain
+   different outcomes.
+3. Choose **Measure both** (the same current `QAR compare-step` target, rediscovered
+   after the repaint). Ordinary measurement confirms A=1 and B=0. The explanation
+   connects the difference to quantum phase and the initial odds.
+
+**Details** shows current amplitudes, relative phase, actual gate/measurement
+history and the retained intermediate values. It changes no experiment state.
+**Reset** starts the full preparation sequence at both zero. **Return lesson**
+restores the exact entry lesson; allow at least 600 ms before the next selection.
+The comparison remains optional and can also be reached later through the Lab.
+
+The final development route took 14.177 seconds for three coordinate selections,
+including fresh queries, state readbacks and tool overhead. This is an observed
+simulated-input wall time, not a novice completion or comprehension result.
+A human observation protocol is [provided separately](NOVICE_TEST_PROTOCOL.md).
+
 ## Explore the lesson
 
 1. **Meet the Bit:** change 0 / 1, then choose Next. A classical bit has one
@@ -93,10 +120,12 @@ state and history; its state and counters are separate from the beginner lesson.
 3. Apply another H, predict the result, then Measure: H–Z–H from 0 gives 1.
 4. Reset Lab, apply H then H, and Measure: the result is 0. Compare the two paths.
 5. Choose **Compare phase** to open the optional two-instrument chamber. Both
-   experiments start at 0. Apply H to both, then Z to A while B waits: both still
-   show 50/50 Z odds, but their arrows and relative phases differ. Apply H to
-   both again: predictions become A=1 and B=0. Measure to observe those basis
-   results through the ordinary sampler. Reset restarts both experiments.
+   experiments retain their own comparison state. Choose **Reset** to start both
+   at 0. **Prepare equal odds** applies H to both; **Change A only** applies Z to A
+   while B waits. Both still show 50/50 Z odds but different phases and arrows.
+   **Try same operation** applies H to both again: predictions become A=1/B=0.
+   **Measure both** observes those basis results through the ordinary sampler.
+   Open Details for the actual mathematics.
 6. **Return Lab** restores the exact lab snapshot. Allow the mode boundary to
    settle before a new selection; inspect the actual visible page and discover
    its controls again. The chamber's 15 cm diagrams share the 52 cm station.
@@ -124,6 +153,8 @@ wait for registration, list scenarios, then run these **one at a time**:
 | `qar011-phase-comparison` | Actual intermediate gates/phase/odds, final A1/B0, reset and exact lab/lesson preservation |
 | `qar011-comparison-guards` | Cancellation, stale events, mode settling, error recovery, feature-disabled fallback and visible measurement navigation |
 | `qar011-comparison-ik` | Simulated IK reach, comparison selection and return |
+| `qar012-discovery` | Immediate deliberate preparation, plain/technical explanation, exact nontrivial return, repeat history, Reset and Motion off |
+| `qar012-discovery-guards-ik` | New-entry cancellation/outside/stale/held/mode guards, fallback and actual simulated IK confirmation |
 
 Wait for each run's result before starting another: a new run resets the scene.
 Refresh afterward to remove diagnostic avatars/overlays before ordinary exploration
@@ -148,7 +179,7 @@ rendering and supported native interaction. See [lesson API](LESSON_API.md) and
 [science criteria](SCIENCE_AND_ACCEPTANCE.md).
 
 The authentic planning workflow's public brief is
-`native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`. QAR-009, QAR-010 and QAR-011
+`native/QuantumARExplorer/devpost/PUBLIC_DESIGN_BRIEF.md`. QAR-009 through QAR-012
 addenda record authorized implementation evolution; the original approved brief
 is preserved. Desktop preview does not establish physical hand tracking,
 additive-display contrast, comfort or device performance. No Lens, competition

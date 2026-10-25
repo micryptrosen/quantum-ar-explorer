@@ -40,13 +40,21 @@ Short prompts follow the learner's actual lab state: try X, observe H's equal
 superposition, apply Z without changing the immediate odds, then compare H-Z-H
 with H-H. The learner predicts, measures and compares using the same controls.
 
-The optional Comparison Chamber places two compact 15 cm instruments side by
-side. Both start at 0. After H on both and Z on A, the learner sees identical
-immediate 50/50 Z odds but opposite arrows and relative phase. A final H reveals
-different computed predictions: A=1 and B=0. Measurement uses the ordinary sampler
-on those basis states. Reset and Return preserve the independent lab and beginner
-snapshots. Larger labels, contextual Help and a visible measurement Next improve
-the first-time journey without adding another required beginner stage.
+An optional Discover phase entry offers a short discovery alongside the beginner
+journey. It deliberately prepares two compact 15 cm instruments with the same
+50/50 measurement odds but different arrow directions. Will the same operation
+give the same result? After applying it, the computed probabilities become
+certain but different: A predicts 1; B predicts 0. Ordinary measurement confirms
+those predictions. The initially identical odds did not describe the whole state:
+the difference was quantum phase. The final operation changes the probabilities
+before the different certain results are measured.
+
+The default explanation uses ordinary language. Curious learners can open Details
+for complex amplitudes, relative phase and the actual H/Z history, or Reset to
+follow the full preparation sequence. These are two independent qubits, not
+entanglement. Returning restores the entry lesson or lab without changing its
+experiment. Larger labels, contextual Help and a visible measurement Next support
+the complete three-stage beginner path; comparison remains optional.
 
 ## Problem and audience
 
@@ -78,7 +86,7 @@ results. The goal is a brief moment of understanding through direct experimentat
 - High contrast text, large targets, and information conveyed beyond color.
 - Protection against duplicate, canceled, stale, and remapped selections.
 - An optional isolated X/H/Z lab with complex amplitudes, phase and its own counts.
-- An independent two-instrument phase comparison, guided gates, reset and exact return.
+- An optional plain-language phase discovery, technical Details, reset and exact return.
 
 ## Technical implementation and required tools
 
@@ -109,6 +117,10 @@ scientifically testable model with a short beginner lesson rather than asking
 the learner to interpret an unexplained animation. It does not claim to be the
 first quantum learning application.
 
+The description and demonstration stand on their own. A comprehensive engineering
+article is optional supplemental evidence; no article upload or publication is
+represented as complete.
+
 The design process emphasized deliberate world placement, readable targets,
 concise explanations, and the difference between a probability before measurement
 and a definite state afterward. The axis projection makes a spatial relationship
@@ -117,6 +129,23 @@ consequence. Native testing also exposed the need to preserve all controls when
 paging, reject releases from a changed view, and isolate independent revision
 counters when returning from the lab.
 
+## Future Applications and Scalability
+
+The working Lens separates scientific simulation, lesson progression, presentation
+models, interaction routing, state management, tests, and native spatial rendering.
+The dependency-free scientific model can be tested independently of UIKit/SIK;
+native adapters turn its state into spatial diagrams and guarded interactions.
+This separation supports investigation of other learning experiences without
+treating the current Lens as an already reusable commercial platform.
+
+Future opportunities include interactive technical instruction and assessments
+for **Veristio Training**, educational book companions for **Veristio Press**,
+visual writing education, story development and guided workshops for **Authors
+Resort**, and product onboarding, guidance and workflow demonstrations for
+**Veristio Software**. These are proposed adaptations, not completed integrations.
+The Lens does not currently run on websites, mobile devices, or inside Authors
+Resort. Broader integration work is deferred until after the hackathon.
+
 ## Verification and limits
 
 The scientific suite includes complex-state gate identities, phase-sensitive
@@ -124,13 +153,13 @@ sequences, normalization, collapse, animation interruption and recovery. The
 original native scenarios and added visual/lab scenarios exercise the real preview.
 The current product checkpoint and its exact results are reported in
 [verification](VERIFICATION.md). The [judge walkthrough](OPEN_AND_TEST.md) explains
-the verified CLAD/MCP coordinate-pinch route and nine LEAF scenarios.
-The preferred genuine QAR-011 preview candidate is 166.000
+the verified CLAD/MCP coordinate-pinch route and eleven LEAF scenarios.
+The preferred genuine QAR-012 V6 preview candidate is 166.000
 seconds, 1920 x 1080, 30 fps, silent with English captions. A same-timing silent
 narration-ready cut and timed script are prepared. It shows the improved beginner
 journey, actual random measurement/repeat/fresh trials, manual placement and the
 two-instrument phase discovery. Simulated environment and input are labeled.
-The QAR-009 V3 and QAR-008 fallbacks remain preserved. No voice or upload is claimed.
+The QAR-011 V5, QAR-009 V3 and QAR-008 fallbacks remain preserved. No voice or upload is claimed.
 Current coordinate-pinch input and LEAF are the verified preview routes; ordinary
 Windows short-click activation remains unresolved before the application guard.
 

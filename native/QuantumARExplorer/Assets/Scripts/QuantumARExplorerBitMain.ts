@@ -36,6 +36,7 @@ export class QuantumARExplorerBitMain extends BaseScriptComponent {
     this.latest=model;this.blochView.setAuthority(model.visual.sphere.arrow.to);
     // Display epochs are monotonic across both independent model revision spaces.
     this.transition.set(model.visual.sphere.arrow.to,++this.displayEpoch,getTime(),{instant:instant||!this.motion||this.intent==='navigation'||this.intent==='reset',shown:model.stage!=='bit',event:this.intent});
+    if(model.stage==='bit')model={...model,offerDiscovery:!isNull(this.optionalComparison)&&this.optionalComparison.available()};
     if(model.stage==='lab')model={...model,offerComparison:!isNull(this.optionalComparison)&&this.optionalComparison.available()};
     this.bitView.render(model);this.draw();
   }
@@ -69,7 +70,7 @@ export class QuantumARExplorerBitMain extends BaseScriptComponent {
         this.optionalComparison.onExit.add(context=>{
           if(!this.inComparison||this.optionalComparison.snapshot().context!==context+1)return;
           this.inComparison=false;this.modeAvailableAt=getTime()+0.5;this.bitView.setVisible(true);this.intent='navigation';this.feedback='';this.feedbackUntil=0;
-          this.publish(this.optionalLab.view(this.beginner),true);
+          this.publish(this.inLab?this.optionalLab.view(this.beginner):this.beginner,true);
         });
         this.optionalComparison.onMotion.add(motion=>{this.motion=motion;this.transition=createVisualTransition({reducedMotion:!motion});this.bitView.setMotionPreference(motion);});
       }
@@ -85,6 +86,13 @@ export class QuantumARExplorerBitMain extends BaseScriptComponent {
       }});
       this.bitView.onAction.add(({id,revision})=>{
         if(this.inComparison||getTime()<this.modeAvailableAt)return;
+        if(id==='enter-discovery'){
+          if(this.inLab||this.beginner?.stage!=='bit'||revision!==this.beginner.revision||isNull(this.optionalComparison)||!this.optionalComparison.available())return;
+          this.bitView.setVisible(false);this.update.enabled=false;
+          this.inComparison=this.optionalComparison.enter(this.motion,true);
+          if(!this.inComparison)this.bitView.setVisible(true);
+          return;
+        }
         if(id==='enter-comparison'){
           if(!this.inLab||revision!==this.optionalLab.snapshot().revision||isNull(this.optionalComparison)||!this.optionalComparison.available())return;
           this.bitView.setVisible(false);this.update.enabled=false;

@@ -1,30 +1,26 @@
 # Demonstration walkthrough
 
-The current QAR-011 candidate is 166 seconds, 1920 × 1080, H.264 at 30 fps,
-silent with English captions. A same-timing silent narration-ready version and
-the [timed script](DEMO_SCRIPT.md) are prepared. Footage comes from the actual
-Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor landscape preview, selected through
-fresh-coordinate CLAD/MCP simulated pinch. It is not physical glasses footage.
+The current QAR-012 V6 candidate is 166 seconds, 1920 × 1080, H.264 at
+30 fps, silent with English captions. A same-timing silent narration-ready cut,
+English SRT and [timed script](DEMO_SCRIPT.md) are prepared. The footage is the
+actual Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor landscape preview, selected
+through fresh-coordinate CLAD/MCP simulated pinch.
 
-| Final-edit interval | Genuine recorded behavior |
-|---|---|
-| 0–20 s | Labeled later-discovery excerpt: equal immediate odds, different phase, H changes predictions, then measurement |
-| 20–31 s | Classical bit 0 changes to 1 |
-| 31–59 s | Qubit preparation, visible axis and supported camera-only spatial inspection |
-| 59–85 s | Predict, normal random measurement 1, repeat 1, ten fresh preparations; totals 12 / four zeros / eight ones |
-| 85–95 s | Trimmed manual placement, Done and Recenter; no surface recognition |
-| 95–118 s | Incorrect-answer recovery, correct probability explanation and lesson completion |
-| 118–149 s | Optional comparison from both 0: H on both, Z on A, H on both, actual measured A1/B0 |
-| 149–158 s | Exact return to the completed beginner lesson with its observations |
-| 158–166 s | Clean equal-superposition closing view after Restart cleared counts |
+The opening discovery asks whether two states with the same odds will behave
+the same after a common operation. The probabilities change first; measurement
+then confirms A=1 and B=0. The guided Bit → Qubit → Measurement lesson follows,
+with ordinary preparation, camera-only spatial inspection, sampling, repetition,
+fresh trials, manual placement, challenge and completion. Later optional Details
+shows the full preparation sequence, amplitudes and phase. Return preserves the
+completed beginner experiment; Restart clears it. The script gives exact timings.
 
-The full native frame remains visible. Cuts omit waiting and navigation at
-ordinary playback speed. There are no fabricated outcomes, substituted scene
-stills, composite native views, test overlays, or recorded/synthetic narration.
-Full decode and sampled frame/caption/privacy review are recorded locally;
-they do not imply every-frame human review or mobile/physical-device playback.
+Recorded observations: Ordinary first1/repeat1;ten fresh preparations6zero4one;total12/6zero6one;opening and full comparison predictedA1/B0 then ordinary measurementA1/B0
 
-QAR-009 V3 remains a preserved 165-second fallback. QAR-011 adds the working
-two-instrument discovery, clearer prediction/repeat/fresh-trial copy and larger
-native labels. Technical and heuristic comparison is separate from owner
-approval. The owner supplies the approved public YouTube URL and submits Devpost.
+Full raw and export decoding and sampled frame/caption/privacy review passed.
+The full native frame stays visible; captions are outside it. There is no scene
+composite, fabricated result, speed change, still-image substitute, test overlay,
+or recorded/synthetic narration. The persistent disclosure identifies simulated
+environment and input. This is not every-frame human review or mobile/physical
+playback. V6's plain-language opening was compared with actual V5 frames; this
+technical/heuristic judgment does not establish novice comprehension or owner
+approval. Earlier media remain preserved. Owner upload and submission remain.

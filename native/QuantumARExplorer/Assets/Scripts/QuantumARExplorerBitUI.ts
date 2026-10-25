@@ -114,10 +114,11 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     if(nextSlot){
       const next=model.controls.find((c:any)=>c.id==='next');
       const compare=model.stage==='lab'&&model.offerComparison===true;
-      nextSlot.so.enabled=model.stage==='measurement'||compare;
-      nextSlot.so.name=compare?'QAR enter-comparison':model.stage==='measurement'?'QAR next':'QAR display-route';
-      nextSlot.ec.text=compare?'Compare phase':next?.enabled?'Next':'Next unavailable';
-      nextSlot.action=compare?{id:'enter-comparison',revision:model.revision}:next?.enabled?{id:'next',revision:model.revision}:null;
+      const discovery=model.stage==='bit'&&model.offerDiscovery===true;
+      nextSlot.so.enabled=model.stage==='measurement'||compare||discovery;
+      nextSlot.so.name=discovery?'QAR enter-discovery':compare?'QAR enter-comparison':model.stage==='measurement'?'QAR next':'QAR display-route';
+      nextSlot.ec.text=discovery?'Discover phase\n(optional)':compare?'Compare phase':next?.enabled?'Next':'Next unavailable';
+      nextSlot.action=discovery?{id:'enter-discovery',revision:model.revision}:compare?{id:'enter-comparison',revision:model.revision}:next?.enabled?{id:'next',revision:model.revision}:null;
     }
     this.texts.VisualNotice.text=this.motionNotice||this.feedback;
     const progress:any={bit:'1 / 3',qubit:'2 / 3',measurement:'3 / 3'};

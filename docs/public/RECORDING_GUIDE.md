@@ -1,6 +1,6 @@
 # Recording and review guide
 
-The current accepted local QAR-011 candidate is `Quantum-AR-Explorer-QAR011-demo-v5.mp4`,
+The current accepted local QAR-012 candidate is `Quantum-AR-Explorer-QAR012-demo-v6-final.mp4`,
 166 seconds, 1920 × 1080, 30 fps, silent with English captions. Its same-timing
 silent narration-ready version omits the body captions and retains the title
 and preview disclosure. The [script](DEMO_SCRIPT.md) and English SRT match the
@@ -20,7 +20,8 @@ Ordinary Windows mouse activation remains unresolved in this environment.
 Keep scientific sampling normal. Never retake to obtain a preferred random
 outcome, invoke scientific callbacks, or put test overlays in demonstration footage.
 
-Show the bit, preparation, prediction, measurement, repeat versus fresh trials,
+Begin with equal odds, a common operation, changed predictions and actual confirmation.
+Then show the bit, preparation, prediction, measurement, repeat versus fresh trials,
 brief manual placement, challenge and optional phase comparison. Record actual
 observations; a finite batch need not be evenly divided. Allow the comparison's
 mode boundary to settle before choosing a newly discovered restored control.

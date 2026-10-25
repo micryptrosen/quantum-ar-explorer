@@ -7,9 +7,12 @@ what happens next.
 
 The native SPECS project is in `native/QuantumARExplorer`. Its three-stage beginner
 lesson leads to a probability challenge and an optional independent X/H/Z lab.
-The new Comparison Chamber places two 15 cm state diagrams side by side, showing
-H-Z-H from 0 alongside H-H from 0. Intermediate phase, probabilities and final
-predictions come from the same verified mathematics used by the original lab.
+An optional **Discover phase** entry is also available on the first screen.
+Two 15 cm state diagrams start with identical 50/50 measurement odds but opposite
+arrows. Apply the same operation: their probabilities change to different certain
+predictions. Measure to confirm them. The difference was quantum phase.
+Plain-English prompts lead the discovery; **Details** reveals actual amplitudes,
+phase and H/Z operations. Return preserves the lesson exactly.
 
 The world station uses larger labels, contextual Help, visible measurement Next,
 an inspection axis and interruptible illustrative motion. Motion can be turned
@@ -20,7 +23,7 @@ recognition or persistent physical anchor.
 
 Open `native/QuantumARExplorer/QuantumARExplorer.esproj` in **Lens Studio 5.23.2**.
 Select SPECS 27 Interactive Preview and Sunlit Outdoor. Use the verified
-CLAD/Lens Studio MCP coordinate-pinch route or the nine supplied LEAF scenarios.
+CLAD/Lens Studio MCP coordinate-pinch route or the eleven supplied LEAF scenarios.
 Ordinary Windows mouse activation remains unresolved in this setup. The
 [judge walkthrough](docs/public/OPEN_AND_TEST.md) gives fresh-target discovery,
 selection, recovery and exact scenario instructions, including vendor prerequisites.
@@ -52,7 +55,7 @@ state, counts and history are isolated from the original lesson and lab. See
 
 The current genuine preview demonstration is under three minutes, landscape,
 silent with English captions. A same-timing silent narration-ready version and
-timed script are available to the owner. The QAR-009 V3 and QAR-008 fallbacks are
+timed script are available to the owner. The QAR-011 V5, QAR-009 V3 and QAR-008 fallbacks are
 preserved. No voice, physical-device footage or platform upload is implied.
 Use the [submission copy](docs/public/SUBMISSION.md),
 [timed script](docs/public/DEMO_SCRIPT.md) and

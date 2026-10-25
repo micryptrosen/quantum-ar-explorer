@@ -23,8 +23,10 @@ export class QuantumARExplorerComparison extends BaseScriptComponent {
   private originalPosition:vec3;
   private originalInspect=false;
   private availableAt=0;
+  private directDiscovery=false;
+  private intermediate:any=null;
   public available():boolean{return this.featureEnabled&&this.enabled&&!isNull(this.view)&&!isNull(this.a)&&!isNull(this.b);}
-  public snapshot():any{return {active:this.active,context:this.context,model:this.model.snapshot(),updateActive:this.update?.enabled,a:this.a?.getDisplayPoint(),b:this.b?.getDisplayPoint(),sampleA:this.ta.sample(getTime()),sampleB:this.tb.sample(getTime()),motion:this.motion};}
+  public snapshot():any{return {active:this.active,directDiscovery:this.directDiscovery,intermediate:this.intermediate,context:this.context,model:this.model.snapshot(),updateActive:this.update?.enabled,a:this.a?.getDisplayPoint(),b:this.b?.getDisplayPoint(),sampleA:this.ta.sample(getTime()),sampleB:this.tb.sample(getTime()),motion:this.motion};}
   onAwake():void {
     this.update=this.createEvent('UpdateEvent');this.update.bind(()=>this.draw());this.update.enabled=false;
     this.createEvent('OnStartEvent').bind(()=>{
@@ -34,8 +36,14 @@ export class QuantumARExplorerComparison extends BaseScriptComponent {
       this.view.onAction.add(e=>this.act(e.id,e.revision,e.context));
     });
   }
-  public enter(motion:boolean):boolean {
+  public enter(motion:boolean,quickDiscovery=false):boolean {
     if(!this.available()||this.active)return false;
+    this.directDiscovery=quickDiscovery;
+    if(quickDiscovery){
+      // Deliberate preparation through the authoritative controller, never measurement.
+      for(const action of ['reset','next','next']){const result=this.model.dispatch(action,this.model.snapshot().revision);if(!result.ok)return false;}
+    }
+    if(quickDiscovery)this.intermediate=this.model.snapshot();
     this.active=true;this.context++;this.availableAt=getTime()+0.5;this.motion=motion;this.originalPosition=this.a.sceneObject.getTransform().getWorldPosition();this.originalInspect=this.a.getInspect();
     this.a.sceneObject.getTransform().setLocalScale(new vec3(15/18,15/18,15/18));this.b.sceneObject.getTransform().setLocalScale(new vec3(15/18,15/18,15/18));
     this.a.setInspect(false);this.b.setInspect(false);this.publish(true);return true;
@@ -49,14 +57,14 @@ export class QuantumARExplorerComparison extends BaseScriptComponent {
     if(id==='compare-motion'){this.motion=!this.motion;this.onMotion.invoke(this.motion);this.publish(true);return {ok:true};}
     const action=id==='compare-reset'?'reset':id==='compare-step'?(this.model.snapshot().step>=3?'measure':'next'):null;
     if(!action)return {ok:false,code:'INVALID_ACTION'};
-    const result=this.model.dispatch(action,revision);if(result.ok||result.revision!==revision)this.publish(action==='reset'||!result.ok);return result;
+    const result=this.model.dispatch(action,revision);if(result.ok&&action==='reset')this.intermediate=null;if(result.ok&&result.step===2)this.intermediate=this.model.snapshot();if(result.ok||result.revision!==revision)this.publish(action==='reset'||!result.ok);return result;
   }
   private publish(instant=false):void {
     const s=this.model.snapshot();const frame=++this.frame;
     this.a.setAuthority(s.a.bloch);this.b.setAuthority(s.b.bloch);
     const options={instant:instant||!this.motion,shown:true,event:'prepare'};
     this.ta.set(s.a.bloch,frame,getTime(),options);this.tb.set(s.b.bloch,frame,getTime(),options);
-    this.view.render(s,this.context,this.motion);this.draw();
+    this.view.render(s,this.context,this.motion,this.directDiscovery,this.intermediate);this.draw();
   }
   private draw():void {
     if(!this.active){this.update.enabled=false;return;}

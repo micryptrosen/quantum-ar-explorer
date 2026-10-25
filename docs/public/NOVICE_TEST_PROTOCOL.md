@@ -9,6 +9,33 @@ Use an anonymous session code; names and contact details are unnecessary.
 Keep human mouse, physical pinch, CLAD coordinate selection and LEAF results
 separate. Automated interactions do not establish human usability.
 
+## Twenty-second discovery observation
+
+Use a first-time participant who has not studied quantum computing. Give no
+explanation of phase beforehand. Show the optional discovery or its genuine
+recorded opening once, for approximately twenty seconds. Record the actual
+duration, starting state, any assistance, and whether they watched or interacted.
+Ask these neutral questions before showing the technical Details:
+
+1. What were the original odds?
+2. What changed between the experiments?
+3. Why did applying the same final operation produce different results?
+4. What does that tell you about quantum information?
+
+Record the participant's exact explanation, including uncertainty or errors.
+Do not imply that the intermediate 50/50 states already predict certain different
+results. The final operation changes their probabilities; measurement then
+confirms those computed predictions. Understanding that specific relationship
+is the target, rather than mastery of quantum theory. Do not score vocabulary
+such as "Hadamard" as necessary understanding.
+
+Keep three kinds of evidence separate: technical verification of the model and
+preview, heuristic design review, and actual human novice observation. If nobody
+participates, record **human novice comprehension: not tested**. Do not substitute
+an automated review, scripted scenario, or a developer's explanation for a novice.
+
+## Complete beginner journey
+
 Ask the learner to think aloud. Say: "We are testing the experience. Please tell
 me what you expect, what you notice, and anything that is unclear." Do not teach
 the answer or point at a control before they try. Record any assistance given.

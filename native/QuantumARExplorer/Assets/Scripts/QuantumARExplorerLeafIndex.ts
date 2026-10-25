@@ -1,3 +1,5 @@
+import {QAR012DiscoveryScenario} from './QAR012DiscoveryScenario';
+import {QAR012DiscoveryGuardScenario} from './QAR012DiscoveryGuardScenario';
 import {QAR010JudgeScenario} from './QAR010JudgeScenario';
 import {scenariosIndex} from 'Leaf.lspkg/Scenarios/decorator/ScenarioIndexDecorator';
 import {ScenarioMetadata} from 'Leaf.lspkg/Scenarios/scenario/ScenarioMetadata';
@@ -21,6 +23,10 @@ export class QuantumARExplorerLeafIndex extends BaseScriptComponent {
     {id:'qar010-judge-experience',typename:QAR010JudgeScenario.getTypeName()},
     {id:'qar011-phase-comparison',typename:QAR011ComparisonScenario.getTypeName()},
     {id:'qar011-comparison-guards',typename:QAR011ComparisonGuardScenario.getTypeName()},
-    {id:'qar011-comparison-ik',typename:QAR011ComparisonReachScenario.getTypeName()}
+    {id:'qar011-comparison-ik',typename:QAR011ComparisonReachScenario.getTypeName()},
+    {id:'qar012-discovery',typename:QAR012DiscoveryScenario.getTypeName()},
+    {id:'qar012-discovery-guards-ik',typename:QAR012DiscoveryGuardScenario.getTypeName()}
   ];
 }
+
+// QAR-012 additive discovery registration.

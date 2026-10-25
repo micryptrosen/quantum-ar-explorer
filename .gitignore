@@ -154,3 +154,16 @@
 !/tests/comparison-native.test.js
 !/tests/comparison.test.js
 !/tools/build-comparison.mjs
+
+# QAR-012 exact reviewed product-excellence additions.
+!/native/QuantumARExplorer/Assets/Scripts/QAR012DiscoveryGuardScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR012DiscoveryGuardScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QAR012DiscoveryScenario.ts
+!/native/QuantumARExplorer/Assets/Scripts/QAR012DiscoveryScenario.ts.meta
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/discovery.js
+!/native/QuantumARExplorer/Assets/Scripts/QuantumOptional/discovery.js.meta
+!/native/QuantumARExplorer/devpost/QAR012_DISCOVERY_EXPERIENCE.md
+!/src/discovery.js
+!/tests/discovery-native.test.js
+!/tests/discovery.test.js
+!/tools/build-discovery.mjs
