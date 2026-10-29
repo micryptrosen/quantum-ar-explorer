@@ -79,7 +79,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
       this.label(diagram,df,'SouthPole','',2,'Caption');
       df.onLayoutComplete.add(()=>this.onDiagramLayout.invoke(this.texts.BitValue.sceneObject.getTransform().getWorldPosition()));
       const card=this.cell(hero,hf,'StateCard',this.panelWidth-26.2,22);
-      this.plate=card.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='dark';
+      this.plate=card.createComponent(BackPlate.getTypeName()) as BackPlate;this.plate.style='simple';
       const inner=this.obj(card,'StateContent',new vec3(0,0,0.6));
       const sf=this.flex(inner,FlexDirection.Column,this.panelWidth-26.2,22,1);
       sf.paddingLeft=1;sf.paddingRight=1;sf.paddingTop=1;sf.paddingBottom=1;
@@ -209,7 +209,7 @@ export class QuantumARExplorerBitUI extends BaseScriptComponent {
     flex.addItems([item]);
   }
   private label(parent:SceneObject,flex:FlexLayout,name:string,value:string,height:number,role:keyof typeof TYPE_SCALE):Text {
-    const so=this.obj(parent,name);const t=so.createComponent('Component.Text') as Text;
+    const so=this.obj(parent,name==='ExperimentCounts'?name+'Cell':name);let host=so;if(name==='ExperimentCounts'){const backing=so.createComponent(BackPlate.getTypeName()) as BackPlate;backing.style='simple';backing.size=new vec2(this.panelWidth,height+0.6);host=this.obj(so,name,new vec3(0,0,0.6));}const t=host.createComponent('Component.Text') as Text;
     t.text=value;t.depthTest=true;t.textFill.color=name==='Heading'||name==='ExperimentCounts'?new vec4(0.30,0.94,0.88,1):name==='BitValue'?new vec4(0.30,0.70,1,1):new vec4(1,1,1,1);applyTextRole(t,role);t.horizontalAlignment=HorizontalAlignment.Center;t.verticalAlignment=VerticalAlignment.Center;
     t.horizontalOverflow=HorizontalOverflow.Overflow;t.verticalOverflow=VerticalOverflow.Overflow;t.layoutRect=Rect.create(-0.5,0.5,-0.5,0.5);
     const item=so.createComponent(FlexItem.getTypeName()) as FlexItem;item.overrideHeight=height;item.flexShrink=0;item.alignSelf=FlexAlignSelf.Stretch;flex.addItems([item]);this.texts[name]=t;return t;

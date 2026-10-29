@@ -1,10 +1,12 @@
 # Recording and review guide
 
-The current accepted local QAR-012 candidate is `Quantum-AR-Explorer-QAR012-demo-v6-final.mp4`,
-166 seconds, 1920 × 1080, 30 fps, silent with English captions. Its same-timing
-silent narration-ready version omits the body captions and retains the title
-and preview disclosure. The [script](DEMO_SCRIPT.md) and English SRT match the
-actual edit. The owner retains all raw, earlier-candidate and fallback media.
+The current protected local V8 review movie is 169 seconds, 1920 x 1080,
+H.264 at 30 fps, silent with English captions. The [timed script](DEMO_SCRIPT.md)
+matches its SRT. Genuine Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor footage uses
+CLAD/MCP simulated pinch. QAR-016 has since improved native Details layout and
+backing; this protected movie has not been replaced or uploaded by this tranche.
+
+All raw, earlier-candidate, narration-ready and fallback media remain preserved.
 
 For another take, open the real native project in Lens Studio 5.23.2. Verify the
 SPECS 27 Interactive preview, Sunlit Outdoor and an even landscape capture size

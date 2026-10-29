@@ -167,3 +167,6 @@
 !/tests/discovery-native.test.js
 !/tests/discovery.test.js
 !/tools/build-discovery.mjs
+
+# QAR-016 exact genuine Details preview; default deny retained.
+!/docs/public/preview-details.png

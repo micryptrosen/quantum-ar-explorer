@@ -32,7 +32,7 @@ export class QuantumARExplorerComparison extends BaseScriptComponent {
     this.createEvent('OnStartEvent').bind(()=>{
       if(!this.available())return;
       this.b.show(false,{x:0,y:0,z:1});
-      this.view.onLayout.add(p=>{if(!this.active)return;const offset=this.view.sceneObject.getTransform().getWorldRotation().multiplyVec3(new vec3(0,0,9));this.a.sceneObject.getTransform().setWorldPosition(p.a.add(offset));this.b.sceneObject.getTransform().setWorldPosition(p.b.add(offset));});
+      this.view.onLayout.add(p=>{if(!this.active)return;const scale=p.diameter/18;this.a.sceneObject.getTransform().setLocalScale(new vec3(scale,scale,scale));this.b.sceneObject.getTransform().setLocalScale(new vec3(scale,scale,scale));const offset=this.view.sceneObject.getTransform().getWorldRotation().multiplyVec3(new vec3(0,0,9));this.a.sceneObject.getTransform().setWorldPosition(p.a.add(offset));this.b.sceneObject.getTransform().setWorldPosition(p.b.add(offset));});
       this.view.onAction.add(e=>this.act(e.id,e.revision,e.context));
     });
   }

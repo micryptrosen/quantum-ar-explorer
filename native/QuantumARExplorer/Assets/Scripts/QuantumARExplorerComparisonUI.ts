@@ -1,4 +1,5 @@
 /** Passive optional comparison view. Layout and gestures never change scientific state. */
+import {BackPlate} from 'SpectaclesUIKit.lspkg/Scripts/BackPlate';
 import Event from 'SpectaclesInteractionKit.lspkg/Utils/Event';
 import {Button} from 'SpectaclesUIKit.lspkg/Scripts/Components/Button/Button';
 import {ElementContent} from 'SpectaclesUIKit.lspkg/Scripts/Components/Content/ElementContent';
@@ -10,8 +11,11 @@ const TYPE_SCALE={Heading:93,Body:64,Caption:54};
 @component
 export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
   public onAction=new Event<{id:string,revision:number,context:number}>();
-  public onLayout=new Event<{a:vec3,b:vec3}>();
+  public onLayout=new Event<{a:vec3,b:vec3,diameter:number}>();
   private content:SceneObject;
+  private items:{[name:string]:FlexItem}={};
+  private layouts:{[name:string]:FlexLayout}={};
+  private plates:{[name:string]:BackPlate}={};
   private texts:{[key:string]:Text}={};
   private buttons:{[key:string]:ElementContent}={};
   private pending:any;
@@ -30,7 +34,7 @@ export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
     // UIKit nested layouts settle after their own initialization. Follow their final
     // world anchors for a bounded window; never move the station or scientific state.
     this.layoutSettle=this.createEvent('LateUpdateEvent');this.layoutSettle.enabled=false;
-    this.layoutSettle.bind(()=>{if(!this.visible||getTime()>this.layoutUntil){this.layoutSettle.enabled=false;return;}this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition()});});this.layoutReady=this.createEvent('DelayedCallbackEvent');this.layoutReady.bind(()=>{if(this.visible)this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition()});});}
+    this.layoutSettle.bind(()=>{if(!this.visible||getTime()>this.layoutUntil){this.layoutSettle.enabled=false;return;}this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition(),diameter:this.help?10:15});});this.layoutReady=this.createEvent('DelayedCallbackEvent');this.layoutReady.bind(()=>{if(this.visible)this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition(),diameter:this.help?10:15});});}
   public hide():void{this.visible=false;this.epoch++;if(this.content)this.content.enabled=false;}
   public render(model:any,context:number,motion:boolean,directDiscovery=this.directDiscovery,intermediate=this.intermediate):void {
     if(!this.visible){this.help=false;this.modeAvailableAt=getTime()+0.5;}
@@ -43,10 +47,11 @@ export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
     for(const key of ['a','b']){
       const state=model[key],p=state.probabilities;
       this.texts[key+'Title'].text=d[key].title;
-      this.texts[key+'Odds'].size=this.help?TYPE_SCALE.Caption:TYPE_SCALE.Body;
+      this.texts[key+'Odds'].size=TYPE_SCALE.Body;
       this.texts[key+'Odds'].text=d[key].odds+'\n'+(state.result===null?'Predicted, not measured':'Result '+state.result+' · measured')+(this.help?'\n'+d[key].technical.replace('  β=','\nβ=').replace(/Path: [^\n]*/,this.history(state.history)):'');
     }
-    this.texts.CompareGuide.size=this.help?TYPE_SCALE.Caption:TYPE_SCALE.Body;
+    this.texts.CompareGuide.size=TYPE_SCALE.Body;
+    this.detailLayout();
     let detail=d.explanation.replace('Two independent qubits; this is not entanglement.','Independent qubits, not entanglement. MZ = Z measurement.');
     if(this.intermediate){const complex=(z:any)=>z.re.toFixed(3)+(z.im<0?'':' +')+z.im.toFixed(3)+'i';for(const key of ['a','b']){const s=this.intermediate[key].state;detail+='\nIntermediate '+key.toUpperCase()+': α='+complex(s.alpha)+'  β='+complex(s.beta);}}
     this.texts.CompareGuide.text=this.help?detail:d.guide;
@@ -57,6 +62,18 @@ export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
     this.buttons['compare-motion'].text=motion?'Motion: on':'Motion: off';
     this.buttons['compare-help'].text=this.help?'Close Details':'Details';
     this.layoutUntil=getTime()+0.8;this.layoutSettle.enabled=true;this.layoutReady.reset(0.2);
+  }
+  private backed(parent:SceneObject,name:string,width:number,height:number):SceneObject {
+    const p=parent.createComponent(BackPlate.getTypeName()) as BackPlate;p.style='simple';p.size=new vec2(width,height);this.plates[name]=p;
+    return this.obj(parent,name,new vec3(0,0,0.6));
+  }
+  private detailLayout():void {
+    // Same station height: transfer 4 cm from the pair to the explanation.
+    // Only the display diagram changes diameter; authoritative Bloch values do not.
+    const pairHeight=this.help?32:36,diagramHeight=this.help?12:18,oddsHeight=this.help?12:10,guideHeight=this.help?9:5;
+    for(const name of ['ComparePair','CompareA','CompareB']){this.items[name].overrideHeight=pairHeight;this.layouts[name].height=pairHeight;}
+    for(const key of ['a','b']){this.items[key+'DiagramCell'].overrideHeight=diagramHeight;this.items[key+'OddsCell'].overrideHeight=oddsHeight;this.plates[key+'Odds'].size=new vec2(24.9,oddsHeight);}
+    this.items.CompareGuideCell.overrideHeight=guideHeight;this.plates.CompareGuide.size=new vec2(52,guideHeight);
   }
   private history(history:string[]):string {
     // Lossless run-length display of the bounded authoritative history.
@@ -78,7 +95,7 @@ export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
       this.label(cell,col,key+'Diagram',24.9,18,'Body');
       this.label(cell,col,key+'South',24.9,2,'Caption').text='1 · SOUTH';
       this.label(cell,col,key+'Odds',24.9,10,'Body');
-      col.onLayoutComplete.add(()=>{if(this.texts.aDiagram&&this.texts.bDiagram)this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition()});});
+      col.onLayoutComplete.add(()=>{if(this.texts.aDiagram&&this.texts.bDiagram)this.onLayout.invoke({a:this.texts.aDiagram.sceneObject.getTransform().getWorldPosition(),b:this.texts.bDiagram.sceneObject.getTransform().getWorldPosition(),diameter:this.help?10:15});});
     }
     this.label(this.content,root,'CompareGuide',52,5,'Body');
     this.label(this.content,root,'CompareCounts',52,2,'Caption');
@@ -105,11 +122,11 @@ export class QuantumARExplorerComparisonUI extends BaseScriptComponent {
     b.onInitialized.add(()=>{b.interactable.onTriggerCanceled.add(cancel);b.interactable.onTriggerEndOutside.add(cancel);});
   }
   private label(parent:SceneObject,flex:FlexLayout,name:string,width:number,height:number,role:keyof typeof TYPE_SCALE):Text {
-    const so=this.cell(parent,flex,name,width,height);const t=so.createComponent('Component.Text') as Text;
+    const so=this.cell(parent,flex,name+'Cell',width,height);const host=(name.endsWith('Odds')||name==='CompareGuide'||name==='CompareCounts')?this.backed(so,name,width,height):this.obj(so,name);const t=host.createComponent('Component.Text') as Text;
     t.text='';t.size=TYPE_SCALE[role];(t as Text & {weight?:number}).weight=role==='Heading'?700:500;t.depthTest=true;t.textFill.color=role==='Heading'?new vec4(0.3,0.94,0.88,1):new vec4(1,1,1,1);
     t.horizontalAlignment=HorizontalAlignment.Center;t.verticalAlignment=VerticalAlignment.Center;t.horizontalOverflow=HorizontalOverflow.Overflow;t.verticalOverflow=VerticalOverflow.Overflow;t.layoutRect=Rect.create(-0.5,0.5,-0.5,0.5);this.texts[name]=t;return t;
   }
-  private cell(parent:SceneObject,flex:FlexLayout,name:string,width:number,height:number):SceneObject {const so=this.obj(parent,name);const i=so.createComponent(FlexItem.getTypeName()) as FlexItem;i.overrideWidth=width;i.overrideHeight=height;i.flexShrink=0;i.alignSelf=FlexAlignSelf.Stretch;flex.addItems([i]);return so;}
-  private flex(so:SceneObject,direction:FlexDirection,width:number,height:number,gap:number):FlexLayout {const f=so.createComponent(FlexLayout.getTypeName()) as FlexLayout;f.autoDiscoverItemsOnStart=false;f.width=width;f.height=height;f.direction=direction;f.alignItems=FlexAlign.Stretch;f.justifyContent=FlexJustify.Center;f.rowGap=gap;f.columnGap=gap;return f;}
+  private cell(parent:SceneObject,flex:FlexLayout,name:string,width:number,height:number):SceneObject {const so=this.obj(parent,name);const i=so.createComponent(FlexItem.getTypeName()) as FlexItem;i.overrideWidth=width;i.overrideHeight=height;i.flexShrink=0;i.alignSelf=FlexAlignSelf.Stretch;flex.addItems([i]);this.items[name]=i;return so;}
+  private flex(so:SceneObject,direction:FlexDirection,width:number,height:number,gap:number):FlexLayout {const f=so.createComponent(FlexLayout.getTypeName()) as FlexLayout;f.autoDiscoverItemsOnStart=false;f.width=width;f.height=height;f.direction=direction;f.alignItems=FlexAlign.Stretch;f.justifyContent=FlexJustify.Center;f.rowGap=gap;f.columnGap=gap;this.layouts[so.name]=f;return f;}
   private obj(parent:SceneObject,name:string,position?:vec3):SceneObject {const so=global.scene.createSceneObject(name);so.setParent(parent);if(position)so.getTransform().setLocalPosition(position);return so;}
 }

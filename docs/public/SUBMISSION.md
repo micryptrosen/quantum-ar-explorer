@@ -154,12 +154,14 @@ original native scenarios and added visual/lab scenarios exercise the real previ
 The current product checkpoint and its exact results are reported in
 [verification](VERIFICATION.md). The [judge walkthrough](OPEN_AND_TEST.md) explains
 the verified CLAD/MCP coordinate-pinch route and eleven LEAF scenarios.
-The preferred genuine QAR-012 V6 preview candidate is 166.000
-seconds, 1920 x 1080, 30 fps, silent with English captions. A same-timing silent
-narration-ready cut and timed script are prepared. It shows the improved beginner
-journey, actual random measurement/repeat/fresh trials, manual placement and the
-two-instrument phase discovery. Simulated environment and input are labeled.
-The QAR-011 V5, QAR-009 V3 and QAR-008 fallbacks remain preserved. No voice or upload is claimed.
+The current protected local V8 review movie is 169 seconds, 1920 x 1080,
+H.264 at 30 fps, silent with English captions. The [timed script](DEMO_SCRIPT.md)
+matches its SRT. Genuine Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor footage uses
+CLAD/MCP simulated pinch. QAR-016 has since improved native Details layout and
+backing; this protected movie has not been replaced or uploaded by this tranche.
+
+The phase predictions and actual recorded outcomes remain valid. No new voice,
+video upload, legal declaration or final competition submission is claimed.
 Current coordinate-pinch input and LEAF are the verified preview routes; ordinary
 Windows short-click activation remains unresolved before the application guard.
 

@@ -1,52 +1,41 @@
-# Quantum AR Explorer — timed demonstration script
+# Protected V8 silent demonstration captions
 
-The current genuine QAR-012 V6 edit is **166 seconds**. This is a proposed
-English narration script matching the captioned and same-timing silent
-narration-ready cuts. No voice has been recorded or generated. The narration-ready
-cut retains the title and simulated-preview/input disclosure.
+The current protected local review file is `Quantum-AR-Explorer-Latest.mp4`:
+169 seconds, 1920 x 1080, H.264, 30 fps, no audio. These are its exact English
+SRT cue times and wording, not recorded narration or a newly filmed QAR-016 take.
+The footage records the earlier native presentation; QAR-016 changes readout
+layout and backing without changing the science. Earlier cuts remain preserved.
+No public video URL or owner publication approval is implied.
 
-The opening shows the deliberately prepared equal-odds phase pair, a common
-operation that changes the probabilities, and ordinary measurement confirmation.
-The main beginner lesson follows. All native footage is uncropped and runs at
-ordinary speed. Cuts omit waiting and navigation; captions occupy added margins.
-Any reordered excerpt is explicitly identified in the timeline. Brief arrow
-transitions illustrate mathematical state changes, not particle trajectories.
-
-| Time in final edit | Caption / proposed narration |
+| Time | Caption |
 |---|---|
-| 0–5 s | Same 50/50 odds. Will the same operation give the same result? |
-| 5–8 s | Apply the same operation to both states. |
-| 8–14 s | New probabilities: A now predicts 1; B predicts 0. |
-| 14–16 s | Measure both to test those predictions. |
-| 16–20 s | Measured A=1, B=0. The difference was quantum phase. |
-| 20–26 s | Begin with a classical bit: one definite value, 0 or 1. |
-| 26–35 s | Change the bit, then explore a qubit. |
-| 35–42 s | Prepare 0 or 1 and compare the state direction. |
-| 42–49 s | Equal superposition: either measurement result has a 50% chance. |
-| 49–58 s | Inspect the Z axis. Move the viewpoint around the fixed station. |
-| 58–66 s | Predict first: 50% for each result. Then choose Measure. |
-| 66–70 s | This take returned 1. The displayed state has collapsed. |
-| 70–76 s | Repeat measures the collapsed state: the result remains 1. |
-| 76–79 s | Ten fresh trials prepare equal superposition each time. |
-| 79–81 s | Observed totals: 12 measurements, six 0s and six 1s. |
-| 81–96 s | Manual placement: move the station, finish, and Recenter. |
-| 96–105 s | The challenge gives feedback and lets you try again. |
-| 105–115 s | Fresh equal superposition has a 50% chance of each result. |
-| 115–122 s | Optional deeper discovery: reset both experiments, then prepare equal odds. |
-| 122–128 s | Change A while B waits. The immediate odds stay 50/50. |
-| 128–134 s | Details reveals complex amplitudes, phase and the preparation history. |
-| 134–143 s | Apply the same final operation. Phase changes the predictions. |
-| 143–152 s | Normal measurement confirms A=1 and B=0. Details retains the math. |
-| 152–160 s | Return restores the completed lesson and all 12 observations. |
-| 160–166 s | Restart clears the experiment. Discover quantum computing by doing. |
-
-Actual recorded observations: Ordinary first1/repeat1;ten fresh preparations6zero4one;total12/6zero6one;opening and full comparison predictedA1/B0 then ordinary measurementA1/B0
-Finite fresh trials need not divide evenly. The comparison's certain results
-follow its final operation: H-Z-H predicts 1 and H-H predicts 0, after initially
-identical 50/50 immediate Z-measurement odds. No stochastic outcome was selected
-for drama. Details exposes amplitudes, phase and history without changing state.
-
-This is desktop SPECS preview evidence, not physical-glasses or novice learning
-evidence. The owner reviews the video and any later narration before upload,
-supplies the actual public URL and personally submits Devpost. V5, V3 and earlier
-fallbacks remain preserved.
+| 00:00.000–00:04.500 | Same 50/50 odds. Different quantum states. |
+| 00:04.500–00:08.000 | Apply the same operation to both. |
+| 00:08.000–00:11.200 | New predictions: A = 1. B = 0. |
+| 00:11.200–00:14.030 | Now measure both to test those predictions. |
+| 00:14.030–00:17.000 | Confirmed: A = 1. B = 0. |
+| 00:17.000–00:20.000 | Quantum phase changes what comes next. |
+| 00:20.000–00:26.000 | Begin with a classical bit: one definite value, 0 or 1. |
+| 00:26.000–00:35.000 | Change the bit, then explore a qubit. |
+| 00:35.000–00:42.000 | Prepare 0 or 1 and compare the state direction. |
+| 00:42.000–00:49.000 | Next, prepare equal superposition: 50% for either result. |
+| 00:49.000–00:58.000 | Inspect the Z axis. Move the viewpoint around the fixed station. |
+| 00:58.000–01:04.000 | Predict first: either result has a 50% chance. |
+| 01:04.000–01:06.000 | Measurement gives one definite result. |
+| 01:06.000–01:10.000 | This take returned 1. The displayed state has collapsed. |
+| 01:10.000–01:16.000 | Repeat measures the collapsed state: the result remains 1. |
+| 01:16.000–01:19.000 | Ten fresh trials prepare equal superposition each time. |
+| 01:19.000–01:21.000 | 12 observations: six 0s, six 1s. |
+| 01:21.000–01:34.000 | Manual placement: move the station, finish, and Recenter. |
+| 01:34.000–01:43.000 | The challenge gives feedback and lets you try again. |
+| 01:43.000–01:53.000 | Fresh equal superposition has a 50% chance of each result. |
+| 01:53.000–02:00.000 | Optional deeper discovery: reset both experiments, then prepare equal odds. |
+| 02:00.000–02:06.000 | Change A while B waits. The immediate odds stay 50/50. |
+| 02:06.000–02:12.000 | Details reveals complex amplitudes, phase and the preparation history. |
+| 02:12.000–02:16.000 | The common operation changes the probabilities. |
+| 02:16.000–02:19.000 | New predictions: A = 1. B = 0. |
+| 02:19.000–02:21.000 | Measurement tests those new predictions. |
+| 02:21.000–02:30.000 | Normal measurement confirms A=1 and B=0. Details retains the math. |
+| 02:30.000–02:38.000 | Return keeps the lesson experiment intact. |
+| 02:38.000–02:44.000 | Restart clears the experiment. Explore again. |
+| 02:44.000–02:49.000 | Quantum AR Explorer. Created by Veristio Intelligence Technologies, LLC. |

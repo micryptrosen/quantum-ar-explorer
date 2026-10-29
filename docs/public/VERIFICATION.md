@@ -1,3 +1,63 @@
+# QAR-016 native readability verification
+
+October 29, 2026. Source baseline `7420d8a7e63a804db409cb44a638f982afee4d23`
+and all earlier movies/evidence are preserved. This is a bounded presentation
+change, not a new scientific model or evidence of exceptional learning outcomes.
+
+| Check | Observed result before publication |
+|---|---|
+| Application suite | 124 passed, 0 failed, none skipped |
+| Publication metadata guards | 222 passed, 0 failed |
+| Final canonical LEAF | 11 passed, 0 failed; fresh reset between terminal scenarios |
+| Fresh public-resource-only native LEAF | 11 passed, 0 failed; actual source copy |
+| Frozen native public resources | 91 files |
+| Protected native resources | 87 exact baseline files |
+| Root source modules / original scenario sources / vendor package files | 11 / 11 / 12 exact |
+
+An earlier candidate run passed ten scenarios, then the final discovery guard/IK
+run timed out after the 300-second transport and 600-second plugin limits without
+a manager verdict. That attempt remains unsuccessful. Clean baseline and candidate
+guard checks then passed, followed by all eleven isolated original scenarios.
+Test-state contamination is plausible but not a proven cause. These are not claims
+of one uninterrupted long-running test session. Ordinary continuous coordinate-pinch
+journeys separately exercised both Sunlit Outdoor and Sunlit Room.
+
+The accepted candidate enlarges mathematical type from 54 to 64 and the guide
+allocation from 5 to 9 cm, with local translucent backing. The station remains
+52 cm wide at the initial 110 cm distance. Details uses 10 cm display diagrams;
+closing it restores the normal 15 cm pair and exiting restores the 18 cm primary.
+All amplitudes, undefined phase after collapse, actual history, saved intermediate
+values, predictions, results and exact lesson/Lab returns remain intact.
+
+Before frames were 1661 x 907; final frames were 3185 x 1590. Their states,
+backgrounds and station distance are recorded, but this is not a pixel-controlled
+or human readability experiment. Grouping improves heuristically; translucent
+contrast, primary-action hierarchy and small-player legibility remain concerns.
+One same-scenario budget readback changed from 351 objects/46 mesh visuals to
+370/51; diagram topology stays 7056 triangles/vertices. These are not measured
+draw calls, FPS, latency, allocation or battery results.
+
+HUMAN NOVICE COMPREHENSION: NOT TESTED. Physical glasses, real hand tracking,
+additive-display contrast and wearer comfort remain untested. Ordinary Windows
+mouse selection remains unresolved; hover, touch delivery, coordinate pinch,
+LEAF simulated IK and physical input are distinct evidence. No vendor, collider
+or cancellation/stale guard was bypassed.
+
+The protected local review movie is V8, 169 seconds, 1920 x 1080, H.264, 30 fps,
+5070 frames, no audio. SHA-256:
+`aed4baf4e6a99cd047b79b5813f6dd1c05dadbf754fa9c45f81b5f9c422aa114`.
+Its previously verified genuine footage shows the earlier native presentation.
+No replacement video or upload was performed. Owner video approval, a real public
+video URL and all submission/rights/eligibility/legal decisions remain separate.
+
+These are prepublication acceptance results. The published commit must then be
+retrieved and tested independently from GitHub; source-only testing does not
+substitute for that separate gate.
+
+---
+
+## Historical QAR-012 verification, retained unchanged
+
 # Verification of the spatial discovery experience
 
 QAR-012, October 24, 2026 (UTC). The QAR-011 baseline at

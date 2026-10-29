@@ -1,10 +1,10 @@
 # Demonstration walkthrough
 
-The current QAR-012 V6 candidate is 166 seconds, 1920 × 1080, H.264 at
-30 fps, silent with English captions. A same-timing silent narration-ready cut,
-English SRT and [timed script](DEMO_SCRIPT.md) are prepared. The footage is the
-actual Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor landscape preview, selected
-through fresh-coordinate CLAD/MCP simulated pinch.
+The current protected local V8 review movie is 169 seconds, 1920 x 1080,
+H.264 at 30 fps, silent with English captions. The [timed script](DEMO_SCRIPT.md)
+matches its SRT. Genuine Lens Studio 5.23.2 SPECS 27 Sunlit Outdoor footage uses
+CLAD/MCP simulated pinch. QAR-016 has since improved native Details layout and
+backing; this protected movie has not been replaced or uploaded by this tranche.
 
 The opening discovery asks whether two states with the same odds will behave
 the same after a common operation. The probabilities change first; measurement
@@ -21,6 +21,6 @@ The full native frame stays visible; captions are outside it. There is no scene
 composite, fabricated result, speed change, still-image substitute, test overlay,
 or recorded/synthetic narration. The persistent disclosure identifies simulated
 environment and input. This is not every-frame human review or mobile/physical
-playback. V6's plain-language opening was compared with actual V5 frames; this
+playback. Earlier comparisons and the V8 caption/timing checks are preserved; this
 technical/heuristic judgment does not establish novice comprehension or owner
 approval. Earlier media remain preserved. Owner upload and submission remain.

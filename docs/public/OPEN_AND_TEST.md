@@ -50,6 +50,21 @@ Injected touch tests and simulated pinch are distinct from a real Windows click.
 No keyboard, phone or handheld controller is required by the lesson's intended
 SPECS input design. Physical glasses input has not been tested.
 
+## QAR-016 test and Details protocol
+
+Run the eleven original LEAF scenarios serially, using a supported fresh preview
+reset between completed scenarios to isolate their test interactors. The final
+canonical and source-only runs used this protocol. Within each scenario, all
+cancel, outside-release, stale-selection, mode-boundary and exact-return checks
+remain unchanged. An earlier run timed out; it is preserved as an unsuccessful
+attempt. Do not reset a pending run and relabel it as a pass. A separate ordinary
+coordinate-pinch journey verifies the continuous lesson and discovery route.
+
+Details retains every amplitude, phase, history and intermediate-state value.
+Its diagrams are 10 cm while open and return to 15 cm on close. Current phase is
+undefined after collapse; the retained intermediate phases are historical values.
+Look back toward the world station before using Recenter if it leaves view.
+
 ## Try the short optional discovery
 
 The three-stage lesson remains the primary path. From **Meet the Bit**, you can

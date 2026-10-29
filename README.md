@@ -19,6 +19,23 @@ an inspection axis and interruptible illustrative motion. Motion can be turned
 off. Placement and Recenter are deliberate manual actions; there is no table
 recognition or persistent physical anchor.
 
+## QAR-016 native readability update
+
+Technical Details now gives the mathematical lines more room: type increases
+from 54 to 64, the explanation band grows from 5 to 9 cm, and local translucent
+cards group the odds, amplitudes, history and observed counts. Only while Details
+is open, the display diagrams shrink from 15 to 10 cm; closing it restores 15 cm,
+and returning to the lesson restores its 18 cm instrument. The mathematics and
+all eleven existing scenario sources are unchanged.
+
+<img src="docs/public/preview-details.png" width="880" alt="Genuine QAR-016 Sunlit Room simulated preview: larger grouped mathematical Details, opposite arrows and equal 50/50 predicted odds" />
+
+Open the image at full size to inspect the values. This is a genuine simulated
+preview, not physical glasses or novice evidence. Backing remains translucent;
+primary-action hierarchy and readability in a small embedded player remain
+limitations. The protected 169-second V8 movie records the earlier presentation
+and has not been replaced or uploaded by this update.
+
 ## Open and explore
 
 Open `native/QuantumARExplorer/QuantumARExplorer.esproj` in **Lens Studio 5.23.2**.
